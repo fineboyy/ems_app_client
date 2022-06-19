@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ROOT VARIABLES */
+:root {
+    --color-primary: #5A75F8;
+    --color-danger: #ff7782;
+    --color-primary-variant: #0C2556;
+    --color-white: #fff;
+    --color-background: #F3F7F9;
+    --color-info-light: #6980A2;
+    --color-nav-background: #0F2D69;
+    --padding-1: 1.2rem;
+    --color-dark: #4B5968;
+    --color-border-light: #D5DDE5;
+    --avatar-size: 50px;
+
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-info-dark: #7d8da1;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+
+}
+
+/* GENERIC STYLES */
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background-color: var(--color-background);
+    color: var(--color-dark);
+    user-select: none;
+    overflow-x: hidden;
+}
+
+
+a {
+    color: var(--color-info-light);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77;
+}
+
+p {
+    font-size: 1rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.profile-photo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+.danger {
+    color: var(--color-danger);
+}
+.warning {
+    color: var(--color-warning);
+}
+.success {
+    color: var(--color-success);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: 19rem auto;
+    overflow: scroll;
+    overflow-x: hidden;
+}

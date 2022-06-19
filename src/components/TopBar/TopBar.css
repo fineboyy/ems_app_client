@@ -1,0 +1,92 @@
+.Topbar {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0.7rem 0.7rem 2rem;
+  width: 100%;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+}
+
+.Topbar .menu {
+  display: none;
+}
+
+.Topbar .brand {
+  padding: 0.6rem 3rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 40px;
+}
+
+.Topbar .brand h1 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.Topbar .right-side {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.Topbar .search {
+  padding: 0.6rem;
+  background-color: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: var(--border-radius-1);
+}
+
+.Topbar .search input[type="text"] {
+  background-color: transparent;
+  width: 15rem;
+  font-family: poppins;
+}
+
+.Topbar .right-side .icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.Topbar .right-side .icons span {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 0.6rem;
+  border-radius: var(--border-radius-1);
+}
+
+@media screen and (max-width: 1200px) {
+  .Topbar {
+    padding: 0.7rem;
+  }
+}
+@media screen and (max-width: 920px) {
+  .Topbar {
+    padding: 1rem;
+  }
+
+  .Topbar .brand {
+    display: none;
+  }
+
+  .Topbar .right-side {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .Topbar {
+    margin-top: 1rem;
+  }
+
+  .Topbar .menu {
+    display: inline;
+    cursor: pointer;
+    font-weight: 800;
+  }
+}

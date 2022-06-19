@@ -1,0 +1,189 @@
+.Login.container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background);
+
+
+}
+
+.Login .card {
+    width: 70%;
+    height: 80vh;
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.Login .card .image-side {
+    width: 70%;
+    z-index: 2;
+    clip-path: polygon(0 0%, 100% 0%, 60% 100%, 0% 100%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.Login .card .image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 5;  
+}
+
+.Login .card .image-overlay {
+    display: none;
+}
+
+.Login .card .login {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.Login h2 {
+    margin-top: 0.3rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.Login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.Login form input[type='text'], form input[type='password'] {
+    border-bottom: 1px solid var(--color-info-light);
+    margin-top: 2rem;
+    width: 18rem;
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+.Login form p {
+    font-size: 0.88rem;
+    margin-top: 1rem;
+}
+
+.Login form p a {
+    color: var(--color-primary);
+}
+
+.Login form input[type='submit'] {
+    margin-top: 3rem;
+    padding: 0.7rem 4.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 35px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+
+/* ============== MEDIA QUERIES =================== */
+
+@media screen and (max-width: 1200px) {
+
+    .Login .card .image-side {
+        width: 60%;
+
+    }
+
+    .Login .card .login {
+        width: 50%;
+    }
+    
+}
+
+@media screen and (max-width:920px) {
+
+    .Login.container {
+        background-color: #edeef3;
+    }
+
+    .Login .card {
+        border-radius: 7px;
+    }
+
+    .Login .card .image-side {
+        width: 5%;
+        clip-path: none;
+    }
+
+    .Login .card .image-side img {
+        object-fit: cover;
+    }
+
+    .Login .card .image-side .image-overlay {
+        display: block;
+        position: absolute;
+        inset: 0;   
+        z-index: 1;
+        background-color: var(--color-primary);
+
+    }
+
+    .Login .card .login {
+        width: 95%;
+    }
+
+    .Login form input {
+        text-align: center;
+    }
+    
+}
+
+
+@media screen and (max-width:768px) {
+     .Login.container {
+        background-color: #0C2556;
+    }
+
+    .Login > .image-overlay {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgba(15, 23, 47, 0.65), rgba(15, 23, 47, 0.65)), url("../../../images/login_bg.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .Login .card {
+        width: 90%;
+        border-radius: 10px;
+    }
+
+    .Login .card .image-side {
+        display: none;
+
+    }
+
+    .Login .card .login {
+        width: 100%;
+    }
+
+
+    .Login form input[type='text'], form input[type='password'] {
+        width: 15rem;
+        text-align: center;
+    }
+    
+}

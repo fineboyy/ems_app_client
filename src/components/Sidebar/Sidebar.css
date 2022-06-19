@@ -1,0 +1,179 @@
+aside {
+    height: 100vh;
+    background-color: var(--color-primary-variant);
+    position: sticky;
+    top: 0;
+}
+
+aside  .top h2 {
+    margin-top: 2rem;
+    width: 100%;
+    font-size: 1.7rem;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+aside .top span {
+    display: none;
+}
+
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 3rem 0 0 1.2rem;
+}
+
+aside .sidebar span {
+    color: var(--color-white);
+}
+
+aside .sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: var(--padding-1);
+    transition: all 300ms ease;
+}
+aside .sidebar a:hover {
+    font-weight: 700;
+    color: white;
+}
+aside a.active {
+    background-color: var(--color-nav-background);
+}
+
+aside .sidebar p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+aside .sidebar div:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    left: 0;
+    justify-content: center;
+    gap: 1.3rem;
+}
+
+aside .sidebar div:last-child p {
+    display: none;
+}
+
+aside .sidebar div:last-child span {
+    transition: all 200ms ease-in-out;
+}
+
+aside .sidebar div:last-child a:hover span {
+    font-size: 2.5rem;
+}
+
+
+
+
+.translate-sidebar {
+    display: fixed;
+    transform: translateX(0);
+}
+
+
+@media screen and (max-width: 920px) {
+     aside {
+        height: 100%;
+    }
+
+    aside .top h2 {
+        visibility: hidden;
+        justify-content: center;
+    }
+
+    aside .sidebar {
+        margin-left: 0;
+    }
+
+    aside .sidebar a {
+        justify-content: center;
+    }
+
+    aside .sidebar a span {
+        transition: all 300ms ease;
+    }
+
+    aside .sidebar a p {
+        display: none;
+    }
+
+    aside .sidebar a span:hover {
+        font-size: 2rem;
+    }
+
+    aside .sidebar div:last-child {
+        flex-direction: column;
+        position: static;
+        justify-content: end;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* SIDEBAR */
+    aside {
+        width: 45%;
+        top: 0;
+        z-index: 5;
+        transform: translateX(-120%);
+        transition: all 500ms ease;
+    }
+
+    aside .top span {
+        display: inline;
+        color: var(--color-white);
+        font-size: 2rem;
+        font-weight: bold;
+        position: absolute;
+        top: 2rem;
+        right: 1rem;
+        cursor: pointer;
+
+        transition: all 200ms ease;
+    }
+
+    aside .top span:hover {
+        transform: rotate(90deg);
+    }
+
+    aside .sidebar a {
+        justify-content: start;
+    }
+
+    aside .sidebar a p {
+        display: inline;
+    }
+
+    aside .sidebar div:last-child {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        align-items: start;
+    }
+
+    aside .sidebar div:last-child p {
+        display: inline;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    aside {
+        width: 65%;
+    }
+
+    aside .sidebar {
+        margin-top: 1.5rem;
+        gap: 1rem;
+    }
+    
+}

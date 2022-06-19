@@ -1,8 +1,17 @@
 import React from 'react'
+import Sidebar from '../../Sidebar/Sidebar'
 
+import TopBar from '../../TopBar/TopBar'
 
 export const Departments = () => {
     return (
-        <h1>Departments Page</h1>
+        <div class="container">
+        <Sidebar />
+
+      <main>
+        <TopBar />
+        
+      </main>
+    </div>
     )
 }

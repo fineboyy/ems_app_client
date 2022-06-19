@@ -1,0 +1,285 @@
+main {
+    width: 96%;
+    margin: 0 auto;
+}
+
+main .topbar {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0.7rem 0.7rem 2rem;
+    width: 100%;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+}
+
+main .topbar .menu {
+    display: none;
+}
+
+main .topbar .brand {
+    padding: 0.6rem 3rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 40px;
+}
+
+main .topbar .brand h1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+main .topbar .right-side {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+main .topbar .search {
+    padding: 0.6rem;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: var(--border-radius-1);
+}
+
+main .topbar .search input[type='text'] {
+    background-color: transparent;
+    width: 15rem;
+    font-family: poppins;
+    
+}
+
+main .topbar .right-side .icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+main .topbar .right-side .icons span {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    padding: 0.6rem;
+    border-radius: var(--border-radius-1);
+}
+
+
+/* RECENT EMPLOYEES */
+
+main .recent-employees {
+    margin-top: 1.5rem;
+}
+
+main .recent-employees .employees {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 1rem;
+}
+
+main .recent-employees .employees .employee {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+main .recent-employees .employees .employee a {
+    padding: 0.15rem 2rem;
+    border: 1px solid #D5DDE5;
+    border-radius: 30px;
+    transition: all 300ms ease;
+}
+
+main .recent-employees .employees .employee a:hover {
+    background-color: #D5DDE5;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+
+/* =========== DEPARTMENTS SECTION ============= */
+
+.departments {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.departments table {
+    margin-top: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    border-spacing: 0.5rem 1rem;
+}
+
+td, th {
+    background-color: var(--color-white);
+    padding: 1rem;
+    text-align: center;
+}
+
+.avatar-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--color-background);
+    border: 3px solid var(--color-white);
+    position: relative;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.avatar:not(:first-of-type) {
+    margin-left: -20px;
+}
+
+
+.avatar:hover {
+    transform: translate(-10px);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden-avatars {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+    background-color: var(--color-border-light);
+    color: var(--color-info-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -20px;
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+    border: 3px solid var(--color-white);
+
+    transition: all 300ms ease;
+}
+
+.hidden-avatars:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+
+.more-details {
+    color: var(--color-primary);
+}
+
+
+th {
+    font-size: 1.2rem;
+}
+
+/* =============== MEDIA QUERIES ========== */
+
+
+@media screen and (max-width:1200px) {
+
+    .Dashboard.container {
+        grid-template-columns: 15rem auto;
+    }
+    
+}
+
+@media screen and (max-width: 1080px) {
+    .Dashboard.container {
+        grid-template-columns: 14rem auto;
+    } 
+}
+
+
+@media screen and (max-width:920px) {
+
+    .Dashboard.container {
+        grid-template-columns: 7rem auto;
+    }
+    /* MAIN */
+    
+    main {
+        width: 94%;
+    }
+
+
+    /* AFTER TOPBAR */
+    main .recent-employees .employees {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    table thead tr th:nth-child(3) {
+        display: none;
+    }
+    table tbody tr td:nth-child(3) {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+
+    .Dashboard.container {
+        grid-template-columns: 1fr;
+    }
+
+    /* MAIN */
+    main {
+        position: absolute;
+        width: 100%;
+        padding: 1rem 2%;
+    }
+
+    main .recent-employees .employees {
+        grid-template-columns: 1fr;
+    }
+
+    main .recent-employees .employees .employee {
+        box-shadow: var(--box-shadow);
+    }
+
+    tr .avatar:nth-child(5) {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 425px) {
+    /* TOPBAR */
+    .icons span {
+        display: none;
+    }
+
+    /* DEPARTMENTS TABLE */ 
+    tr .avatar:nth-child(4) {
+        display: none;
+    }
+
+    table {
+        border-spacing: 0.7rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+    }
+}
+
+
+
+
