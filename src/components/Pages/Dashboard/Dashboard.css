@@ -3,68 +3,6 @@ main {
     margin: 0 auto;
 }
 
-main .topbar {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.7rem 0.7rem 0.7rem 2rem;
-    width: 100%;
-    background-color: white;
-    box-shadow: var(--box-shadow);
-}
-
-main .topbar .menu {
-    display: none;
-}
-
-main .topbar .brand {
-    padding: 0.6rem 3rem;
-    background-color: var(--color-primary);
-    color: white;
-    border-radius: 40px;
-}
-
-main .topbar .brand h1 {
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-
-main .topbar .right-side {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-}
-
-main .topbar .search {
-    padding: 0.6rem;
-    background-color: var(--color-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    border-radius: var(--border-radius-1);
-}
-
-main .topbar .search input[type='text'] {
-    background-color: transparent;
-    width: 15rem;
-    font-family: poppins;
-    
-}
-
-main .topbar .right-side .icons {
-    display: flex;
-    gap: 1.5rem;
-}
-
-main .topbar .right-side .icons span {
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    padding: 0.6rem;
-    border-radius: var(--border-radius-1);
-}
-
 
 /* RECENT EMPLOYEES */
 
@@ -86,7 +24,9 @@ main .recent-employees .employees .employee {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
+    text-align: center;
 }
 
 main .recent-employees .employees .employee a {

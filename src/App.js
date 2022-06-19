@@ -1,5 +1,5 @@
 import React from 'react'
-import {Routes, Route, Redirect, Navigate } from 'react-router-dom'
+import {Routes, Route, Navigate } from 'react-router-dom'
 import { Dashboard } from './components/Pages/Dashboard/Dashboard';
 import { Departments } from './components/Pages/Departments/Departments';
 import { Employees } from './components/Pages/Employees/Employees';

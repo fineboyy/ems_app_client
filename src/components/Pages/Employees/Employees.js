@@ -1,12 +1,23 @@
-import React from 'react'
-import Sidebar from '../../Sidebar/Sidebar'
-import TopBar from '../../TopBar/TopBar'
+import React, { useEffect } from "react";
+import Sidebar from "../../Sidebar/Sidebar";
+import TopBar from "../../TopBar/TopBar";
+import { getAllEmployees } from '../../../actions/employees'
+import { Link } from "react-router-dom";
 
-import './Employees.css'
+import { useSelector, useDispatch } from "react-redux";
+import profile_img from "../../../images/default-img.jpg";
+import "./Employees.css";
 export const Employees = () => {
-    return (
-        <div class="container">
-        <Sidebar />
+  const employees = useSelector((state) => state.employees);
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAllEmployees())
+  }, [dispatch])
+  return (
+    <div class="container">
+      <Sidebar />
 
       <main>
         <TopBar />
@@ -55,174 +66,40 @@ export const Employees = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="details-group">
-                  <div class="avatar">
-                    <img src="./images/profile-1.jpg" alt="" />
-                  </div>
-                  <div class="text-details">
-                    <p class="name">Michael Amponsah</p>
-                    <p class="title primary">Project Manager</p>
-                  </div>
-                </td>
-                <td>
-                  <div class="contact-item">
-                    <span class="material-symbols-sharp text-muted"> mail </span>
-                    <p>maqweku@gmail.com</p>
-                  </div>
-                  <div class="contact-item text-muted">
-                    <span class="material-symbols-sharp"> phone </span>
-                    <p>+233558410792</p>
-                  </div>
-                </td>
-                <td>IT Department</td>
-                <td>
-                  <small  onclick="toggleEmployeeDetails()">
-                    <a href="#" class="more-details">View Details</a>
-                  </small>
-                </td>
-              </tr>
-              {/* <!-- End of 1 Table Row --> */}
-              <tr>
-                <td class="details-group">
-                  <div class="avatar">
-                    <img src="./images/profile-2.jpg" alt="" />
-                  </div>
-                  <div class="text-details">
-                    <p class="name">Coby James</p>
-                    <p class="title primary">UI/UX Designer</p>
-                  </div>
-                </td>
-                <td>
-                  <div class="contact-item">
-                    <span class="material-symbols-sharp text-muted"> mail </span>
-                    <p>cobi.Jay@gmail.com</p>
-                  </div>
-                  <div class="contact-item text-muted">
-                    <span class="material-symbols-sharp"> phone </span>
-                    <p>+233501657251</p>
-                  </div>
-                </td>
-                <td>IT Department</td>
-                <td>
-                  <small>
-                    <a href="#" class="more-details">View Details</a>
-                  </small>
-                </td>
-              </tr>
-              {/* <!-- End of 1 Table Row --> */}
-              <tr>
-                <td class="details-group">
-                  <div class="avatar">
-                    <img src="./images/profile-3.jpg" alt="" />
-                  </div>
-                  <div class="text-details">
-                    <p class="name">Mary Jane</p>
-                    <p class="title primary">Public Relations</p>
-                  </div>
-                </td>
-                <td>
-                  <div class="contact-item">
-                    <span class="material-symbols-sharp text-muted"> mail </span>
-                    <p>maryjane256@outlook.com</p>
-                  </div>
-                  <div class="contact-item text-muted">
-                    <span class="material-symbols-sharp"> phone </span>
-                    <p>+233552150737</p>
-                  </div>
-                </td>
-                <td>Communications Department</td>
-                <td>
-                  <small>
-                    <a href="#" class="more-details">View Details</a>
-                  </small>
-                </td>
-              </tr>
-              {/* <!-- End of 1 Table Row --> */}
-              <tr>
-                <td class="details-group">
-                  <div class="avatar">
-                    <img src="./images/profile-4.jpg" alt="" />
-                  </div>
-                  <div class="text-details">
-                    <p class="name">Ama Diane</p>
-                    <p class="title primary">Accountant</p>
-                  </div>
-                </td>
-                <td>
-                  <div class="contact-item">
-                    <span class="material-symbols-sharp text-muted"> mail </span>
-                    <p>ama_ghana@gmail.com</p>
-                  </div>
-                  <div class="contact-item text-muted">
-                    <span class="material-symbols-sharp"> phone </span>
-                    <p>+2332893444</p>
-                  </div>
-                </td>
-                <td>Sales Department</td>
-                <td>
-                  <small>
-                    <a href="#" class="more-details">View Details</a>
-                  </small>
-                </td>
-              </tr>
-              {/* <!-- End of 1 Table Row --> */}
-              <tr>
-                <td class="details-group">
-                  <div class="avatar">
-                    <img src="./images/profile-1.jpg" alt="" />
-                  </div>
-                  <div class="text-details">
-                    <p class="name">Emmanuel Sarfo Adwini</p>
-                    <p class="title primary">Business Analyst</p>
-                  </div>
-                </td>
-                <td>
-                  <div class="contact-item">
-                    <span class="material-symbols-sharp text-muted"> mail </span>
-                    <p>adwinisarfo21@gmail.com</p>
-                  </div>
-                  <div class="contact-item text-muted">
-                    <span class="material-symbols-sharp"> phone </span>
-                    <p>+23320137315</p>
-                  </div>
-                </td>
-                <td>R & D Department</td>
-                <td>
-                  <small>
-                    <a href="#" class="more-details">View Details</a>
-                  </small>
-                </td>
-              </tr>
-              {/* <!-- End of 1 Table Row --> */}
-              <tr>
-                <td class="details-group">
-                  <div class="avatar">
-                    <img src="./images/profile-2.jpg" alt="" />
-                  </div>
-                  <div class="text-details">
-                    <p class="name">Albert Nanor</p>
-                    <p class="title primary">Chief Executive Officer</p>
-                  </div>
-                </td>
-                <td>
-                  <div class="contact-item">
-                    <span class="material-symbols-sharp text-muted"> mail </span>
-                    <p>albert_nanor04@gmail.com</p>
-                  </div>
-                  <div class="contact-item text-muted">
-                    <span class="material-symbols-sharp"> phone </span>
-                    <p>+233883126</p>
-                  </div>
-                </td>
-                <td>Executive Management</td>
-                <td>
-                  <small>
-                    <a href="#" class="more-details">View Details</a>
-                  </small>
-                </td>
-              </tr>
-              {/* <!-- End of 1 Table Row --> */}
+              {employees.map((employee) => (
+                <tr key={employee._id + "anything"}>
+                  <td class="details-group">
+                    <div class="avatar">
+                      <img src={employee.photo ? employee.photo : profile_img } alt="" />
+                    </div>
+                    <div class="text-details">
+                      <p class="name">{employee.name}</p>
+                      <p class="title primary"> {employee.job_title} </p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="contact-item">
+                      <span class="material-symbols-sharp text-muted">
+                        {" "}
+                        mail{" "}
+                      </span>
+                      <p>maqweku@gmail.com</p>
+                    </div>
+                    <div class="contact-item text-muted">
+                      <span class="material-symbols-sharp"> phone </span>
+                      <p>+233558410792</p>
+                    </div>
+                  </td>
+                  <td> {employee.department} </td>
+                  <td>
+                    <small>
+                      <Link to="/employees/:id" class="more-details">
+                        View Details
+                      </Link>
+                    </small>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -262,5 +139,5 @@ export const Employees = () => {
         </div> */}
       </main>
     </div>
-    )
-}
+  );
+};
