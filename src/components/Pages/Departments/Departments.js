@@ -5,7 +5,7 @@ import TopBar from '../../TopBar/TopBar'
 
 export const Departments = () => {
     return (
-        <div class="container">
+        <div className="container">
         <Sidebar />
 
       <main>

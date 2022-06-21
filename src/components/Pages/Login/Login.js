@@ -8,23 +8,23 @@ import './Login.css'
 export const Login = () => {
     return (
         <>
-        <div class="Login image-overlay"></div>
-    <div class="Login container">
-        <div class="card">
-            <div class="image-side">
+        <div className="Login image-overlay"></div>
+    <div className="Login container">
+        <div className="card">
+            <div className="image-side">
                 <img src={login_bg} alt="" />
-                <div class="image-overlay"></div>
+                <div className="image-overlay"></div>
             </div>
-            <div class="login">
+            <div className="login">
                 <h1>Admin</h1>
                 <h2>Login</h2>
 
                 <form action="">
-                    <div class="username">
+                    <div className="username">
                         <label for="username"></label>
                         <input type="text" name="username" placeholder="Username" />
                     </div>
-                    <div class="password">
+                    <div className="password">
                         <label for="password"></label>
                         <input type="password" name="password" placeholder="Password" />
                     </div>

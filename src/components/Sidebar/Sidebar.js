@@ -5,41 +5,43 @@ import '../../index.css'
 import './Sidebar.css'
 
 const Sidebar = () => {
+  const toggleSidebar = () => {}
+
     return (
         <aside>
-        <div class="top">
+        <div className="top">
           <h2>EMS APPLICATION</h2>
-          <span class="material-symbols-sharp" onclick="toggleSidebar()"> close </span>
+          <span className="material-symbols-sharp" onClick={toggleSidebar}> close </span>
         </div>
 
-        <div class="sidebar">
+        <div className="sidebar">
           <NavLink to="/dashboard" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
-            <span class="material-symbols-sharp"> format_list_bulleted </span>
+            <span className="material-symbols-sharp"> format_list_bulleted </span>
             <p>Dashboard</p>
           </NavLink>
           <NavLink to="/employees" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
-            <span class="material-symbols-sharp"> group </span>
+            <span className="material-symbols-sharp"> group </span>
             <p>Employees</p>
           </NavLink>
           <NavLink to="/departments" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
-            <span class="material-symbols-sharp"> domain </span>
+            <span className="material-symbols-sharp"> domain </span>
             <p>Departments</p>
           </NavLink>
-          <Link to="/" class="nav-item">
-            <span class="material-symbols-sharp"> add_circle </span>
+          <Link to="/" className="nav-item">
+            <span className="material-symbols-sharp"> add_circle </span>
             <p>Add</p>
           </Link>
           <div>
-            <Link to="#" class="nav-item">
-              <span class="material-symbols-sharp"> help </span>
+            <Link to="#" className="nav-item">
+              <span className="material-symbols-sharp"> help </span>
               <p>Help</p>
             </Link>
-            <Link to="#" class="nav-item">
-              <span class="material-symbols-sharp"> settings </span>
+            <Link to="#" className="nav-item">
+              <span className="material-symbols-sharp"> settings </span>
               <p>Settings</p>
             </Link>
-            <Link to="/login" class="nav-item">
-              <span class="material-symbols-sharp"> logout </span>
+            <Link to="/login" className="nav-item">
+              <span className="material-symbols-sharp"> logout </span>
               <p>Logout</p>
             </Link>
           </div>
