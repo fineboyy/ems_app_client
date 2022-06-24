@@ -67,7 +67,7 @@ export const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {departments.map((department) => (
+              {departments.slice(0, 5).map((department) => (
                 <tr key={`${department._id}-dept`}>
                   <td>{department.name}</td>
                   <td className="avatar-group">
@@ -79,7 +79,7 @@ export const Dashboard = () => {
                         />
                       </Link>
                     ))}
-                    <div className="hidden-avatars">+10</div>
+                    <div className="hidden-avatars">{department.members.length > 5 ? `+${department.members.length - 5}`: ""}</div>
                   </td>
                   <td>This is the sales department</td>
                   <td>
@@ -91,6 +91,9 @@ export const Dashboard = () => {
               ))}
             </tbody>
           </table>
+          <div className="view-more">
+            <Link to={"/departments"} className="text-muted">View All</Link>
+          </div>
         </div>
       </main>
     </div>

@@ -6,6 +6,7 @@ import './Login.css'
 
 
 export const Login = () => {
+    document.title = "Sign In | Div.co Employee Management System"
     return (
         <>
         <div className="Login image-overlay"></div>
