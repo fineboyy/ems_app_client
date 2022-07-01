@@ -4,25 +4,34 @@ import TopBar from "../../TopBar/TopBar";
 import { getAllEmployees } from "../../../actions/employees";
 import { Link } from "react-router-dom";
 
+
+import Loader from "../../Loader/Loader";
+
 import { useSelector, useDispatch } from "react-redux";
 import profile_img from "../../../images/default-img.jpg";
+
+
 import "./Employees.css";
 export const Employees = () => {
   const employees = useSelector((state) => state.employees);
-
   const femaleEmployeeNumber = employees.filter(
     (f) => f.gender === "female"
   ).length;
   const maleEmployeeNumber = employees.length - femaleEmployeeNumber;
-  const dispatch = useDispatch();
-
+  
   let startNumber = 0;
   let endNumber = employees.length > 5 ? 5 : employees.length;
 
+  let isLoading = true
+  
+  const dispatch = useDispatch();
   useEffect(() => {
     document.title = "Employees | Div.co Employee Management System";
     dispatch(getAllEmployees());
   }, [dispatch]);
+
+  if(employees.length) isLoading = false
+  if(isLoading) return <Loader />
   return (
     <div className="Employees container">
       <Sidebar />
@@ -80,10 +89,10 @@ export const Employees = () => {
 
         <div className="employee-container">
           <div className="top-buttons">
-            <div className="button">
+            <Link to={"/employees/new"} className="button">
               <span className="material-symbols-sharp"> add_circle </span>
               <p>Add Employee</p>
-            </div>
+            </Link>
           </div>
 
           <table>
@@ -145,14 +154,18 @@ export const Employees = () => {
                   <p>View <span className="range-num">5</span> per page</p>
               </div>
               <div className="controls">
+                <p className="text-muted">
                 <span className="material-symbols-sharp">chevron_left</span>
-                <p className="text-muted">Prev</p>
+                  Prev
+                  </p>
                 <p className="active">1</p>
                 <p>2</p>
                 <p>...</p>
                 <p>36</p>
-                <p>Next</p>
+                <p>
+                  Next           
                 <span className="material-symbols-sharp">chevron_right</span>
+                </p>
               </div>
               </div>
               

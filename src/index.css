@@ -60,6 +60,10 @@ body {
     overflow-x: hidden;
 }
 
+input, button {
+    font-family: poppins, sans-serif;
+}
+
 
 a {
     color: var(--color-info-light);

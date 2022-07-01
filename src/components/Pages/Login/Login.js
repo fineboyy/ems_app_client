@@ -22,11 +22,11 @@ export const Login = () => {
 
                 <form action="">
                     <div className="username">
-                        <label for="username"></label>
+                        <label htmlFor="username"></label>
                         <input type="text" name="username" placeholder="Username" />
                     </div>
                     <div className="password">
-                        <label for="password"></label>
+                        <label htmlFor="password"></label>
                         <input type="password" name="password" placeholder="Password" />
                     </div>
                     <p>

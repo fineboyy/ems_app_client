@@ -4,7 +4,7 @@
 
 .EmployeeDetails .top {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 1rem;
     padding: 1rem;
     padding-top: 2rem;
@@ -94,6 +94,10 @@
 
 .EmployeeDetails .active {
     border-bottom: 3px solid #0F2D69;
+}
+
+.EmployeeDetails .info-group {
+    text-transform: capitalize;
 }
 
 

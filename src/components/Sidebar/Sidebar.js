@@ -4,12 +4,15 @@ import { Link, NavLink } from 'react-router-dom'
 import '../../index.css'
 import './Sidebar.css'
 
+import img from '../../images/ds-logo.png'
+
 const Sidebar = () => {
   const toggleSidebar = () => {}
 
     return (
         <aside>
         <div className="top">
+          {/* <img src={img} alt="" /> */}
           <h2>EMS APPLICATION</h2>
           <span className="material-symbols-sharp" onClick={toggleSidebar}> close </span>
         </div>
@@ -27,7 +30,7 @@ const Sidebar = () => {
             <span className="material-symbols-sharp"> domain </span>
             <p>Departments</p>
           </NavLink>
-          <Link to="/" className="nav-item">
+          <Link to="/employees/new" className="nav-item">
             <span className="material-symbols-sharp"> add_circle </span>
             <p>Add</p>
           </Link>

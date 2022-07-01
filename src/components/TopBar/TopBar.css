@@ -79,7 +79,7 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 768px) {
   .Topbar {
     margin-top: 1rem;
   }

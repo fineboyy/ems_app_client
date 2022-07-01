@@ -1,0 +1,189 @@
+.NewEmployeeForm form {
+  margin-top: 3rem;
+  /* display: flex;
+    justify-content: space-between; */
+
+  display: grid;
+  grid-template-columns: auto 20%;
+  gap: 3rem;
+}
+
+.NewEmployeeForm fieldset {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background-color: var(--color-white);
+  padding-bottom: 3rem;
+  box-shadow: var(--box-shadow);
+}
+
+.NewEmployeeForm fieldset .inputs {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 3rem;
+}
+
+.NewEmployeeForm fieldset .inputs .input-field {
+  margin-top: 2rem;
+}
+
+.NewEmployeeForm fieldset label {
+  font-size: 1rem;
+  display: block;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.NewEmployeeForm fieldset input, .NewEmployeeForm select {
+  color: var(--color-dark);
+  font-weight: 500;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: var(--color-background);
+  width: 100%;
+  font-weight: normal;
+
+  border: 1px solid var(--color-info-dark);
+  border-radius: 5px;
+}
+
+.NewEmployeeForm .form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.NewEmployeeForm .form-button-submit,
+.NewEmployeeForm .form-button-cancel {
+  padding: 0.8rem 4.5rem;
+  border-radius: 35px;
+  border: 2px solid var(--color-info-dark);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.NewEmployeeForm .form-button-submit {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.NewEmployeeForm .image-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+
+
+  background-size: cover;
+  background-position: center;
+}
+
+.NewEmployeeForm .image-box span {
+  width: 50px;
+  height: 50px;
+  font-size: 3rem;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.NewEmployeeForm .image-box label {
+  z-index: 4;
+  position: relative;
+}
+
+.NewEmployeeForm .image-box input[type="file"] {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  color: white;
+  border-radius: 50%;
+  z-index: 5;
+  opacity: 0;
+
+}
+
+.Centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.Centered .box {
+  padding: 8rem;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+
+}
+
+.Centered button {
+  padding: 0.5rem;
+  color: var(--color-dark);
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.Centered button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.Centered .box h1 {
+  color: var(--color-primary);
+}
+
+@media screen and (max-width: 920px) {
+  .NewEmployeeForm form {
+    grid-template-columns: 1fr;
+  }
+
+  .NewEmployeeForm form .inputs {
+    grid-template-columns: auto;
+    gap: 0;
+  }
+
+  .NewEmployeeForm .image-upload  {
+    display: flex;
+    justify-content: center;
+  }
+
+  .NewEmployeeForm .image-box {
+    width: 50%;
+  }
+}
+
+
+.Centered {
+  animation: createBox .7s ease;
+}
+@keyframes createBox {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

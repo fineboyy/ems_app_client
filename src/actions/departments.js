@@ -5,6 +5,7 @@ export const getAllDepartments = () => async (dispatch) => {
         const {data} = await api.getAllDepartments()
         dispatch({type: 'FETCH_DEPARTMENTS', payload: data})
     } catch (error) {
+        dispatch({type: "HIDE_LOADER"})
         console.log(error)
     }
 }

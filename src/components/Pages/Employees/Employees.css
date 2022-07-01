@@ -211,6 +211,18 @@ th {
   gap: 1.2rem;
 }
 
+.controls p {
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+  padding: 0 0.2rem;
+  transition: all 200ms;
+}
+
+.controls p:hover {
+  color: var(--color-info-light);
+}
+
 /* .employee-details-view .top {
   
   } */
@@ -263,7 +275,7 @@ th {
   aside .sidebar div:last-child {
     flex-direction: column;
     position: static;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
   }

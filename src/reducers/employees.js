@@ -1,10 +1,10 @@
 const reducer = (employees = [], action) => {
     switch(action.type) {
         case 'FETCH_ALL':
-            return action.payload;
+            return action.payload
         
         case 'CREATE':
-            return action.payload;
+            return [...employees, action.payload];
         
         default:
             return employees;

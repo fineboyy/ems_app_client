@@ -7,6 +7,9 @@ export const getAllEmployees = () => async (dispatch) => {
         const { data } = await api.getAllEmployees();
         dispatch({type: 'FETCH_ALL', payload: data})
     } catch (error) {
+        if(error.name === 'AxiosError') {
+            dispatch({type: 'AXIOSERROR'})
+        }
         console.log(error)
     }
 }
