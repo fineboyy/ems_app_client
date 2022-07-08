@@ -1,4 +1,4 @@
-const reducer = (loading = false, action) => {
+export const loading = (loading = false, action) => {
     switch(action.type) {
         
         case 'SHOW_LOADER':
@@ -10,5 +10,3 @@ const reducer = (loading = false, action) => {
             return loading;
     }
 }
-
-export default reducer;

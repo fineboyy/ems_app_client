@@ -10,14 +10,14 @@ import { getAllDepartments } from "../../../actions/departments";
 // COMPONENTS
 import Sidebar from "../../Sidebar/Sidebar";
 import TopBar from "../../TopBar/TopBar";
-import Loader from "../../Loader/Loader";
+import FullScreenLoader from "../../Loader/FullScreenLoader/FullScreenLoader";
 
 // CSS
 import "../../../index.css";
 import "./Dashboard.css";
 import profile_img from "../../../images/default-img.jpg";
 
-export const Dashboard = () => {
+export const Dashboard = ({sidebarVisible, setSidebarVisible}) => {
   document.title = "Dashboard | Div.co Employee Management System";
   const employees = useSelector((state) => state.employees);
   const departments = useSelector((state) => state.departments);
@@ -38,9 +38,9 @@ export const Dashboard = () => {
   function returnDashboard() {
     return (
       <div className="Dashboard container">
-      <Sidebar />
+      <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
       <main>
-        <TopBar />
+        <TopBar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />
 
         <div className="recent-employees">
           <h2>Recently Added Employees</h2>
@@ -127,5 +127,5 @@ export const Dashboard = () => {
     )
   }
 
-  return isLoading ? <Loader /> : returnDashboard();
+  return isLoading ? <FullScreenLoader /> : returnDashboard();
 };

@@ -1,20 +1,17 @@
 import React from 'react'
-
 import { Link, NavLink } from 'react-router-dom'
 import '../../index.css'
 import './Sidebar.css'
 
-import img from '../../images/ds-logo.png'
 
-const Sidebar = () => {
-  const toggleSidebar = () => {}
+const Sidebar = ({sidebarVisible, setSidebarVisible}) => {
 
     return (
-        <aside>
-        <div className="top">
-          {/* <img src={img} alt="" /> */}
-          <h2>EMS APPLICATION</h2>
-          <span className="material-symbols-sharp" onClick={toggleSidebar}> close </span>
+        <aside className= { sidebarVisible ? "Sidebar translate-sidebar" : "Sidebar" }>
+        <div className="sidebar-top">
+          <span className='material-symbols-sharp logo'>polymer</span>
+          <h2>DIV.CO <br /> EMS </h2>
+          <span className="material-symbols-sharp close-btn" onClick={() => setSidebarVisible(false)}> close </span>
         </div>
 
         <div className="sidebar">
@@ -32,7 +29,7 @@ const Sidebar = () => {
           </NavLink>
           <Link to="/employees/new" className="nav-item">
             <span className="material-symbols-sharp"> add_circle </span>
-            <p>Add</p>
+            <p>Add New</p>
           </Link>
           <div>
             <Link to="#" className="nav-item">

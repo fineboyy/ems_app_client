@@ -3,10 +3,10 @@ import Sidebar from '../../Sidebar/Sidebar'
 
 import TopBar from '../../TopBar/TopBar'
 
-export const Departments = () => {
+export const Departments = ({sidebarVisible, setSidebarVisible}) => {
     return (
         <div className="container">
-        <Sidebar />
+        <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
 
       <main>
         <TopBar />

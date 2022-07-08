@@ -3,8 +3,7 @@ import React from "react";
 
 import './TopBar.css'
 
-const TopBar = () => {
-  const toggleSidebar = () => {}
+const TopBar = ({sidebarVisible, setSidebarVisible}) => {
     return (
         <nav className="Topbar">
           <div className="brand">
@@ -12,8 +11,8 @@ const TopBar = () => {
           </div>
 
           <div className="right-side">
-            <div className="menu" onClick={toggleSidebar}>
-              <span className="material-symbols-sharp"> menu </span>
+            <div className="menu" onClick={() => setSidebarVisible(!sidebarVisible)}>
+              <span className="material-symbols-sharp" > menu </span>
             </div>
             <div className="search">
               <input type="text" placeholder="Search..." />

@@ -1,58 +1,81 @@
-aside {
+/* @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.Sidebar {
     height: 100vh;
     background-color: var(--color-primary-variant);
     position: sticky;
     top: 0;
+    overflow-x: hidden;
 
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
 }
 
-aside  .top h2 {
+.Sidebar .sidebar-top {
     margin-top: 2rem;
-    width: 100%;
-    font-size: 1.7rem;
-    color: var(--color-primary);
-    text-align: center;
+    padding: 0 1rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
 }
 
-aside .top span {
+.Sidebar  .sidebar-top h2 {
+    width: 100%;
+    font-size: 2rem;
+    /* color: rgba(255, 255, 255, 0.85); */
+    color: var(--color-primary);
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+.Sidebar .sidebar-top .close-btn {
     display: none;
 }
 
-aside .sidebar {
+.Sidebar .sidebar-top span.logo {
+    display: inline;
+    font-size: 5.5rem;
+    border: none;
+    color: var(--color-primary);
+}
+
+
+.Sidebar .sidebar {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     margin: 3rem 0 0 1.2rem;
 }
 
-aside .sidebar span {
+.Sidebar .sidebar span {
     color: var(--color-white);
 }
 
-aside .sidebar a {
+.Sidebar .sidebar a {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     padding: var(--padding-1);
     transition: all 300ms ease;
 }
-aside .sidebar a:hover {
+.Sidebar .sidebar a:hover {
     font-weight: 700;
     color: white;
 }
-aside a.active {
+.Sidebar a.active {
     background-color: var(--color-nav-background);
 }
 
-aside .sidebar p {
+.Sidebar .sidebar p {
     font-size: 1rem;
     font-weight: 500;
 }
 
-aside .sidebar div:last-child {
+.Sidebar .sidebar div:last-child {
     position: absolute;
     bottom: 2rem;
     width: 100%;
@@ -63,22 +86,16 @@ aside .sidebar div:last-child {
     gap: 1.3rem;
 }
 
-aside .sidebar div:last-child p {
+.Sidebar .sidebar div:last-child p {
     display: none;
 }
 
-aside .sidebar div:last-child span {
+.Sidebar .sidebar div:last-child span {
     transition: all 200ms ease-in-out;
 }
 
-aside .sidebar div:last-child a:hover span {
+.Sidebar .sidebar div:last-child a:hover span {
     font-size: 2.5rem;
-}
-
-aside img {
-    /* width: 100%; */
-    height: 80px;
-    /* display: none; */
 }
 
 
@@ -86,41 +103,45 @@ aside img {
 
 .translate-sidebar {
     display: fixed;
-    transform: translateX(0);
+    transform: translateX(0) !important;
 }
 
 
 @media screen and (max-width: 920px) {
-     aside {
+     .Sidebar {
         height: 100%;
     }
 
-    aside .top h2 {
-        visibility: hidden;
+    .Sidebar .sidebar-top {
+        flex-direction: column;
+    }
+
+    .Sidebar .sidebar-top h2 {
+        display: none;
         justify-content: center;
     }
 
-    aside .sidebar {
+    .Sidebar .sidebar {
         margin-left: 0;
     }
 
-    aside .sidebar a {
+    .Sidebar .sidebar a {
         justify-content: center;
     }
 
-    aside .sidebar a span {
+    .Sidebar .sidebar a span {
         transition: all 300ms ease;
     }
 
-    aside .sidebar a p {
+    .Sidebar .sidebar a p {
         display: none;
     }
 
-    aside .sidebar a span:hover {
+    .Sidebar .sidebar a span:hover {
         font-size: 2rem;
     }
 
-    aside .sidebar div:last-child {
+    .Sidebar .sidebar div:last-child {
         flex-direction: column;
         position: static;
         justify-content: flex-end;
@@ -130,58 +151,76 @@ aside img {
 }
 
 @media screen and (max-width: 768px) {
-    /* SIDEBAR */
-    aside {
-        width: 45%;
+    .Sidebar {
+        width: 60%;
         top: 0;
         z-index: 5;
         transform: translateX(-120%);
         transition: all 500ms ease;
     }
 
-    aside .top span {
+
+
+    .Sidebar .sidebar-top {
+        flex-direction: row;
+        gap: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .Sidebar .sidebar-top .logo {
+        font-size: 4rem;
+    }
+
+    .Sidebar .sidebar-top h2 {
         display: inline;
-        color: var(--color-white);
-        font-size: 2rem;
-        font-weight: bold;
+        text-align: left;
+        font-size: 1.5rem;
+    }
+
+    .Sidebar .sidebar-top .close-btn {
+        display: inline;
         position: absolute;
+        color: var(--color-white);
+        font-size: 3rem;
         top: 2rem;
         right: 1rem;
         cursor: pointer;
 
         transition: all 200ms ease;
+
     }
 
-    aside .top span:hover {
+
+    .Sidebar .sidebar-top .close-btn:hover {
         transform: rotate(90deg);
     }
 
-    aside .sidebar a {
+    .Sidebar .sidebar a {
         justify-content: start;
     }
 
-    aside .sidebar a p {
+    .Sidebar .sidebar a p {
         display: inline;
     }
 
-    aside .sidebar div:last-child {
+    .Sidebar .sidebar div:last-child {
         margin-top: 2rem;
         margin-bottom: 1.5rem;
         align-items: start;
     }
 
-    aside .sidebar div:last-child p {
+    .Sidebar .sidebar div:last-child p {
         display: inline;
     }
 
 }
 
 @media screen and (max-width: 425px) {
-    aside {
+    .Sidebar {
         width: 65%;
     }
 
-    aside .sidebar {
+    .Sidebar .sidebar {
         margin-top: 1.5rem;
         gap: 1rem;
     }

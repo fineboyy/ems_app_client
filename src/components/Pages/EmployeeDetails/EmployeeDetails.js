@@ -11,7 +11,7 @@ import Sidebar from "../../Sidebar/Sidebar";
 import "./EmployeeDetails.css";
 
 import profile_img from "../../../images/default-img.jpg";
-const EmployeeDetails = () => {
+const EmployeeDetails = ({sidebarVisible, setSidebarVisible}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllEmployees());
@@ -25,7 +25,7 @@ const EmployeeDetails = () => {
   if(!employee) {
     return(
       <div className="EmployeeDetails container">
-        <Sidebar />
+        <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
         <main style={{display: "flex", justifyContent: "center",}}>
           <h1 style={{marginTop: "5rem", fontSize: "4rem"}}>Employee Not Found</h1>
         </main>

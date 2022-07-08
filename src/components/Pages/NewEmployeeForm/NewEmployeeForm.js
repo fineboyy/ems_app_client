@@ -13,7 +13,7 @@ import "./NewEmployeeForm.css";
 import { createNewEmployee, getAllEmployees } from "../../../actions/employees";
 import { getAllDepartments } from "../../../actions/departments";
 
-const NewEmployeeForm = () => {
+const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
   const topSection = useRef(null);
   const navigate = useNavigate()
   
@@ -100,7 +100,7 @@ const NewEmployeeForm = () => {
   function returnModal() {
     return (
       <div className="container">
-        <Sidebar />
+        <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
 
         <main className="Centered">
           <div className="box">

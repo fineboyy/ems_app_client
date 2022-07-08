@@ -12,7 +12,7 @@ import profile_img from "../../../images/default-img.jpg";
 
 
 import "./Employees.css";
-export const Employees = () => {
+export const Employees = ({sidebarVisible, setSidebarVisible}) => {
   const employees = useSelector((state) => state.employees);
   const femaleEmployeeNumber = employees.filter(
     (f) => f.gender === "female"
@@ -34,7 +34,7 @@ export const Employees = () => {
   if(isLoading) return <Loader />
   return (
     <div className="Employees container">
-      <Sidebar />
+      <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
 
       <main>
         <TopBar />
