@@ -9,7 +9,7 @@ export const Departments = ({sidebarVisible, setSidebarVisible}) => {
         <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
 
       <main>
-        <TopBar />
+        <TopBar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />
         
       </main>
     </div>

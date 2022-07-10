@@ -1,43 +1,65 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../Sidebar/Sidebar";
 import TopBar from "../../TopBar/TopBar";
 import { getAllEmployees } from "../../../actions/employees";
 import { Link } from "react-router-dom";
-
 
 import Loader from "../../Loader/Loader";
 
 import { useSelector, useDispatch } from "react-redux";
 import profile_img from "../../../images/default-img.jpg";
 
-
 import "./Employees.css";
-export const Employees = ({sidebarVisible, setSidebarVisible}) => {
+import SingleEmployeeModal from "./SingleEmployeeModal/SingleEmployeeModal";
+export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
   const employees = useSelector((state) => state.employees);
+
+  const [currentlyActiveEmployee, setCurrentlyActiveEmployee] = useState(null);
   const femaleEmployeeNumber = employees.filter(
     (f) => f.gender === "female"
   ).length;
   const maleEmployeeNumber = employees.length - femaleEmployeeNumber;
-  
+
   let startNumber = 0;
   let endNumber = employees.length > 5 ? 5 : employees.length;
 
-  let isLoading = true
-  
+  let isLoading = true;
+
   const dispatch = useDispatch();
   useEffect(() => {
     document.title = "Employees | Div.co Employee Management System";
     dispatch(getAllEmployees());
   }, [dispatch]);
 
-  if(employees.length) isLoading = false
-  if(isLoading) return <Loader />
+  const changeCurrentlyActiveEmploye = (direction) => {
+    if (!currentlyActiveEmployee) return;
+
+    let newIdx = employees.indexOf(currentlyActiveEmployee);
+
+    if (newIdx === -1) return;
+
+    if (newIdx === employees.length - 1) newIdx = 0;
+    if (newIdx === 0 && direction === -1) newIdx = employees.length - 1;
+
+    let newActiveEmployee = employees[newIdx + direction];
+
+    setCurrentlyActiveEmployee(newActiveEmployee);
+  };
+
+  if (employees.length) isLoading = false;
+  if (isLoading) return <Loader />;
   return (
     <div className="Employees container">
-      <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
+      <Sidebar
+        sidebarVisible={sidebarVisible}
+        setSidebarVisible={setSidebarVisible}
+      />
 
       <main>
-        <TopBar />
+        <TopBar
+          sidebarVisible={sidebarVisible}
+          setSidebarVisible={setSidebarVisible}
+        />
         <div className="insights">
           <div className="card">
             <span className="material-symbols-sharp"> badge </span>
@@ -106,7 +128,12 @@ export const Employees = ({sidebarVisible, setSidebarVisible}) => {
             </thead>
             <tbody>
               {employees.slice(startNumber, endNumber).map((employee) => (
-                <tr key={employee._id + "anything"}>
+                <tr
+                  key={employee._id + "anything"}
+                  onClick={() => {
+                    setCurrentlyActiveEmployee(employee);
+                  }}
+                >
                   <td className="details-group">
                     <div className="avatar">
                       <img
@@ -138,7 +165,7 @@ export const Employees = ({sidebarVisible, setSidebarVisible}) => {
                         to={`/employees/${employee._id}`}
                         className="more-details"
                       >
-                        Details
+                        Full Details
                       </Link>
                     </small>
                   </td>
@@ -146,66 +173,42 @@ export const Employees = ({sidebarVisible, setSidebarVisible}) => {
               ))}
             </tbody>
           </table>
-          {
-              employees.length > endNumber ? 
-
-              <div className="num-controls">
-                <div className="max-views">
-                  <p>View <span className="range-num">5</span> per page</p>
+          {employees.length > endNumber ? (
+            <div className="num-controls">
+              <div className="max-views">
+                <p>
+                  View <span className="range-num">5</span> per page
+                </p>
               </div>
               <div className="controls">
                 <p className="text-muted">
-                <span className="material-symbols-sharp">chevron_left</span>
+                  <span className="material-symbols-sharp">chevron_left</span>
                   Prev
-                  </p>
+                </p>
                 <p className="active">1</p>
                 <p>2</p>
                 <p>...</p>
                 <p>36</p>
                 <p>
-                  Next           
-                <span className="material-symbols-sharp">chevron_right</span>
+                  Next
+                  <span className="material-symbols-sharp">chevron_right</span>
                 </p>
               </div>
-              </div>
-              
-               : ""
-               }
+            </div>
+          ) : (
+            ""
+          )}
         </div>
 
-        {/* <div className="employee-details-view">
-
-          <div className="top">
-            <div className="left-side">
-              <span className="material-symbols-sharp">
-                arrow_back_ios
-              </span>
-              <span className="material-symbols-sharp">
-                arrow_forward_ios
-              </span>
-            </div>
-            <div className="right-side">
-              <span className="material-symbols-sharp">
-                delete
-              </span>
-              <span className="material-symbols-sharp">
-                edit
-              </span>
-              <span className="material-symbols-sharp">
-                fullscreen
-              </span>
-
-            </div>
-          </div>
-
-          <div className="description">
-            <div className="avatar">
-              <img src="./images/profile-2.jpg" alt="" />
-            </div>
-
-          </div>
-
-        </div> */}
+        {currentlyActiveEmployee ? (
+          <SingleEmployeeModal
+            employee={currentlyActiveEmployee}
+            setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
+            toggleCurrentEmployee={changeCurrentlyActiveEmploye}
+          />
+        ) : (
+          ""
+        )}
       </main>
     </div>
   );

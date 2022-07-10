@@ -1,0 +1,125 @@
+.SingleEmployeeModal {
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-3) 0 0 var(--border-radius-3);
+  box-shadow: -5px 3px 10px rgb(0 0 0 / 0.2);
+  overflow-y: scroll;
+  transition: all 500ms ease;
+
+  animation: translateModal 0.5s ease;
+}
+
+.translate-out {
+  transform: translateX(70%) !important;
+  transition: all 500ms ease;
+}
+
+@keyframes translateModal {
+  from {
+    transform: translateX(70%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.SingleEmployeeModal .top {
+  padding: 2rem 2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.SingleEmployeeModal .top span {
+  padding: 0.3rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.SingleEmployeeModal .top .left-side,
+.SingleEmployeeModal .top .right-side {
+  display: flex;
+  gap: 1rem;
+}
+
+.SingleEmployeeModal .top .right-side span {
+  transition: all 200ms ease;
+}
+.SingleEmployeeModal .top .right-side span:hover {
+  transform: rotate(90deg);
+}
+
+.SingleEmployeeModal .description {
+  width: 100%;
+  background-color: red;
+  padding: 2rem;
+}
+
+.SingleEmployeeModal .summary {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(102, 129, 249, 0.5);
+  padding-right: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.SingleEmployeeModal .summary .profile-photo {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SingleEmployeeModal .summary .summary-text {
+  flex-grow: 1;
+}
+
+.SingleEmployeeModal .summary .summary-text .details {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-light);
+}
+
+.SingleEmployeeModal .summary .summary-text .more {
+  display: flex;
+  gap: 3rem;
+  text-align: left;
+}
+
+.SingleEmployeeModal .Table {
+  margin: 0.5rem 1rem 5rem;
+  border: 1px solid var(--color-info-light);
+}
+
+.SingleEmployeeModal .top-buttons {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  margin-top: 2rem;
+  padding-right: 1rem;
+}
+
+.SingleEmployeeModal .top-buttons .button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-primary);
+  border-radius: 15px;
+  color: white;
+  padding: 0.1rem 1rem;
+  cursor: pointer;
+  transition: all 100ms;
+}
+
+.SingleEmployeeModal .top-buttons .button:hover {
+  background-color: var(--color-nav-background);
+}

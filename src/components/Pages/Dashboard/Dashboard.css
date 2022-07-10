@@ -82,12 +82,12 @@ td, th {
     cursor: pointer;
 }
 
-.avatar:not(:first-of-type) {
+.Dashboard .avatar:not(:first-of-type) {
     margin-left: -20px;
 }
 
 
-.avatar:hover {
+.Dashboard .avatar:hover {
     transform: translate(-10px);
 }
 

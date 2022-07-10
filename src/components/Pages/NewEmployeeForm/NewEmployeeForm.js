@@ -118,10 +118,10 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
   function returnForm() {
     return (
       <div className="NewEmployeeForm container">
-        <Sidebar />
+        <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />
 
         <main>
-          <TopBar />
+          <TopBar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />
 
           <form className="form-area" ref={topSection} onSubmit={handleSubmit}>
             <div className="fields">

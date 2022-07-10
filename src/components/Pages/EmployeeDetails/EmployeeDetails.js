@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import moment from 'moment'
+import { useParams, Link } from "react-router-dom";
 
 //ACTIONS
 import { getAllEmployees } from "../../../actions/employees";
@@ -11,17 +10,22 @@ import Sidebar from "../../Sidebar/Sidebar";
 import "./EmployeeDetails.css";
 
 import profile_img from "../../../images/default-img.jpg";
+import Table from "./Table/Table";
 const EmployeeDetails = ({sidebarVisible, setSidebarVisible}) => {
   const dispatch = useDispatch();
+
+  const [ infoGroup , setInfoGroup ] = useState("personal")
+
+  
   useEffect(() => {
     dispatch(getAllEmployees());
     document.title = `${employee.full_name} | Div.co Employee Management System`;
   });
   const { id } = useParams();
+  
   const employee = useSelector((state) =>
     state.employees.find((e) => e._id === id)
   );
-
   if(!employee) {
     return(
       <div className="EmployeeDetails container">
@@ -35,12 +39,20 @@ const EmployeeDetails = ({sidebarVisible, setSidebarVisible}) => {
 
   return (
     <div className="EmployeeDetails container">
-      <Sidebar />
+      <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
 
       <main>
         <div className="top">
-          <span className="material-symbols-sharp">delete</span>
+         <div className="left-side">
+         <span className="material-symbols-sharp menu" onClick={() => setSidebarVisible(true) }>menu</span>
+          <Link to={"/employees"}>
+          <span className="material-symbols-sharp arrow-back">arrow_back</span>
+          </Link>
+         </div>
+         <div className="right-side">
+         <span className="material-symbols-sharp">delete</span>
           <span className="material-symbols-sharp">edit</span>
+         </div>
         </div>
 
         <div className="summary">
@@ -76,69 +88,12 @@ const EmployeeDetails = ({sidebarVisible, setSidebarVisible}) => {
         </div>
 
         <nav className="menus">
-          <h3 className="text-muted active">PERSONAL</h3>
-          <h3 className="text-muted">EDUCATION</h3>
-          <h3 className="text-muted">CAREER</h3>
+          <h3 className={ infoGroup === "personal" ? "text-muted active" : "text-muted"} onClick={() => setInfoGroup("personal")}>PERSONAL</h3>
+          <h3 className={ infoGroup === "education" ? "text-muted active" : "text-muted"} onClick={() => setInfoGroup("education")} >EDUCATION</h3>
+          <h3 className={ infoGroup === "career" ? "text-muted active" : "text-muted"} onClick={() => setInfoGroup("career")} >CAREER</h3>
         </nav>
 
-        <div className="personal-info">
-          <div className="header">
-            <p>Personal Information</p>
-          </div>
-
-          <div className="body">
-            <div>
-              <div className="info-group">
-                <p className="text-muted">Full Name</p>
-                <p className="">
-                  {employee.full_name ? employee.full_name : "Unknown"}
-                </p>
-              </div>
-              <div className="info-group">
-                <p className="text-muted">Gender</p>
-                <p>{employee.gender ? employee.gender : "Unknown"}</p>
-              </div>
-              <div className="info-group">
-                <p className="text-muted">Address</p>
-                <p>{employee.address ? employee.address : "Unknown"}</p>
-              </div>
-              <div className="info-group">
-                <p className="text-muted">Marital Status</p>
-                <p>
-                  {employee.marital_status
-                    ? employee.marital_status
-                    : "Unknown"}
-                </p>
-              </div>
-            </div>
-            <div>
-              <div className="info-group">
-                <p className="text-muted">Nationality</p>
-                <p className="">
-                  {employee.nationality ? employee.nationality : "Unknown"}
-                </p>
-              </div>
-              <div className="info-group">
-                <p className="text-muted">Date of Birth</p>
-                <p>
-                  {employee.date_of_birth
-                    ? moment(employee.date_of_birth).format("Do MMMM, YYYY")
-                    : "Unknown"}
-                </p>
-              </div>
-              <div className="info-group">
-                <p className="text-muted">Age</p>
-                <p>{employee.date_of_birth ? moment().diff(employee.date_of_birth, 'years') : "Unknown"}</p>
-              </div>
-              <div className="info-group">
-                <p className="text-muted">Emergency Contact</p>
-                <p>
-                  {employee.emergency_contact ? employee.emergency_contact : "Unknown"}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Table employee={employee} infoGroup={infoGroup} />
       </main>
     </div>
   );

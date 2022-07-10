@@ -1,0 +1,42 @@
+.Table {
+    border: 1px solid black;
+    padding-bottom: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    animation: createBox 0.5s ease;
+}
+
+
+.Table .header {
+    padding: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid black;
+}
+
+.Table .body {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+}
+
+.Table .body * {
+    flex-grow: 1;
+}
+
+.Table .info-group {
+    margin-bottom: 1rem;
+}
+
+.Table .info-group {
+    text-transform: capitalize;
+}
+
+  @keyframes createBox {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
