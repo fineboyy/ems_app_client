@@ -7,7 +7,7 @@ const TopBar = ({sidebarVisible, setSidebarVisible}) => {
     return (
         <nav className="Topbar">
           <div className="brand">
-            <h1>Company's Name</h1>
+            <h1>Div.Co Tech LLC</h1>
           </div>
 
           <div className="right-side">

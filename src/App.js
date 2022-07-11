@@ -11,13 +11,13 @@ const App = () => {
     const [sidebarVisible, setSidebarVisible ] = useState(false)
     return (
         <Routes>
-            <Route path='/login' element={<Login />} />
-            <Route path='/' element={<Navigate replace to={"/dashboard"} />} />
-            <Route path='/dashboard' element={<Dashboard sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
-            <Route path='/employees' element={<Employees sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
-            <Route path='/employees/new' element={<NewEmployeeForm sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
-            <Route path='/employees/:id' element={<EmployeeDetails sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
-            <Route path='/departments' element={<Departments sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
+            <Route path='/login' exact element={<Login />} />
+            <Route path='/' exact element={<Navigate replace to={"/dashboard"} />} />
+            <Route path='/dashboard' exact element={<Dashboard sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
+            <Route path='/employees' exact element={<Employees sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
+            <Route path='/employees/new' exact element={<NewEmployeeForm sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
+            <Route path='/employees/:id' exact element={<EmployeeDetails sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
+            <Route path='/departments' exact element={<Departments sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />} />
             <Route path='*' element={<Navigate replace to={"/dashboard"} />} />
         </Routes>
     )

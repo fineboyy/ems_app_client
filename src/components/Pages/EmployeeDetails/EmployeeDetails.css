@@ -32,39 +32,7 @@
     display: none;
 }
 
-.EmployeeDetails .summary {
-    width: 100%;
-    padding: 1rem;
-    background-color: rgba(102, 129, 249, 0.5);
-    padding-right: 3rem;
-
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.EmployeeDetails .summary .profile-photo {
-    width: 180px;
-    height: 180px;
-}
-
-.EmployeeDetails .summary .summary-text {
-    flex-grow: 1;
-}
-
-.EmployeeDetails .summary .summary-text .details {
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-light);
-}
-
-.EmployeeDetails .summary .summary-text .more {
-    display: flex;
-    gap: 3rem;
-    text-align: left;
-}
-
-.EmployeeDetails .blue {
+.blue {
     color: #0F2D69 !important;
 }
 
@@ -90,33 +58,6 @@
 .EmployeeDetails .info-group {
     text-transform: capitalize;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 570px) {
-
-    .EmployeeDetails .summary {
-        flex-direction: column;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
-
-    .EmployeeDetails .summary .summary-text {
-        text-align: center;
-    }
-    
-}
-
 
 
     

@@ -59,41 +59,6 @@
   padding: 2rem;
 }
 
-.SingleEmployeeModal .summary {
-  width: 100%;
-  padding: 1rem;
-  background-color: rgba(102, 129, 249, 0.5);
-  padding-right: 3rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.SingleEmployeeModal .summary .profile-photo {
-  width: 180px;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.SingleEmployeeModal .summary .summary-text {
-  flex-grow: 1;
-}
-
-.SingleEmployeeModal .summary .summary-text .details {
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--color-light);
-}
-
-.SingleEmployeeModal .summary .summary-text .more {
-  display: flex;
-  gap: 3rem;
-  text-align: left;
-}
 
 .SingleEmployeeModal .Table {
   margin: 0.5rem 1rem 5rem;
@@ -122,4 +87,30 @@
 
 .SingleEmployeeModal .top-buttons .button:hover {
   background-color: var(--color-nav-background);
+}
+
+@media screen and (max-width: 768px) {
+
+  .SingleEmployeeModal {
+    width: 80%;
+  }
+  
+}
+@media screen and (max-width: 1118px) {
+
+  .SingleEmployeeModal .Jumbotron {
+      flex-direction: column;
+  }
+
+  .SingleEmployeeModal .Jumbotron .summary-text {
+    text-align: center;
+  }
+  
+}
+@media screen and (max-width: 580px) {
+
+  .SingleEmployeeModal {
+    width: 100%;
+  }
+  
 }

@@ -1,31 +1,37 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
+//COMPONENTS
 import Sidebar from "../../Sidebar/Sidebar";
 import TopBar from "../../TopBar/TopBar";
 import { getAllEmployees } from "../../../actions/employees";
-import { Link } from "react-router-dom";
-
 import Loader from "../../Loader/Loader";
-
-import { useSelector, useDispatch } from "react-redux";
-import profile_img from "../../../images/default-img.jpg";
-
-import "./Employees.css";
 import SingleEmployeeModal from "./SingleEmployeeModal/SingleEmployeeModal";
-export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
-  const employees = useSelector((state) => state.employees);
 
+//ASSETS & CSS
+import profile_img from "../../../images/default-img.jpg";
+import "./Employees.css";
+import EmployeesTable from "./EmployeesTable/EmployeesTable";
+import EmployeesTableControls from "./EmployeesTableControls/EmployeesTableControls";
+
+export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
+  const dispatch = useDispatch();
+  const employees = useSelector((state) => state.employees);
   const [currentlyActiveEmployee, setCurrentlyActiveEmployee] = useState(null);
+
+  //EMPLOYEE GENDERS
   const femaleEmployeeNumber = employees.filter(
     (f) => f.gender === "female"
   ).length;
   const maleEmployeeNumber = employees.length - femaleEmployeeNumber;
 
-  let startNumber = 0;
-  let endNumber = employees.length > 5 ? 5 : employees.length;
+  //EMPLOYEE LIST CONTROLS
+  const [startNumber, setStartNumber] = useState(0);
+  const [endNumber, setEndNumber] = useState(5);
+  const [rangeNum, setRangeNum] = useState(endNumber);
 
   let isLoading = true;
-
-  const dispatch = useDispatch();
   useEffect(() => {
     document.title = "Employees | Div.co Employee Management System";
     dispatch(getAllEmployees());
@@ -33,17 +39,40 @@ export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
 
   const changeCurrentlyActiveEmploye = (direction) => {
     if (!currentlyActiveEmployee) return;
-
     let newIdx = employees.indexOf(currentlyActiveEmployee);
-
     if (newIdx === -1) return;
-
     if (newIdx === employees.length - 1) newIdx = 0;
     if (newIdx === 0 && direction === -1) newIdx = employees.length - 1;
-
     let newActiveEmployee = employees[newIdx + direction];
-
     setCurrentlyActiveEmployee(newActiveEmployee);
+  };
+
+  const changeCurrentEmployeeList = (direction) => {
+    if (startNumber - rangeNum < 0) setStartNumber(0);
+
+    if (startNumber === 0 && direction === -1) return;
+    if (endNumber > employees.length && direction === 1) return;
+
+    switch (direction) {
+      case 1:
+        setStartNumber(rangeNum + startNumber);
+        setEndNumber((startNumber) => startNumber + rangeNum);
+        return;
+
+      case -1:
+        setStartNumber(startNumber - rangeNum);
+        setEndNumber((endNumber) => endNumber - rangeNum);
+        return;
+
+      default:
+        return;
+    }
+  };
+
+  const changeRange = (e) => {
+    setStartNumber(0);
+    setRangeNum(Number(e.target.value));
+    setEndNumber(Number(e.target.value));
   };
 
   if (employees.length) isLoading = false;
@@ -117,87 +146,20 @@ export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
             </Link>
           </div>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Employee Name</th>
-                <th>Contact Details</th>
-                <th>Department</th>
-                <th>More...</th>
-              </tr>
-            </thead>
-            <tbody>
-              {employees.slice(startNumber, endNumber).map((employee) => (
-                <tr
-                  key={employee._id + "anything"}
-                  onClick={() => {
-                    setCurrentlyActiveEmployee(employee);
-                  }}
-                >
-                  <td className="details-group">
-                    <div className="avatar">
-                      <img
-                        src={employee.photo ? employee.photo : profile_img}
-                        alt=""
-                      />
-                    </div>
-                    <div className="text-details">
-                      <p className="name">{employee.full_name}</p>
-                      <p className="title primary"> {employee.job_title} </p>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="contact-item">
-                      <span className="material-symbols-sharp text-muted">
-                        mail
-                      </span>
-                      <p>{employee.email || "unknown"}</p>
-                    </div>
-                    <div className="contact-item text-muted">
-                      <span className="material-symbols-sharp"> phone </span>
-                      <p>{employee.phone_number || "unknown"}</p>
-                    </div>
-                  </td>
-                  <td> {employee.department.name} </td>
-                  <td>
-                    <small>
-                      <Link
-                        to={`/employees/${employee._id}`}
-                        className="more-details"
-                      >
-                        Full Details
-                      </Link>
-                    </small>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {employees.length > endNumber ? (
-            <div className="num-controls">
-              <div className="max-views">
-                <p>
-                  View <span className="range-num">5</span> per page
-                </p>
-              </div>
-              <div className="controls">
-                <p className="text-muted">
-                  <span className="material-symbols-sharp">chevron_left</span>
-                  Prev
-                </p>
-                <p className="active">1</p>
-                <p>2</p>
-                <p>...</p>
-                <p>36</p>
-                <p>
-                  Next
-                  <span className="material-symbols-sharp">chevron_right</span>
-                </p>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
+          <EmployeesTable
+            startNumber={startNumber}
+            endNumber={endNumber}
+            employees={employees}
+            setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
+            profile_img={profile_img}
+          />
+
+          <EmployeesTableControls
+            rangeNum={rangeNum}
+            changeRange={changeRange}
+            changeCurrentEmployeeList={changeCurrentEmployeeList}
+            startNumber={startNumber}
+          />
         </div>
 
         {currentlyActiveEmployee ? (

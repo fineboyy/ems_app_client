@@ -185,6 +185,11 @@ th {
   border: 1px solid var(--color-info-dark);
 }
 
+.range-num input {
+  background-color: var(--color-background);
+  max-width: 50px;
+}
+
 .controls {
   display: flex;
   align-items: center;
