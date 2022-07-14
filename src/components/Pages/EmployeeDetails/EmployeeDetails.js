@@ -20,7 +20,7 @@ const EmployeeDetails = ({sidebarVisible, setSidebarVisible}) => {
   
   useEffect(() => {
     dispatch(getAllEmployees());
-    document.title = `${employee.full_name} | Div.co Employee Management System`;
+    document.title = `${employee.full_name} | Div.co Human Resource Management System`;
   });
   const { id } = useParams();
   

@@ -5,6 +5,8 @@ const EmployeesTableControls = ({
   changeRange,
   changeCurrentEmployeeList,
   startNumber,
+  endNumber,
+  employees
 }) => {
   return (
     <div className="num-controls">
@@ -34,7 +36,7 @@ const EmployeesTableControls = ({
           Prev
         </p>
         <span className="material-symbols-sharp text-muted">multiple_stop</span>
-        <p onClick={() => changeCurrentEmployeeList(1)}>
+        <p className={endNumber >=  employees.length ? "text-muted" : ""} onClick={() => changeCurrentEmployeeList(1)}>
           Next
           <span className="material-symbols-sharp">chevron_right</span>
         </p>

@@ -1,4 +1,4 @@
-.Topbar {
+.TopBar {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
@@ -9,50 +9,62 @@
   box-shadow: var(--box-shadow);
 }
 
-.Topbar .menu {
+.TopBar .menu {
   display: none;
 }
 
-.Topbar .brand {
+.TopBar .brand {
   padding: 0.6rem 3rem;
   background-color: var(--color-primary);
   color: white;
   border-radius: 40px;
 }
 
-.Topbar .brand h1 {
+.TopBar .brand h1 {
   font-size: 1.2rem;
   font-weight: 400;
 }
 
-.Topbar .right-side {
+.TopBar p.text-muted {
+  font-size: 0.9rem;
+}
+
+.TopBar .right-side {
   display: flex;
   gap: 2.5rem;
   align-items: center;
 }
 
-.Topbar .search {
+.TopBar .right-side .icons .notifications {
+  position: relative;
+}
+.TopBar .right-side .icons .person {
+  position: relative;
+}
+
+.TopBar .search {
   padding: 0.6rem;
   background-color: var(--color-background);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   gap: 1rem;
   border-radius: var(--border-radius-1);
 }
 
-.Topbar .search input[type="text"] {
+.TopBar .search input[type="text"] {
   background-color: transparent;
   width: 15rem;
   font-family: poppins;
 }
 
-.Topbar .right-side .icons {
+.TopBar .right-side .icons {
   display: flex;
   gap: 1.5rem;
 }
 
-.Topbar .right-side .icons span {
+.TopBar .right-side .icons span {
   color: var(--color-white);
   background-color: var(--color-primary);
   padding: 0.6rem;
@@ -60,31 +72,31 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .Topbar {
+  .TopBar {
     padding: 0.7rem;
   }
 }
 @media screen and (max-width: 920px) {
-  .Topbar {
+  .TopBar {
     padding: 1rem;
   }
 
-  .Topbar .brand {
+  .TopBar .brand, .TopBar .breadcrumbs {
     display: none;
   }
 
-  .Topbar .right-side {
+  .TopBar .right-side {
     width: 100%;
     justify-content: space-between;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .Topbar {
+  .TopBar {
     margin-top: 1rem;
   }
 
-  .Topbar .menu {
+  .TopBar .menu {
     display: inline;
     cursor: pointer;
     font-weight: 800;

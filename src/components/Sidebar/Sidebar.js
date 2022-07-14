@@ -9,7 +9,7 @@ const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
       <div className="sidebar-top">
         <span className="material-symbols-sharp logo">hdr_weak</span>
         <h2>
-          Div.Co <br /> EMS{" "}
+          Div.Co <br /> HRMS{" "}
         </h2>
         <span
           className="material-symbols-sharp close-btn"
@@ -49,23 +49,32 @@ const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
           <p>Departments</p>
         </NavLink>
         <NavLink
-          to="/employees/new"
+          to="/leave-management"
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }
         >
-          <span className="material-symbols-sharp"> add_circle </span>
-          <p>Add New</p>
+          <span className="material-symbols-sharp"> work_history </span>
+          <p>Leave Management</p>
         </NavLink>
         <div>
-          <Link to="#" className="nav-item">
+          <Link to="/help" className="nav-item">
             <span className="material-symbols-sharp"> help </span>
             <p>Help</p>
           </Link>
-          <Link to="#" className="nav-item">
+          {/*  */}
+
+          <NavLink
+            to="/settings"
+            className={({ isActive }) =>
+              isActive ? "nav-item active" : "nav-item"
+            }
+          >
             <span className="material-symbols-sharp"> settings </span>
             <p>Settings</p>
-          </Link>
+          </NavLink>
+
+          {/*  */}
           <Link to="/login" className="nav-item">
             <span className="material-symbols-sharp"> logout </span>
             <p>Logout</p>

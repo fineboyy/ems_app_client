@@ -24,7 +24,7 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
   // let isCreated = false;
 
   useEffect(() => {
-    document.title = "Create New Employee | Div.co Employee Management System";
+    document.title = "Create New Employee | Div.co Human Resource Management System";
     dispatch({ type: "SHOW_LOADER" });
 
     if(!departments.length) {
@@ -121,7 +121,7 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
         <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />
 
         <main>
-          <TopBar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />
+          <TopBar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} pageName={"Add New Employee"} />
 
           <form className="form-area" ref={topSection} onSubmit={handleSubmit}>
             <div className="fields">

@@ -117,9 +117,17 @@
         flex-direction: column;
     }
 
+    .Sidebar .sidebar-top .logo {
+        font-size: 6rem !important;
+    }
+
     .Sidebar .sidebar-top h2 {
         display: none;
         justify-content: center;
+    }
+
+    .Sidebar .active {
+        border-left: 5px solid var(--color-primary);
     }
 
     .Sidebar .sidebar {
@@ -158,6 +166,10 @@
         z-index: 5;
         transform: translateX(-120%);
         transition: all 500ms ease;
+    }
+
+    .Sidebar .active {
+        border: none;
     }
 
 
@@ -218,7 +230,9 @@
 
 @media screen and (max-width: 425px) {
     .Sidebar {
-        width: 65%;
+        width: 90%;
+
+        border-radius: 0 5px 5px 0;
     }
 
     .Sidebar .sidebar {

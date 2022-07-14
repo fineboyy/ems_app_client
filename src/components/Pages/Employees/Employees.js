@@ -33,7 +33,7 @@ export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
 
   let isLoading = true;
   useEffect(() => {
-    document.title = "Employees | Div.co Employee Management System";
+    document.title = "Employees | Div.co Human Resource Management System";
     dispatch(getAllEmployees());
   }, [dispatch]);
 
@@ -88,6 +88,7 @@ export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
         <TopBar
           sidebarVisible={sidebarVisible}
           setSidebarVisible={setSidebarVisible}
+          pageName={"Employees"}
         />
         <div className="insights">
           <div className="card">
@@ -159,6 +160,8 @@ export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
             changeRange={changeRange}
             changeCurrentEmployeeList={changeCurrentEmployeeList}
             startNumber={startNumber}
+            endNumber={endNumber}
+            employees={employees}
           />
         </div>
 

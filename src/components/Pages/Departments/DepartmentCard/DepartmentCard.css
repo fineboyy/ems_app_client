@@ -1,0 +1,116 @@
+:root {
+    --purple: #7638e0;
+    --pink: #e39add;
+    --orange: #f09148;
+}
+
+.DepartmentCard {
+    margin-top: 2rem;
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+
+    position: relative;
+
+    box-shadow: var(--box-shadow);
+}
+
+.DepartmentCard .left .circle.purple {
+    background-color: var(--purple);
+}
+.DepartmentCard .left .circle.pink {
+    background-color: var(--pink);
+}
+.DepartmentCard .left .circle.orange {
+    background-color: var(--orange);
+}
+.DepartmentCard .left .circle.primary {
+    background-color: var(--color-primary);
+}
+.DepartmentCard .left .circle.green {
+    background-color: var(--color-success);
+}
+.DepartmentCard .left .circle.yellow {
+    background-color: var(--color-warning);
+}
+.DepartmentCard .left .circle.red {
+    background-color: var(--color-danger);
+}
+
+
+.DepartmentCard .more-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+}
+
+.DepartmentCard .left {
+    padding-left: 1rem;
+    padding-right: 2rem;
+    border-right: 5px solid var(--color-info-dark);
+
+    display: flex;
+    align-items: center;
+   
+}
+
+.DepartmentCard .right {
+    flex-grow: 1;
+    padding: 1rem;
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.DepartmentCard .left .circle {
+    background-color: var(--color-primary);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DepartmentCard .left .circle h1 {
+    color: var(--color-white);
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.DepartmentCard .right .detail {
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+@media screen and (max-width:620px) {
+    .DepartmentCard {
+        flex-direction: column;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .DepartmentCard .left {
+        border: none;
+    }
+    .DepartmentCard .left .circle {
+        width: 70px;
+        height: 70px;
+    }
+    .DepartmentCard .right {
+        align-items: center;
+    }
+
+ }
