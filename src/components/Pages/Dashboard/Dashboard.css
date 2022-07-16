@@ -45,7 +45,7 @@ main .recent-employees .employees .employee a:hover {
 
 /* =========== DEPARTMENTS SECTION ============= */
 
-.departments {
+/* .departments {
     margin-top: 2rem;
     width: 100%;
 }
@@ -75,7 +75,6 @@ td, th {
     border-radius: 50%;
     overflow: hidden;
     background-color: var(--color-background);
-    /* border: 3px solid var(--color-border-light); */
     border: 3px solid rgb(230, 243, 255);
     position: relative;
     transition: all 300ms ease;
@@ -89,34 +88,6 @@ td, th {
 
 .Dashboard .avatar:hover {
     transform: translate(-10px);
-}
-
-.avatar img {
-    width: 100%;
-    height: 100%;
-}
-
-.hidden-avatars {
-    width: var(--avatar-size);
-    height: var(--avatar-size);
-    border-radius: 50%;
-    background-color: var(--color-border-light);
-    color: var(--color-info-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: -20px;
-    position: relative;
-    cursor: pointer;
-    font-weight: bold;
-    border: 3px solid var(--color-white);
-
-    transition: all 300ms ease;
-}
-
-.hidden-avatars:hover {
-    background-color: var(--color-primary);
-    color: white;
 }
 
 
@@ -142,7 +113,7 @@ th {
 }
 .view-more a:hover {
     color: var(--color-primary);
-}
+} */
 
 /* =============== MEDIA QUERIES ========== */
 
@@ -180,10 +151,10 @@ th {
         gap: 2rem;
     }
     
-    table thead tr th:nth-child(3) {
+    .DepartmentsTable table thead tr th:nth-child(3) {
         display: none;
     }
-    table tbody tr td:nth-child(3) {
+    .DepartmentsTable table tbody tr td:nth-child(3) {
         display: none;
     }
 }
@@ -210,7 +181,7 @@ th {
         box-shadow: var(--box-shadow);
     }
 
-    tr .avatar:nth-child(5) {
+    .DepartmentsTable tr .avatar:nth-child(5) {
         display: none;
     }
     
@@ -223,15 +194,15 @@ th {
     }
 
     /* DEPARTMENTS TABLE */ 
-    tr .avatar:nth-child(4) {
+    .DepartmentsTable tr .avatar:nth-child(4) {
         display: none;
     }
 
-    table {
+    .DepartmentsTable table {
         border-spacing: 0.7rem;
     }
 
-    th, td {
+    .DepartmentsTable th, .DepartmentsTable td {
         padding: 0.5rem;
     }
 }

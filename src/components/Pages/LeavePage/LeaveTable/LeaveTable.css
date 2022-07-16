@@ -1,0 +1,94 @@
+.LeaveTable {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+}
+
+.LeaveTable .filters {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.LeaveTable .filter-option span:first-child {
+  color: var(--color-blue-deeper)
+}
+
+.LeaveTable .filters .search-bar p {
+    color: var(--color-seablue);
+}
+
+.LeaveTable .search {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 0.5rem;
+  border-radius: 2px;
+  border: 2px solid var(--color-border-light);
+}
+
+.LeaveTable .search input[type="text"] {
+  background-color: transparent;
+  width: 10rem;
+  font-family: poppins;
+}
+
+.LeaveTable .filters .search-bar .search input {
+  width: 100%;
+}
+
+.LeaveTable .right-side {
+    display: flex;
+    gap: 3rem;
+}
+
+.LeaveTable .right-side .filter-option {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    border: 2px solid var(--color-border-light);
+
+}
+
+.LeaveTable .right-side .filter-option p {
+    margin-right: 1rem;
+}
+
+.LeaveTable:nth-child(2) {
+  margin-bottom: 10rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .LeaveTable {
+    padding: 2rem 1rem;
+  }
+  .LeaveTable .filters .right-side .filter-option:nth-child(1) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .LeaveTable .filters {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .LeaveTable .filters .search-bar {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .LeaveTable .filters .search-bar .search {
+    justify-content: space-between;
+  }  
+}

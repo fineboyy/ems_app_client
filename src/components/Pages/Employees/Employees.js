@@ -14,6 +14,7 @@ import profile_img from "../../../images/default-img.jpg";
 import "./Employees.css";
 import EmployeesTable from "./EmployeesTable/EmployeesTable";
 import EmployeesTableControls from "./EmployeesTableControls/EmployeesTableControls";
+import { Insights } from "./Insights/Insights";
 
 export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
   const dispatch = useDispatch();
@@ -90,54 +91,8 @@ export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
           setSidebarVisible={setSidebarVisible}
           pageName={"Employees"}
         />
-        <div className="insights">
-          <div className="card">
-            <span className="material-symbols-sharp"> badge </span>
-            <div className="right-side">
-              <p>Total Employees</p>
-              <h1>{employees.length}</h1>
-              <progress
-                id="whatever"
-                value={
-                  Math.floor((employees.length / employees.length) * 10) || 0
-                }
-                min="0"
-                max="10"
-              ></progress>
-            </div>
-          </div>
-          <div className="card">
-            <span className="material-symbols-sharp"> person_2 </span>
-            <div className="right-side">
-              <p>Total Females</p>
-              <h1>{femaleEmployeeNumber}</h1>
-              <progress
-                id="whatever"
-                value={
-                  Math.floor((femaleEmployeeNumber / employees.length) * 10) ||
-                  0
-                }
-                min="0"
-                max="10"
-              ></progress>
-            </div>
-          </div>
-          <div className="card">
-            <span className="material-symbols-sharp"> person </span>
-            <div className="right-side">
-              <p>Total Males</p>
-              <h1>{maleEmployeeNumber}</h1>
-              <progress
-                id="whatever"
-                value={
-                  Math.floor((maleEmployeeNumber / employees.length) * 10) || 0
-                }
-                min="0"
-                max="10"
-              ></progress>
-            </div>
-          </div>
-        </div>
+        
+        <Insights femaleEmployeeNumber={femaleEmployeeNumber} maleEmployeeNumber={maleEmployeeNumber} employees={employees} />
 
         <div className="employee-container">
           <div className="top-buttons">

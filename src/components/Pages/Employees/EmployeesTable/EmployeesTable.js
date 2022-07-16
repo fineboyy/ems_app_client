@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
+
+import './EmployeesTable.css'
 const EmployeesTable = ({ employees, startNumber, endNumber, setCurrentlyActiveEmployee, profile_img }) => {
   return (
     <table>

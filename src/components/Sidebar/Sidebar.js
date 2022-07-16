@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../../index.css";
 import "./Sidebar.css";
 
 const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
+
+  useEffect(() => {
+    if(sidebarVisible) {
+      setSidebarVisible(false)
+
+    }
+  }, [])
+
   return (
     <aside className={sidebarVisible ? "Sidebar translate-sidebar" : "Sidebar"}>
       <div className="sidebar-top">
@@ -69,6 +77,7 @@ const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
             className={({ isActive }) =>
               isActive ? "nav-item active" : "nav-item"
             }
+
           >
             <span className="material-symbols-sharp"> settings </span>
             <p>Settings</p>

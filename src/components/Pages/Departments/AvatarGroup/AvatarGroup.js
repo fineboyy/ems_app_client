@@ -12,9 +12,9 @@ const AvatarGroup = ({ members }) => {
               <img src={member.photo ? member.photo : profile_img} alt="" />
             </div>
           ))}
-          <div className="hidden-avatars">
+          {/* <div className="hidden-avatars">
             x
-          </div>
+          </div> */}
         </div>
       );
     } else {

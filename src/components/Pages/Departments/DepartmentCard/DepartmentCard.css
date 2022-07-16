@@ -47,7 +47,7 @@
 .DepartmentCard .more-button {
     position: absolute;
     top: 0.5rem;
-    right: 0.5rem;
+    right: 0;
     cursor: pointer;
 }
 
@@ -100,6 +100,10 @@
         flex-direction: column;
         padding-top: 2rem;
         padding-bottom: 2rem;
+    }
+
+    .DepartmentCard .AvatarGroup {
+        justify-content: center;
     }
 
     .DepartmentCard .left {

@@ -67,7 +67,7 @@ export const Departments = ({sidebarVisible, setSidebarVisible}) => {
           </div>
         </div>
 
-        <div className="departments-list-wrapper">
+               <div className="departments-list-wrapper">
           <div className="departments-list">
             <div className="button-wrapper">
             <h2>Departments List</h2>

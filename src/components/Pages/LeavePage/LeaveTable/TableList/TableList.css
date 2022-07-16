@@ -1,0 +1,95 @@
+.TableList {
+    width: 100%;
+    text-align: left;
+}
+
+.TableList th {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-blue-deeper);
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
+.TableList td, .TableList th {
+    border-bottom: 2px solid var(--color-border-light) !important;
+    padding-right: 1rem;
+}
+
+.TableList td {
+    padding: 1rem 0.5rem 0.3rem 0;
+}
+
+.TableList .actions {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.TableList .actions span {
+    cursor: pointer;
+}
+
+.TableList .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.TableList .profile .avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.TableList .status {
+    padding: 0.05rem 0.2rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TableList .status-approved {
+    background-color: #41f1b611;
+}
+.TableList .status-rejected {
+    background-color: #ff778211;
+}
+.TableList .status-pending {
+    background-color: #ffbb5511;
+}
+
+.TableList .status .status-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .TableList thead tr th:nth-child(4), .TableList tbody tr td:nth-child(4) {
+        display: none;
+    }
+    .TableList thead tr th:nth-child(3), .TableList tbody tr td:nth-child(3) {
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 920px) {
+    .TableList thead tr th:nth-child(7), .TableList tbody tr td:nth-child(7) {
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 768px) {
+
+    .TableList thead tr th:nth-child(2), .TableList tbody tr td:nth-child(2) {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 425px) {
+    .TableList thead tr th:nth-child(5), .TableList tbody tr td:nth-child(5) {
+        display: none;
+    }
+  }
