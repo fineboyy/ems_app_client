@@ -2,7 +2,8 @@ import React from 'react'
 
 
 import './Jumbotron.css'
-const Jumbotron = ({ employee, profile_img }) => {
+import profile_img from '../../../../images/default-img.jpg'
+const Jumbotron = ({ employee }) => {
   return (
     <div className="Jumbotron">
           <div className="profile-photo">

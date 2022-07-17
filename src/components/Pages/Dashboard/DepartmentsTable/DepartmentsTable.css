@@ -7,13 +7,18 @@
     margin-top: 1rem;
     width: 100%;
     font-size: 1rem;
-    border-spacing: 0.5rem 1rem;
+    border-spacing: 0.5rem;
 }
 
 .DepartmentsTable td, .DepartmentsTable th {
     background-color: var(--color-white);
-    padding: 1rem;
+    padding: 0.5rem;
     text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.DepartmentsTable th {
+    padding: 1rem 0.5rem;
 }
 
 .DepartmentsTable .avatar-group {
@@ -46,6 +51,12 @@
 
 .DepartmentTable .more-details {
     color: var(--color-primary);
+    padding-bottom: 0.1rem;
+    transition: all 100ms ease;
+}
+
+.DepartmentTable .more-details:hover {
+    border-bottom: 2px solid var(--color-primary);
 }
 
 .DepartmentsTable th {
@@ -65,4 +76,18 @@
 }
 .DepartmentsTable .view-more a:hover {
     color: var(--color-primary);
+}
+
+
+@media screen and (max-width: 428px) {
+
+    .DepartmentsTable table {
+        border-spacing: 0.3rem;
+    }
+
+    .DepartmentsTable th {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    
 }

@@ -49,33 +49,7 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
             pageName={"dashboard"}
           />
 
-          <div className="recent-employees">
-            <h2>Recently Added Employees</h2>
-
-            <div className="employees">
-              {employees
-                .slice()
-                .reverse()
-                .slice(0, 4)
-                .map((employee) => (
-                  <div className="employee" key={employee._id}>
-                    <div className="profile-photo">
-                      <img
-                        src={employee.photo ? employee.photo : profile_img}
-                        alt=""
-                      />
-                    </div>
-                    <h2>{employee.full_name}</h2>
-                    <p>{employee.job_title}</p>
-                    <Link to={`/employees/${employee._id}`}>View Details</Link>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {/* <!-- END OF RECENT EMPLOYEES --> */}
-
-
+          <RecentlyAddedEmployees recentlyAddedEmployees={employees.slice().reverse().slice(0, 4)} />
 
           <DepartmentsTable departments={departments} />
         </main>
@@ -84,4 +58,25 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
   }
 
   return isLoading ? <FullScreenLoader /> : returnDashboard();
+};
+
+export const RecentlyAddedEmployees = ({ recentlyAddedEmployees }) => {
+  return (
+    <div className="recent-employees">
+      <h2>Recently Added Employees</h2>
+
+      <div className="employees">
+        {recentlyAddedEmployees.map((employee) => (
+          <div className="employee" key={employee._id}>
+            <div className="profile-photo">
+              <img src={employee.photo ? employee.photo : profile_img} alt="" />
+            </div>
+            <h2>{employee.full_name}</h2>
+            <p>{employee.job_title}</p>
+            <Link to={`/employees/${employee._id}`}>View Details</Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };

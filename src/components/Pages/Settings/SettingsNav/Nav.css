@@ -1,0 +1,12 @@
+.SettingsNav {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.SettingsNav a {
+    display: flex;
+    align-items: flex-end;
+    
+}

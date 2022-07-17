@@ -19,7 +19,7 @@ const DepartmentCard = ({department}) => {
         return colors[Math.floor(Math.random() * 7)]
     }
   return (
-    <div className="DepartmentCard" key={department._id}>
+    <div className="DepartmentCard" key={department._id + "department"}>
               <div className="left">
                 <div className={"circle " + generateRandomColor(colorsArray) }>
                   <h1>{department.name ? department.name.substr(0, 1) : "U"}</h1>

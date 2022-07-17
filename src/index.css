@@ -145,6 +145,10 @@ b {
     color: var(--color-success-darker);
 }
 
+.fw-500 {
+    font-weight: 500;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -203,4 +207,8 @@ b {
 .hidden-avatars:hover {
     background-color: var(--color-primary);
     color: white;
+}
+
+.material-symbols-sharp {
+    cursor: pointer;
 }

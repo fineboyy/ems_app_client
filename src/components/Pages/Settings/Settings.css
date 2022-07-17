@@ -1,0 +1,112 @@
+.settings-container {
+    margin-top: 5rem;
+    display: grid;
+    /* grid-template-columns: 18rem auto; */
+    grid-template-columns: 30% auto;
+    gap: 2rem;
+}
+
+.Settings .user-profile {
+    padding: 3rem 2rem;
+    background-color: white;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.Settings .user-profile .user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Settings .user-profile .user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.Settings .user-profile .user-info .value {
+    font-weight: 600;
+}
+
+.Settings .user-profile .user-info .header {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-seablue);
+}
+
+
+.Settings .setting-wrapper {
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.Settings .user-card .avatar {
+    width: 150px;
+    height: 150px;
+}
+
+.Settings .user-profile .user-profile-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+
+/* RIGHT SIDE */
+
+.Settings .settings-list .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: var(--border-radius-1);
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.Settings .settings-list .list-item .left-side {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Settings .settings-list .list-item span {
+    color: var(--color-info-light);
+}
+
+.Settings .settings-list .list-item .arrow {
+    padding: 0.3rem;
+    font-size: 1.5rem;
+    border-radius: var(--border-radius-1);
+    transition: all 100ms;
+}
+
+.Settings .settings-list .list-item .arrow:hover {
+    background-color: var(--color-background);
+
+}
+
+
+@media screen and (max-width:768px) {
+    .Settings .settings-container {
+        grid-template-columns: 1fr;
+    }
+    
+
+    .Settings .user-profile {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+}

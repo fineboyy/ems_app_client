@@ -1,0 +1,48 @@
+.EditPermissions p.primary {
+    margin-bottom: 2rem;
+}
+
+.EditPermissions table {
+    margin-top: 1rem;
+    width: 100%;
+    border-spacing: 0;
+}
+.EditPermissions input[type="checkbox"] {
+    background-color: var(--color-blue-deeper);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 3px;
+}
+
+.EditPermissions thead tr {
+    background-color: #0076d652;
+}
+
+.EditPermissions tbody tr:nth-child(odd) {
+    background-color: #0076d638;
+}
+.EditPermissions tbody tr:nth-child(even) {
+    background-color: #0076d652;
+}
+/* .EditPermissions thead tr {
+    background-color: #0C2556;
+}
+
+.EditPermissions tbody tr:nth-child(odd) {
+    background-color: #0F2D69;
+}
+.EditPermissions tbody tr:nth-child(even) {
+    background-color: #0C2556;
+} */
+
+.EditPermissions table {
+    text-align: center;
+}
+
+.EditPermissions th, .EditPermissions td {
+    padding: 0.8rem 1rem;
+}
+
+.EditPermissions thead tr th:first-child, .EditPermissions tbody tr td:first-child {
+    text-align: left;
+}

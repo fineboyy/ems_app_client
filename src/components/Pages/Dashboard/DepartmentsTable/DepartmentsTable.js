@@ -7,13 +7,13 @@ import profile_img from '../../../../images/default-img.jpg'
 export const DepartmentsTable = ({departments}) => {
   return (
     <div className="DepartmentsTable">
-            <h2>Departments</h2>
+            <h2>Top Departments</h2>
 
             <table>
               <thead>
                 <tr>
                   <th>Department Name</th>
-                  <th>Employees</th>
+                  <th>Members</th>
                   <th>Description</th>
                   <th>More</th>
                 </tr>
@@ -47,7 +47,7 @@ export const DepartmentsTable = ({departments}) => {
                         to={`/departments/${department.name}`}
                         className="more-details"
                       >
-                        Details...
+                        View
                       </Link>
                     </td>
                   </tr>

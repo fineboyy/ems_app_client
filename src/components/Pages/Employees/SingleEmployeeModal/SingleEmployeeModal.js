@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./SingleEmployeeModal.css";
-import profile_img from "../../../../images/default-img.jpg";
 import Table from "../../EmployeeDetails/Table/Table";
 import Jumbotron from "../../EmployeeDetails/Jumbotron/Jumbotron";
 

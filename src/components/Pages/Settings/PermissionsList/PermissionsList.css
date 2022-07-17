@@ -1,0 +1,39 @@
+.PermissionsList .role {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--color-border-light);
+}
+
+.PermissionsList .role:last-child {
+    border: none;
+}
+
+.PermissionsList .role .side {
+    display: flex;
+    gap: 2rem;
+}
+
+.Settings .top-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.Settings .top-btns .btn {
+    display: flex;
+    cursor: pointer;
+    align-items: flex-end;
+    gap: 0.2rem;
+    padding: 0.3rem 1rem;
+    border-radius: var(--border-radius-1);
+    background-color: var(--color-background);
+}
+
+.Settings .top-btns .btn:hover {
+    background-color: var(--color-border-light);
+}
+
+.not-allowed {
+    cursor: not-allowed !important;
+}
