@@ -1,15 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 import './Nav.css'
-export const SettingsNav = () => {
+export const SettingsNav = ({directories = ["Something"]}) => {
+  const navigate = useNavigate()
+
+  const generateBreadcrumbs = (directories) => directories.map((d) => `/${d}`).join('')
   return (
-    <nav className='SettingsNav'>
-        <Link to={"../"}>
+    <div className='SettingsNav'>
+        <p className='btn' onClick={()=> navigate(-1) }>
         <span className="material-symbols-sharp">arrow_back</span>
-        </Link>
-        <p>Settings/Something</p>
-    </nav>
+        </p>
+        <p>{"Settings" + generateBreadcrumbs(directories)}</p>
+    </div>
   )
 }

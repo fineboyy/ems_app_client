@@ -12,7 +12,7 @@ export const PermissionsList = () => {
   ];
   return (
     <div className="PermissionsList">
-      <SettingsNav />
+      <SettingsNav directories={["Permissions"]} />
 
       <section className="setting-wrapper">
         <p className="primary fw-500">User Roles</p>

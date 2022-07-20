@@ -8,7 +8,7 @@ import { createRoot } from "react-dom/client";
 
 import App from "./App";
 
-import reducers from "./reducers/index";
+import reducers from "./redux/reducers/index";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));

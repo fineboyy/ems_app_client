@@ -3,9 +3,10 @@
     gap: 2rem;
     align-items: flex-end;
     margin-bottom: 2rem;
+    color: var(--color-info-light);
 }
 
-.SettingsNav a {
+.SettingsNav .btn {
     display: flex;
     align-items: flex-end;
     

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import moment from "moment";
-import { useDispatch, useSelector } from "react-redux";
 import FileBase64 from "react-file-base64";
 import { useNavigate } from 'react-router-dom'
 
@@ -10,29 +9,27 @@ import TopBar from "../../TopBar/TopBar";
 import Loader from "../../Loader/Loader";
 import "./NewEmployeeForm.css";
 
-import { createNewEmployee, getAllEmployees } from "../../../actions/employees";
-import { getAllDepartments } from "../../../actions/departments";
+import { useDispatch, useSelector } from "react-redux";
+import { createNewEmployee } from "../../../redux/actions/employees";
+import { getAllDepartments } from "../../../redux/actions/departments";
+import ActionTypes from "../../../redux/constants";
 
 const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
   const topSection = useRef(null);
   const navigate = useNavigate()
-  
   const dispatch = useDispatch();
   const departments = useSelector((state) => state.departments);
-  const employees = useSelector((state) => state.employees);
+  const newlyCreatedEmployee = useSelector((state) => state.employee )
   const isLoading = useSelector((state) => state.loading);
   // let isCreated = false;
 
   useEffect(() => {
     document.title = "Create New Employee | Div.co Human Resource Management System";
-    dispatch({ type: "SHOW_LOADER" });
-
-    if(!departments.length) {
-      dispatch(getAllEmployees());
+    if(!departments?.length) {
       dispatch(getAllDepartments());
     }
 
-    if(departments.length) dispatch({type: "HIDE_LOADER"})
+    if(departments?.length) dispatch({type: ActionTypes.HIDE_LOADER })
 
   }, [dispatch, departments]);
   const [newEmployee, setNewEmployee] = useState({
@@ -58,9 +55,7 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
     school_year_completed: "",
   });
 
-  const [isCreated, setIsCreated] = useState({
-    value: false
-  })
+  const [isCreated, setIsCreated] = useState(false)
 
   const handleChange = (e) => {
     setNewEmployee({
@@ -84,16 +79,15 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: "SHOW_LOADER" });
+    dispatch({ type: ActionTypes.SHOW_LOADER });
     handleReset();
     await dispatch(createNewEmployee(newEmployee));
-    dispatch({ type: "HIDE_LOADER" });
-    setIsCreated({value: true});
+    dispatch({type: ActionTypes.HIDE_LOADER})
+    setIsCreated(true)
   };
 
 
   const viewNewlyCreatedEmployee = () => {
-      const newlyCreatedEmployee = employees[employees.length - 1]
       navigate(`/employees/${newlyCreatedEmployee._id}`)
   }
 
@@ -372,7 +366,7 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
 
   if (isLoading) return <Loader />;
 
-  return isCreated.value === true ? returnModal() : returnForm();
+  return isCreated ? returnModal() : returnForm();
 };
 
 export default NewEmployeeForm;

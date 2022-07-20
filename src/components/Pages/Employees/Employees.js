@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //COMPONENTS
 import Sidebar from "../../Sidebar/Sidebar";
 import TopBar from "../../TopBar/TopBar";
-import { getAllEmployees } from "../../../actions/employees";
+import { getAllEmployees } from "../../../redux/actions/employees";
 import Loader from "../../Loader/Loader";
 import SingleEmployeeModal from "./SingleEmployeeModal/SingleEmployeeModal";
 
@@ -35,8 +35,8 @@ export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
   let isLoading = true;
   useEffect(() => {
     document.title = "Employees | Div.co Human Resource Management System";
-    dispatch(getAllEmployees());
-  }, [dispatch]);
+    if(!employees?.length) dispatch(getAllEmployees());
+  });
 
   const changeCurrentlyActiveEmploye = (direction) => {
     if (!currentlyActiveEmployee) return;

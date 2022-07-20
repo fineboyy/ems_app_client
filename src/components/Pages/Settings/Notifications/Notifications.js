@@ -4,7 +4,7 @@ import { SettingsNav } from '../SettingsNav/SettingsNav'
 export const Notifications = () => {
   return (
     <div>
-        <SettingsNav />
+        <SettingsNav directories={["Notifications"]} />
         <p>Notifications</p>
     </div>
   )

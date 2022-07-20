@@ -3,12 +3,20 @@ import Sidebar from "../Sidebar/Sidebar";
 
 import "./Loader.css";
 
-const Loader = () => {
+export const Loader = () => {
   return (
     <div className="Loader container">
       <Sidebar />
       <main>
-        <div className="lds-ring">
+        <div class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
           <div></div>
           <div></div>
           <div></div>

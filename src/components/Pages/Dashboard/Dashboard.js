@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 // REDUX
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getAllEmployees } from "../../../actions/employees";
-import { getAllDepartments } from "../../../actions/departments";
+import { getAllEmployees } from "../../../redux/actions/employees";
+import { getAllDepartments } from "../../../redux/actions/departments";
 
 // COMPONENTS
 import Sidebar from "../../Sidebar/Sidebar";
@@ -22,18 +23,15 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
   document.title = "Dashboard | Div.co Human Resource Management System";
   const employees = useSelector((state) => state.employees);
   const departments = useSelector((state) => state.departments);
-  const isLoading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
-
-  if (employees.length && departments.length) dispatch({ type: "HIDE_LOADER" });
+  const networkError = useSelector((state) => state.networkError);
 
   useEffect(() => {
-    dispatch({ type: "SHOW_LOADER" });
-    if (!departments.length) {
+    // if (!(departments.length && employees.length)) {
       dispatch(getAllEmployees());
       dispatch(getAllDepartments());
-    }
-  }, [dispatch, departments]);
+    // }
+  }, [dispatch]);
 
   function returnDashboard() {
     return (
@@ -49,7 +47,9 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
             pageName={"dashboard"}
           />
 
-          <RecentlyAddedEmployees recentlyAddedEmployees={employees.slice().reverse().slice(0, 4)} />
+          <RecentlyAddedEmployees
+            recentlyAddedEmployees={employees.slice().reverse().slice(0, 4)}
+          />
 
           <DepartmentsTable departments={departments} />
         </main>
@@ -57,7 +57,22 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
     );
   }
 
-  return isLoading ? <FullScreenLoader /> : returnDashboard();
+  const returnErrorPage = () => {
+    return (
+      <ErrorPage
+        sidebarVisible={sidebarVisible}
+        setSidebarVisible={setSidebarVisible}
+      />
+    );
+  };
+
+  if(Object.keys(networkError).length) return  returnErrorPage()
+
+  return !(employees.length && departments.length) ? (
+    <FullScreenLoader />
+  ) : (
+    returnDashboard()
+  );
 };
 
 export const RecentlyAddedEmployees = ({ recentlyAddedEmployees }) => {

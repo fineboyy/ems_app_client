@@ -5,7 +5,7 @@ import './EditPermissions.css'
 export const EditPermissions = () => {
   return (
     <div>
-        <SettingsNav />
+        <SettingsNav directories={["Permissions", "Edit"]} />
 
         <div className="EditPermissions setting-wrapper">
             <p className='fw-500 primary'>Edit Permissions</p>

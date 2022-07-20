@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import Sidebar from '../../Sidebar/Sidebar'
 import TopBar from '../../TopBar/TopBar'
 import DepartmentCard from './DepartmentCard/DepartmentCard'
+import Loader from '../../Loader/Loader'
 
-import { getAllDepartments } from '../../../actions/departments'
+import { getAllDepartments } from '../../../redux/actions/departments'
 
 import './Departments.css'
 export const Departments = ({sidebarVisible, setSidebarVisible}) => {
@@ -18,10 +19,15 @@ export const Departments = ({sidebarVisible, setSidebarVisible}) => {
   // const activeDepartments = departments.filter(department => department.status = "inactive")
 
   useEffect(() => {
-      dispatch(getAllDepartments)
-  }, [dispatch])
 
-    return (
+    if(!departments.length) {
+      dispatch(getAllDepartments())
+    }
+  })
+
+  const returnDeparments = () => {
+      return (
+
         <div className="Departments container">
         <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
 
@@ -86,5 +92,9 @@ export const Departments = ({sidebarVisible, setSidebarVisible}) => {
         
       </main>
     </div>
-    )
+
+      )
+  }
+
+    return  !departments?.length ? <Loader /> : returnDeparments();
 }

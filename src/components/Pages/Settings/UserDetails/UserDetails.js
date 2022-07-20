@@ -4,7 +4,7 @@ import { SettingsNav } from "../SettingsNav/SettingsNav";
 export const UserDetails = () => {
   return (
     <div className="UserDetails">
-      <SettingsNav />
+      <SettingsNav directories={["Current User"]} />
       <div className="settings-wrapper"></div>
     </div>
   );
