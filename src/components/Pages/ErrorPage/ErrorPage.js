@@ -6,7 +6,13 @@ import { useDispatch } from "react-redux";
 import "./ErrorPage.css";
 import ActionTypes from "../../../redux/constants";
 export const ErrorPage = ({ sidebarVisible, setSidebarVisible }) => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const reloadPage = () => {
+    dispatch({ type: ActionTypes.NETWORK_ERROR, payload: {} });
+    window.location.reload();
+  };
+
   return (
     <div className="ErrorPage container">
       <Sidebar
@@ -20,16 +26,12 @@ export const ErrorPage = ({ sidebarVisible, setSidebarVisible }) => {
           pageName={"Error"}
         />
 
+        <div className="error-text">
+          <h1>Oops! Something went wrong.</h1>
+          <p>We are currently unable to display this page</p>
 
-       <div style={{marginTop: "10rem", textAlign: "center"}}>
-       <h1>Oops! Something went wrong.</h1>
-        <p>We are currently unable to display this page</p>
-
-        <button onClick={() => {dispatch({type: ActionTypes.NETWORK_ERROR, payload : {}})}}>Try Again</button>
-       </div>
-
-
-
+          <button onClick={reloadPage}>Try Again</button>
+        </div>
       </main>
     </div>
   );

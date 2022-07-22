@@ -7,6 +7,7 @@ import {
 } from "./departments";
 import { loading } from "./loader";
 import { netWorkErrorReducer } from "./errors";
+import { leavesReducer } from "./leave-applications";
 
 export default combineReducers({
   employees: employeesReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   departments: departmentsReducer,
   department: singleDepartmentReducer,
   networkError: netWorkErrorReducer,
+  leave_applications: leavesReducer,
   loading,
 });

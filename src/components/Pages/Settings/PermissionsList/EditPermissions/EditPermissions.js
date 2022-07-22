@@ -29,43 +29,43 @@ export const EditPermissions = () => {
               <tbody>
                 <tr>
                   <td><p>Employee</p></td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
                 </tr>
                 <tr>
                   <td><p>Department</p></td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
                 </tr>
                 <tr>
                   <td><p>Leave</p></td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
                 </tr>
                 <tr>
                   <td><p>Role</p></td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
                 </tr>
                 <tr>
                   <td><p>User</p></td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
-                  <td> <div><input type="checkbox" name="" id="" checked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
+                  <td> <div><input type="checkbox" name="" id="" defaultChecked /></div> </td>
                 </tr>
               </tbody>
             </table>

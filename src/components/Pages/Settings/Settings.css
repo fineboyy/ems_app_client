@@ -28,7 +28,19 @@
 .Settings .user-profile .user-info {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
+}
+
+.Settings .user-profile .user-info .field {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.Settings .user-profile .user-info .field p {
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .Settings .user-profile .user-info .value {

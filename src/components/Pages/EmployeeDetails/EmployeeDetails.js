@@ -76,6 +76,8 @@ const EmployeeDetails = ({ sidebarVisible, setSidebarVisible }) => {
 
         <Jumbotron employee={employee} profile_img={profile_img} />
 
+        {(employee.leave_applications?.length) ? <h1>T</h1> : "" }
+
         <nav className="menus">
           <h3
             className={

@@ -2,7 +2,7 @@ import React from "react";
 
 import "./LeaveTable.css";
 import { TableList } from "./TableList/TableList";
-export const LeaveTable = ({tableHeader = "Some Table"}) => {
+export const LeaveTable = ({tableHeader = "Some Table", applications }) => {
   return (
     <div className="LeaveTable">
       <p>
@@ -26,13 +26,13 @@ export const LeaveTable = ({tableHeader = "Some Table"}) => {
             </div>
             <div className="filter-option">
                 <span className="material-symbols-sharp">calendar_month</span>
-                <p>Daily</p>
+                <p>This Month</p>
                 <span className="material-symbols-sharp">expand_more</span>
             </div>
         </div>
       </div>
 
-      <TableList tableHeader={tableHeader} />
+      <TableList tableHeader={tableHeader} applications={applications} />
     </div>
   );
 };

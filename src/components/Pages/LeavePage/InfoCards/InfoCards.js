@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const InfoCards = () => {
+export const InfoCards = ({total, pending, rejected, approved}) => {
   return (
     <div className="info-cards-wrapper">
           <div className="info-card">
@@ -10,7 +10,7 @@ export const InfoCards = () => {
               </div>
             </div>
             <div className="right">
-              <h2>20</h2>
+              <h2>{total?.length ? total.length : 0}</h2>
               <p>Applications</p>
             </div>
           </div>
@@ -23,8 +23,8 @@ export const InfoCards = () => {
               </div>
             </div>
             <div className="right">
-              <h2>12</h2>
-              <p>Accepted</p>
+              <h2>{ approved.length ?  approved.length : 0 }</h2>
+              <p>Approved</p>
             </div>
           </div>
           <div className="info-card">
@@ -36,7 +36,7 @@ export const InfoCards = () => {
               </div>
             </div>
             <div className="right">
-              <h2>6</h2>
+              <h2>{pending?.length ?  pending?.length : 0 }</h2>
               <p>Pending</p>
             </div>
           </div>
@@ -47,7 +47,7 @@ export const InfoCards = () => {
               </div>
             </div>
             <div className="right">
-              <h2>2</h2>
+              <h2>{rejected?.length ?  rejected.length : 0 }</h2>
               <p>Rejected</p>
             </div>
           </div>

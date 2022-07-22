@@ -1,8 +1,10 @@
 import React from "react";
+import moment from 'moment'
 
 import "./TableList.css";
 import profile_img from "../../../../../images/default-img.jpg";
-export const TableList = ({ tableHeader }) => {
+import { Link } from "react-router-dom";
+export const TableList = ({ tableHeader, applications }) => {
   const arr = ["approved", "approved", "pending", "rejected", "approved"];
 
   const unResolvedLeaveRequestsHeaders = [
@@ -12,7 +14,7 @@ export const TableList = ({ tableHeader }) => {
     "Applied On",
     "Leave From",
     "Leave To",
-    "No. of Days",
+    "Duration",
     "Actions",
   ];
   const leaveRecordHeaders = [
@@ -22,7 +24,7 @@ export const TableList = ({ tableHeader }) => {
     "Applied On",
     "Leave From",
     "Leave To",
-    "No. of Days",
+    "Duration",
     "Status",
   ];
 
@@ -38,7 +40,7 @@ export const TableList = ({ tableHeader }) => {
       </thead>
 
       <tbody>
-        {arr.map((record) => (
+        {applications.map((record) => (
           <TableRow record={record} tableHeader={tableHeader} />
         ))}
       </tbody>
@@ -67,29 +69,35 @@ if(record === "rejected") return (
 const TableRow = ({record, tableHeader}) => {
   return (
     <tr>
-            <td className="profile">
+            {/* <td className="profile">
               <div className="avatar">
-                <img src={profile_img} alt="" />
+                <img src={record.employee_photo? record.employee_photo : profile_img} alt="" />
               </div>
-              <p>Michael Amponsah</p>
+              <p>{record.employee_name? record.employee_name : "Unknown"}</p>
+            </td> */}
+            <td className="profile">
+              <Link to={`/employees/${record.employee}`} className="avatar">
+                <img src={record.employee_photo? record.employee_photo : profile_img} alt="" />
+              </Link>
+              <p>{record.employee_name? record.employee_name : "Unknown"}</p>
             </td>
             <td>
-              <p>Engineering</p>
+              <p>{record.employee_department_name? record.employee_department_name : "Unknown"}</p>
             </td>
             <td>
-              <p>Casual Leave</p>
+              <p>{record.leave_type? record.leave_type : "Unknown"}</p>
             </td>
             <td>
-              <p>22-02-2022</p>
+              <p>{record.applied_date? moment(record.applied_date).format("DD-MM-YYYY") : "Unknown"}</p>
             </td>
             <td>
-              <p>06-07-2022</p>
+              <p>{record.leave_from? moment(record.leave_from).format("DD-MM-YYYY") : "Unknown"}</p>
             </td>
             <td>
-              <p>07-08-2023</p>
+              <p>{record.leave_to? moment(record.leave_to).format("DD-MM-YYYY") : "Unknown"}</p>
             </td>
             <td>
-              <p>382 Days</p>
+              <p>{(record.leave_from && record.leave_to)? moment(record.leave_from).to(moment(record.leave_to), true): "Unknown"}</p>
             </td>
             {tableHeader === "Unresolved Leave Applications" ? (
               <td className="actions">
@@ -100,7 +108,7 @@ const TableRow = ({record, tableHeader}) => {
               </td>
             ) : (
               <td>
-                { returnTag(record) }
+                { returnTag(record.leave_status) }
               </td>
             )}
           </tr>

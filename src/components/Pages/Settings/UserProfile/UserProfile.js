@@ -13,6 +13,9 @@ export const UserProfile = () => {
         <p className="header">Your account info.</p>
         <div className="entry">
           <div className="field">
+          <span className="material-symbols-sharp blue-deeper">
+              badge
+            </span>
             <p>Name:</p>
           </div>
           <div className="value">
@@ -21,6 +24,9 @@ export const UserProfile = () => {
         </div>
         <div className="entry">
           <div className="field">
+            <span className="material-symbols-sharp blue-deeper">
+              mail
+            </span>
             <p>Email Address:</p>
           </div>
           <div className="value">
@@ -29,6 +35,9 @@ export const UserProfile = () => {
         </div>
         <div className="entry">
           <div className="field">
+          <span className="material-symbols-sharp blue-deeper">
+              work
+            </span>
             <p>Role:</p>
           </div>
           <div className="value">
@@ -37,6 +46,9 @@ export const UserProfile = () => {
         </div>
         <div className="entry">
           <div className="field">
+          <span className="material-symbols-sharp blue-deeper">
+              corporate_fare
+            </span>
             <p>Department:</p>
           </div>
           <div className="value">
