@@ -2,58 +2,68 @@ import React, {useEffect} from "react";
 
 //redux
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllLeaveApplications } from "../../../redux/actions/leave-applications";
+import { useGetAllLeaveApplicationsQuery } from "../../../app/api/apiSlice";
+import Loader from "../../Loader/Loader";
 
 ///COMPONENTS
 import Sidebar from "../../Sidebar/Sidebar";
 import TopBar from "../../TopBar/TopBar";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { InfoCards } from "./InfoCards/InfoCards";
 
 import "./LeavePage.css";
 import { LeaveTable } from "./LeaveTable/LeaveTable";
 import { LeaveTypes } from "./LeaveTypes/LeaveTypes";
-export const LeavePage = ({ sidebarVisible, setSidebarVisible }) => {
+export const LeavePage = () => {
+
+  const {
+        data: leave_applications,
+        isLoading,
+        isSuccess,
+        isError,
+      } = useGetAllLeaveApplicationsQuery();
 
 
   const dispatch = useDispatch()
-  const leave_applications = useSelector((state) => state.leave_applications )
 
 
-  const pendingLeaves = leave_applications.filter((leave) => leave.leave_status === "pending")
-  const rejectedLeaves = leave_applications.filter((leave) => leave.leave_status === "rejected")
-  const resolvedApplications = leave_applications.filter((leave) => leave.leave_status !== "pending")
-  // const unResolvedApplications = leave_applications.filter((leave) => leave.leave_type === "pending")
-  const approvedLeaves = leave_applications.filter((leave) => leave.leave_status === "approved")
+  const pendingLeaves = leave_applications?.filter((leave) => leave.leave_status === "pending")
+  const rejectedLeaves = leave_applications?.filter((leave) => leave.leave_status === "rejected")
+  const resolvedApplications = leave_applications?.filter((leave) => leave.leave_status !== "pending")
+  const approvedLeaves = leave_applications?.filter((leave) => leave.leave_status === "approved")
 
 
   useEffect(() => {
-      dispatch(getAllLeaveApplications())
-  }, [dispatch])
+    document.title = "Leave Management - Div.Co Human Resource Management System"
+  })
 
+  const returnContent = () => {
+    return (
+      <div className="LeavePage container">
+        <Sidebar  />
+        <main>
+          <TopBar pageName={"Leave Management"} />
+  
+          <InfoCards total = {leave_applications} pending = {pendingLeaves}  rejected ={rejectedLeaves} approved = {approvedLeaves} />
+  
+          <LeaveTypes />
+  
+          <LeaveTable tableHeader="Unresolved Leave Applications" applications = {pendingLeaves} />
+          <LeaveTable tableHeader="Leave Records List" applications = {resolvedApplications} />
+          
+        </main>
+      </div>
+    );
+  }
 
-  document.title = "Leave Management - Div.Co Human Resource Management System"
+  let content 
 
-  return (
-    <div className="LeavePage container">
-      <Sidebar
-        sidebarVisible={sidebarVisible}
-        setSidebarVisible={setSidebarVisible}
-      />
-      <main>
-        <TopBar
-          sidebarVisible={sidebarVisible}
-          setSidebarVisible={setSidebarVisible}
-          pageName={"Leave Management"}
-        />
-
-        <InfoCards total = {leave_applications} pending = {pendingLeaves}  rejected ={rejectedLeaves} approved = {approvedLeaves} />
-
-        <LeaveTypes />
-
-        <LeaveTable tableHeader="Unresolved Leave Applications" applications = {pendingLeaves} />
-        <LeaveTable tableHeader="Leave Records List" applications = {resolvedApplications} />
-        
-      </main>
-    </div>
-  );
+  if(isLoading) {
+    content = <Loader />
+  } else if (isError) {
+    content = <ErrorPage /> 
+  } else if (isSuccess) {
+    content = returnContent()
+  }
+  return content
 };

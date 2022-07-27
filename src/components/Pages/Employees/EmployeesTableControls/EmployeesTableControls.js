@@ -36,7 +36,7 @@ const EmployeesTableControls = ({
           Prev
         </p>
         <span className="material-symbols-sharp text-muted">multiple_stop</span>
-        <p className={endNumber >=  employees.length ? "text-muted" : ""} onClick={() => changeCurrentEmployeeList(1)}>
+        <p className={endNumber >=  employees.length ? "text-muted" : ""} onClick={() => endNumber >= employees.length ? "" : changeCurrentEmployeeList(1)}>
           Next
           <span className="material-symbols-sharp">chevron_right</span>
         </p>

@@ -11,8 +11,8 @@ const AvatarGroup = ({ members }) => {
       return (
         <div className="AvatarGroup">
           {members.map((member) => (
-            <div className="avatar" key={member._id + "avatar"} onClick={()=> navigate(`/employees/${member._id}`)}>
-              <img src={member.photo ? member.photo : profile_img} alt="" />
+            <div className="avatar" key={member._id + "-avatar"} onClick={()=> navigate(`/employees/${member._id}`)}>
+              <img src={member.photo ? member.photo : profile_img} key={member._id+ "-avatar-photo"} alt="" />
             </div>
           ))}
           {/* <div className="hidden-avatars">

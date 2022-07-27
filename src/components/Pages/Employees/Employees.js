@@ -1,41 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
+
+//RTK
+import { useSelector, useDispatch } from "react-redux";
+import { useGetAllEmployeesQuery } from "../../../app/api/apiSlice";
 
 //COMPONENTS
 import Sidebar from "../../Sidebar/Sidebar";
 import TopBar from "../../TopBar/TopBar";
-import { getAllEmployees } from "../../../redux/actions/employees";
 import Loader from "../../Loader/Loader";
 import SingleEmployeeModal from "./SingleEmployeeModal/SingleEmployeeModal";
+import EmployeesTable from "./EmployeesTable/EmployeesTable";
+import EmployeesTableControls from "./EmployeesTableControls/EmployeesTableControls";
+import { Insights } from "./Insights/Insights";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 //ASSETS & CSS
 import profile_img from "../../../images/default-img.jpg";
 import "./Employees.css";
-import EmployeesTable from "./EmployeesTable/EmployeesTable";
-import EmployeesTableControls from "./EmployeesTableControls/EmployeesTableControls";
-import { Insights } from "./Insights/Insights";
 
-export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
-  const dispatch = useDispatch();
-  const employees = useSelector((state) => state.employees);
+export const Employees = () => {
+  const {
+    data: employees,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetAllEmployeesQuery();
+
   const [currentlyActiveEmployee, setCurrentlyActiveEmployee] = useState(null);
 
   //EMPLOYEE GENDERS
-  const femaleEmployeeNumber = employees.filter(
-    (f) => f.gender === "female"
-  ).length;
-  const maleEmployeeNumber = employees.length - femaleEmployeeNumber;
+  const femaleEmployeeNumber = employees
+    ? employees.filter((f) => f.gender === "female").length
+    : 0;
+  const maleEmployeeNumber = employees
+    ? employees.length - femaleEmployeeNumber
+    : 0;
 
   //EMPLOYEE LIST CONTROLS
   const [startNumber, setStartNumber] = useState(0);
   const [endNumber, setEndNumber] = useState(5);
   const [rangeNum, setRangeNum] = useState(endNumber);
 
-  let isLoading = true;
+
   useEffect(() => {
     document.title = "Employees | Div.co Human Resource Management System";
-    if(!employees?.length) dispatch(getAllEmployees());
   });
 
   const changeCurrentlyActiveEmploye = (direction) => {
@@ -76,60 +86,72 @@ export const Employees = ({ sidebarVisible, setSidebarVisible }) => {
     setEndNumber(Number(e.target.value));
   };
 
-  if (employees.length) isLoading = false;
-  if (isLoading) return <Loader />;
-  return (
-    <div className="Employees container">
-      <Sidebar
-        sidebarVisible={sidebarVisible}
-        setSidebarVisible={setSidebarVisible}
-      />
+  let content;
 
-      <main>
-        <TopBar
-          sidebarVisible={sidebarVisible}
-          setSidebarVisible={setSidebarVisible}
-          pageName={"Employees"}
-        />
-        
-        <Insights femaleEmployeeNumber={femaleEmployeeNumber} maleEmployeeNumber={maleEmployeeNumber} employees={employees} />
+  const returnContent = () => {
+    return (
+      <div className="Employees container">
+        <Sidebar />
 
-        <div className="employee-container">
-          <div className="top-buttons">
-            <Link to={"/employees/new"} className="button">
-              <span className="material-symbols-sharp"> add_circle </span>
-              <p>Add Employee</p>
-            </Link>
+        <main>
+          <TopBar pageName={"Employees"} />
+
+          <Insights
+            femaleEmployeeNumber={femaleEmployeeNumber}
+            maleEmployeeNumber={maleEmployeeNumber}
+            employees={employees}
+          />
+
+          <div className="employee-container">
+            <div className="top-buttons">
+              <Link to={"/employees/new"} className="button">
+                <span className="material-symbols-sharp"> add_circle </span>
+                <p>Add Employee</p>
+              </Link>
+            </div>
+
+            <EmployeesTable
+              startNumber={startNumber}
+              endNumber={endNumber}
+              employees={employees}
+              setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
+              profile_img={profile_img}
+            />
+
+            <EmployeesTableControls
+              rangeNum={rangeNum}
+              changeRange={changeRange}
+              changeCurrentEmployeeList={changeCurrentEmployeeList}
+              startNumber={startNumber}
+              endNumber={endNumber}
+              employees={employees}
+            />
           </div>
 
-          <EmployeesTable
-            startNumber={startNumber}
-            endNumber={endNumber}
-            employees={employees}
-            setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
-            profile_img={profile_img}
-          />
+          {currentlyActiveEmployee ? (
+            <SingleEmployeeModal
+              employee={currentlyActiveEmployee}
+              setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
+              toggleCurrentEmployee={changeCurrentlyActiveEmploye}
+            />
+          ) : (
+            ""
+          )}
+        </main>
+      </div>
+    );
+  };
 
-          <EmployeesTableControls
-            rangeNum={rangeNum}
-            changeRange={changeRange}
-            changeCurrentEmployeeList={changeCurrentEmployeeList}
-            startNumber={startNumber}
-            endNumber={endNumber}
-            employees={employees}
-          />
-        </div>
-
-        {currentlyActiveEmployee ? (
-          <SingleEmployeeModal
-            employee={currentlyActiveEmployee}
-            setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
-            toggleCurrentEmployee={changeCurrentlyActiveEmploye}
-          />
-        ) : (
-          ""
-        )}
-      </main>
-    </div>
-  );
+  if (isLoading) {
+    content = <Loader />;
+  } else if (isSuccess) {
+    content = returnContent();
+  } else if (isError) {
+    content = (
+      <ErrorPage />
+    );
+  } else {
+    content = <p>We don't know what to display</p>;
+  }
+  return content;
 };

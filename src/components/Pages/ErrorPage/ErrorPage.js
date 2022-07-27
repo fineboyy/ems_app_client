@@ -4,27 +4,20 @@ import TopBar from "../../TopBar/TopBar";
 import { useDispatch } from "react-redux";
 
 import "./ErrorPage.css";
-import ActionTypes from "../../../redux/constants";
-export const ErrorPage = ({ sidebarVisible, setSidebarVisible }) => {
+// import ActionTypes from "../../../redux/constants";
+export const ErrorPage = () => {
   const dispatch = useDispatch();
 
   const reloadPage = () => {
-    dispatch({ type: ActionTypes.NETWORK_ERROR, payload: {} });
+    // dispatch({ type: ActionTypes.NETWORK_ERROR, payload: {} });
     window.location.reload();
   };
 
   return (
     <div className="ErrorPage container">
-      <Sidebar
-        sidebarVisible={sidebarVisible}
-        setSidebarVisible={setSidebarVisible}
-      />
+      <Sidebar />
       <main>
-        <TopBar
-          sidebarVisible={sidebarVisible}
-          setSidebarVisible={setSidebarVisible}
-          pageName={"Error"}
-        />
+        <TopBar  pageName={"Error"}  />
 
         <div className="error-text">
           <h1>Oops! Something went wrong.</h1>

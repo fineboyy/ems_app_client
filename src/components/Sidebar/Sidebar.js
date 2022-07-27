@@ -1,19 +1,37 @@
 import React, { useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../../index.css";
 import "./Sidebar.css";
 
-const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
+import { setSidebarVisible } from "../../features/sidebarVisibility/sidebarVisibilitySlice";
+import { logOut as clearCredentials } from "../../features/auth/authSlice"
+import { useSignOutMutation } from "../../features/auth/authApiSlice";
 
-  useEffect(() => {
-    if(sidebarVisible) {
-      setSidebarVisible(false)
+const Sidebar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const [ signOut, { isLoading } ] = useSignOutMutation()
+  const sidebarVisible = useSelector((state) => state.sidebarVisibility);
+
+
+  
+  const logOutUser = async () => {
+    console.log("dgfhgjhgfdsa");
+    try {
+      await signOut()
+      dispatch(clearCredentials())
+      navigate('/login')
+      
+    } catch (error) {
+      console.log("Error", error);
     }
-  }, [])
-
+  }
+  
+  let className = sidebarVisible ? "Sidebar" : "Sidebar translate-sidebar";
   return (
-    <aside className={sidebarVisible ? "Sidebar translate-sidebar" : "Sidebar"}>
+    <aside className={className}>
       <div className="sidebar-top">
         <span className="material-symbols-sharp logo">hdr_weak</span>
         <h2>
@@ -21,7 +39,7 @@ const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
         </h2>
         <span
           className="material-symbols-sharp close-btn"
-          onClick={() => setSidebarVisible(false)}
+          onClick={() => dispatch(setSidebarVisible(false))}
         >
           {" "}
           close{" "}
@@ -50,8 +68,8 @@ const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
         <NavLink
           to="/departments"
           className={({ isActive }) =>
-            isActive ? "nav-item active" : "nav-item"
-          }
+          isActive ? "nav-item active" : "nav-item"
+        }
         >
           <span className="material-symbols-sharp"> domain </span>
           <p>Departments</p>
@@ -61,7 +79,7 @@ const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }
-        >
+          >
           <span className="material-symbols-sharp"> work_history </span>
           <p>Leave Management</p>
         </NavLink>
@@ -77,17 +95,16 @@ const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
             className={({ isActive }) =>
               isActive ? "nav-item active" : "nav-item"
             }
-
           >
             <span className="material-symbols-sharp"> settings </span>
             <p>Settings</p>
           </NavLink>
 
           {/*  */}
-          <Link to="/login" className="nav-item">
+          <a onClick={logOutUser} className="nav-item">
             <span className="material-symbols-sharp"> logout </span>
             <p>Logout</p>
-          </Link>
+          </a>
         </div>
       </div>
     </aside>

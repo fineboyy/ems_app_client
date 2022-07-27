@@ -8,7 +8,7 @@ export const Loader = () => {
     <div className="Loader container">
       <Sidebar />
       <main>
-        <div class="lds-spinner">
+        <div className="lds-spinner">
           <div></div>
           <div></div>
           <div></div>

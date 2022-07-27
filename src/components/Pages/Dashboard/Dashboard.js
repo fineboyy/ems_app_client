@@ -1,37 +1,44 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 // REDUX
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { getAllEmployees } from "../../../redux/actions/employees";
-import { getAllDepartments } from "../../../redux/actions/departments";
+import { useGetAllEmployeesQuery } from "../../../app/api/apiSlice";
+import { useGetAllDepartmentsQuery } from "../../../app/api/apiSlice";
+
 
 // COMPONENTS
 import Sidebar from "../../Sidebar/Sidebar";
 import TopBar from "../../TopBar/TopBar";
-import FullScreenLoader from "../../Loader/FullScreenLoader/FullScreenLoader";
 
 // CSS
 import "../../../index.css";
 import "./Dashboard.css";
 import profile_img from "../../../images/default-img.jpg";
 import { DepartmentsTable } from "./DepartmentsTable/DepartmentsTable";
+import Loader from "../../Loader/Loader";
+
+
+
 
 export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
   document.title = "Dashboard | Div.co Human Resource Management System";
-  const employees = useSelector((state) => state.employees);
-  const departments = useSelector((state) => state.departments);
-  const dispatch = useDispatch();
-  const networkError = useSelector((state) => state.networkError);
 
-  useEffect(() => {
-    // if (!(departments.length && employees.length)) {
-      dispatch(getAllEmployees());
-      dispatch(getAllDepartments());
-    // }
-  }, [dispatch]);
+
+  const {data: employees, 
+    isLoading, 
+    isError, 
+    isSuccess, 
+  } = useGetAllEmployeesQuery()
+  const {
+    data: departments, 
+    isLoading: isDepartmentsLoading, 
+    isError: isDepartmentsError,
+     isSuccess: isDepartmentsSuccess,
+    } = useGetAllDepartmentsQuery()
+  
+  
+  let content
 
   function returnDashboard() {
     return (
@@ -66,13 +73,21 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
     );
   };
 
-  if(Object.keys(networkError).length) return  returnErrorPage()
 
-  return !(employees.length && departments.length) ? (
-    <FullScreenLoader />
-  ) : (
-    returnDashboard()
-  );
+  if(isLoading && isDepartmentsLoading) {
+    content = <Loader />
+  } else if (isLoading || isDepartmentsLoading) {
+    content = <Loader />
+  }
+  else if (isSuccess && isDepartmentsSuccess) {
+    content = returnDashboard()
+  } else if(isError && isDepartmentsError) {
+    content = returnErrorPage()
+  } else if (isError) {
+    content =  returnErrorPage()
+  }
+
+  return content
 };
 
 export const RecentlyAddedEmployees = ({ recentlyAddedEmployees }) => {

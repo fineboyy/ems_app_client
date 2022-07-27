@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./TopBar.css";
+import { setSidebarVisible } from "../../features/sidebarVisibility/sidebarVisibilitySlice";
 
 const returnBrand = (pageName = "Some page") => {
   if (pageName === "dashboard") {
@@ -25,7 +27,10 @@ const returnBrand = (pageName = "Some page") => {
   }
 };
 
-const TopBar = ({ sidebarVisible, setSidebarVisible, pageName }) => {
+const TopBar = ({ pageName }) => {
+  const dispatch = useDispatch()
+  const sidebarVisible = useSelector((state) => state.sidebarVisibility)
+
   return (
     <nav className="TopBar">
 
@@ -33,7 +38,7 @@ const TopBar = ({ sidebarVisible, setSidebarVisible, pageName }) => {
       <div className="right-side">
         <div
           className="menu"
-          onClick={() => setSidebarVisible(!sidebarVisible)}
+          onClick={() => dispatch(setSidebarVisible(!(sidebarVisible.value))) }
         >
           <span className="material-symbols-sharp"> menu </span>
         </div>

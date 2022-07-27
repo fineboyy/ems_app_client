@@ -1,37 +1,38 @@
 import React, { useEffect, useState, useRef } from "react";
 import moment from "moment";
 import FileBase64 from "react-file-base64";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 //COMPONENTS
 import Sidebar from "../../Sidebar/Sidebar";
 import TopBar from "../../TopBar/TopBar";
 import Loader from "../../Loader/Loader";
-import "./NewEmployeeForm.css";
+import {ErrorPage} from '../../Pages/ErrorPage/ErrorPage'
 
-import { useDispatch, useSelector } from "react-redux";
-import { createNewEmployee } from "../../../redux/actions/employees";
-import { getAllDepartments } from "../../../redux/actions/departments";
-import ActionTypes from "../../../redux/constants";
+//REDUX
+import { useGetAllDepartmentsQuery } from "../../../app/api/apiSlice";
+import { useCreateNewEmployeeMutation } from "../../../app/api/apiSlice";
 
-const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
+import "./AddNewEmployee.css";
+const AddNewEmployee = () => {
   const topSection = useRef(null);
-  const navigate = useNavigate()
-  const dispatch = useDispatch();
-  const departments = useSelector((state) => state.departments);
-  const newlyCreatedEmployee = useSelector((state) => state.employee )
-  const isLoading = useSelector((state) => state.loading);
-  // let isCreated = false;
+  const navigate = useNavigate();
+
+  const {
+    data: departments,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetAllDepartmentsQuery();
+  const [
+    createEmployee,
+    { isLoading: isCreating },
+  ] = useCreateNewEmployeeMutation();
 
   useEffect(() => {
-    document.title = "Create New Employee | Div.co Human Resource Management System";
-    if(!departments?.length) {
-      dispatch(getAllDepartments());
-    }
-
-    if(departments?.length) dispatch({type: ActionTypes.HIDE_LOADER })
-
-  }, [dispatch, departments]);
+    document.title =
+      "Create New Employee | Div.co Human Resource Management System";
+  });
   const [newEmployee, setNewEmployee] = useState({
     first_name: "",
     last_name: "",
@@ -55,7 +56,8 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
     school_year_completed: "",
   });
 
-  const [isCreated, setIsCreated] = useState(false)
+  const [newID, setNewID] = useState("404");
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     setNewEmployee({
@@ -79,29 +81,35 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({ type: ActionTypes.SHOW_LOADER });
+    try {
+      const newEmployeeFromDB = await createEmployee(newEmployee).unwrap();
+      setNewID(newEmployeeFromDB._id);
+      setShowModal(true);
+    } catch (error) {
+      console.log(error);
+    }
     handleReset();
-    await dispatch(createNewEmployee(newEmployee));
-    dispatch({type: ActionTypes.HIDE_LOADER})
-    setIsCreated(true)
   };
-
-
-  const viewNewlyCreatedEmployee = () => {
-      navigate(`/employees/${newlyCreatedEmployee._id}`)
-  }
 
   function returnModal() {
     return (
       <div className="container">
-        <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible}  />
+        <Sidebar />
 
         <main className="Centered">
           <div className="box">
             <h1>Employee Successfully Created!</h1>
             <div className="buttons">
-              <button onClick={viewNewlyCreatedEmployee}>View Employee</button>
-              <button onClick={() => {setIsCreated({value: false})}}>Back to Form</button>
+              <button onClick={() => navigate(`/employees/${newID}`)}>
+                View Employee
+              </button>
+              <button
+                onClick={() => {
+                  setShowModal(false);
+                }}
+              >
+                Back to Form
+              </button>
             </div>
           </div>
         </main>
@@ -111,11 +119,11 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
 
   function returnForm() {
     return (
-      <div className="NewEmployeeForm container">
-        <Sidebar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} />
+      <div className="AddNewEmployee container">
+        <Sidebar />
 
         <main>
-          <TopBar sidebarVisible={sidebarVisible} setSidebarVisible={setSidebarVisible} pageName={"Add New Employee"} />
+          <TopBar pageName={"Add New Employee"} />
 
           <form className="form-area" ref={topSection} onSubmit={handleSubmit}>
             <div className="fields">
@@ -364,9 +372,23 @@ const NewEmployeeForm = ({sidebarVisible, setSidebarVisible}) => {
     );
   }
 
-  if (isLoading) return <Loader />;
+   let content
 
-  return isCreated ? returnModal() : returnForm();
+  if(isLoading) {
+    content = <Loader />
+  } else if (isCreating) {
+    content = <Loader />
+  } 
+ else if(showModal) {
+    content = returnModal();
+  }else if(isSuccess) {
+    content = returnForm()
+  } else if (isError) {
+    content = <ErrorPage />
+  }
+
+ 
+  return content
 };
 
-export default NewEmployeeForm;
+export default AddNewEmployee;

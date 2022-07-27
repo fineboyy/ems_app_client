@@ -5,7 +5,7 @@ import "./FullScreenLoader.css";
 const FullScreenLoader = () => {
   return (
     <div className="FullScreenLoader container">
-      <div class="lds-roller">
+      <div className="lds-roller">
         <div></div>
         <div></div>
         <div></div>
@@ -16,7 +16,7 @@ const FullScreenLoader = () => {
         <div></div>
       </div>
 
-      <h1>Initializing, Please Wait.</h1>
+      {/* <h1>Initializing, Please Wait.</h1> */}
     </div>
   );
 };

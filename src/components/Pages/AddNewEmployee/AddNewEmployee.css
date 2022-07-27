@@ -1,4 +1,4 @@
-.NewEmployeeForm form {
+.AddNewEmployee form {
   margin-top: 3rem;
   /* display: flex;
     justify-content: space-between; */
@@ -8,7 +8,7 @@
   gap: 3rem;
 }
 
-.NewEmployeeForm fieldset {
+.AddNewEmployee fieldset {
   margin-bottom: 3rem;
   padding: 1.5rem;
   background-color: var(--color-white);
@@ -16,17 +16,17 @@
   box-shadow: var(--box-shadow);
 }
 
-.NewEmployeeForm fieldset .inputs {
+.AddNewEmployee fieldset .inputs {
   display: grid;
   grid-template-columns: auto auto;
   gap: 3rem;
 }
 
-.NewEmployeeForm fieldset .inputs .input-field {
+.AddNewEmployee fieldset .inputs .input-field {
   margin-top: 2rem;
 }
 
-.NewEmployeeForm fieldset label {
+.AddNewEmployee fieldset label {
   font-size: 1rem;
   display: block;
 }
@@ -35,7 +35,7 @@
   visibility: hidden;
 }
 
-.NewEmployeeForm fieldset input, .NewEmployeeForm select {
+.AddNewEmployee fieldset input, .AddNewEmployee select {
   color: var(--color-dark);
   font-weight: 500;
   padding: 0.75rem;
@@ -48,15 +48,15 @@
   border-radius: 5px;
 }
 
-.NewEmployeeForm .form-buttons {
+.AddNewEmployee .form-buttons {
   display: flex;
   justify-content: center;
   gap: 2rem;
   margin-bottom: 5rem;
 }
 
-.NewEmployeeForm .form-button-submit,
-.NewEmployeeForm .form-button-cancel {
+.AddNewEmployee .form-button-submit,
+.AddNewEmployee .form-button-cancel {
   padding: 0.8rem 4.5rem;
   border-radius: 35px;
   border: 2px solid var(--color-info-dark);
@@ -65,12 +65,12 @@
   cursor: pointer;
 }
 
-.NewEmployeeForm .form-button-submit {
+.AddNewEmployee .form-button-submit {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
 
-.NewEmployeeForm .image-box {
+.AddNewEmployee .image-box {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@
   background-position: center;
 }
 
-.NewEmployeeForm .image-box span {
+.AddNewEmployee .image-box span {
   width: 50px;
   height: 50px;
   font-size: 3rem;
@@ -102,12 +102,12 @@
   cursor: pointer;
 }
 
-.NewEmployeeForm .image-box label {
+.AddNewEmployee .image-box label {
   z-index: 4;
   position: relative;
 }
 
-.NewEmployeeForm .image-box input[type="file"] {
+.AddNewEmployee .image-box input[type="file"] {
   display: inline-block;
   height: 50px;
   width: 50px;
@@ -156,21 +156,21 @@
 }
 
 @media screen and (max-width: 920px) {
-  .NewEmployeeForm form {
+  .AddNewEmployee form {
     grid-template-columns: 1fr;
   }
 
-  .NewEmployeeForm form .inputs {
+  .AddNewEmployee form .inputs {
     grid-template-columns: auto;
     gap: 0;
   }
 
-  .NewEmployeeForm .image-upload  {
+  .AddNewEmployee .image-upload  {
     display: flex;
     justify-content: center;
   }
 
-  .NewEmployeeForm .image-box {
+  .AddNewEmployee .image-box {
     width: 50%;
   }
 }
