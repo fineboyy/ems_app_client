@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Dashboard } from "./components/Pages/Dashboard/Dashboard";
 import { Departments } from "./components/Pages/Departments/Departments";
@@ -19,7 +19,6 @@ import { RequireAuth } from "./features/auth/RequireAuth";
 import { RequireRefresh } from "./features/auth/RequireRefresh";
 
 const App = () => {
-  const [sidebarVisible, setSidebarVisible] = useState(false);
 
   const returnApp = () => {
     return (
