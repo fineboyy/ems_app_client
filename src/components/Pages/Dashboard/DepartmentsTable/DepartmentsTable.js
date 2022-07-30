@@ -44,7 +44,7 @@ export const DepartmentsTable = ({departments}) => {
                     <td>This is the sales department</td>
                     <td>
                       <Link
-                        to={`/departments/${department.name}`}
+                        to={`/departments/${department._id}`}
                         className="more-details"
                       >
                         View

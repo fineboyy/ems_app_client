@@ -1,8 +1,17 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials, logOut } from "../../features/auth/authSlice";
 
+
+let URL
+if(process.env.node_env === "production") {
+  URL = "https://mighty-peak-10043.herokuapp.com"
+} else {
+  URL = "http://localhost:5000"
+}
+
+
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://mighty-peak-10043.herokuapp.com",
+  baseUrl: URL,
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = getState().auth.token;
@@ -50,6 +59,10 @@ export const apiSlice = createApi({
       getAllDepartments: builder.query({
         query: () => `/departments`
       }),
+      getOneDepartment: builder.query({
+        query: (id) => `/departments/${id}`
+      }),
+
       getAllLeaveApplications: builder.query({
         query: () => `/leave-applications`
       }),
@@ -69,6 +82,7 @@ export const {
   useGetAllEmployeesQuery, 
   useGetAllDepartmentsQuery, 
   useGetOneEmployeeQuery, 
+  useGetOneDepartmentQuery,
   useGetAllLeaveApplicationsQuery,
   useCreateNewEmployeeMutation
  } = apiSlice

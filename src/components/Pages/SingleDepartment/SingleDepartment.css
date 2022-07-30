@@ -1,0 +1,132 @@
+.SingleDepartment .department-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.SingleDepartment .department-right-side {
+    flex-grow: 2;
+}
+
+.SingleDepartment .SummaryCard, .SingleDepartment .department-right-side {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+    padding: 1rem 2rem;
+}
+
+
+.SummaryCard .inner {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.SummaryCard .inner .right {
+    flex-grow: 1;
+}
+
+.SingleDepartment .border-bottom {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-border-light);
+}
+
+.SummaryCard .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 120px;
+    height: 120px;
+    background-color: var(--color-pink);
+}
+
+.SummaryCard .other-details {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 10rem; */
+}
+
+.SummaryCard .entry {
+    margin-bottom: 0.8rem;
+}
+
+.SummaryCard .buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.SummaryCard .buttons button {
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+}
+
+.SummaryCard .avatar p {
+    font-size: 2.5rem;
+    color: var(--color-white);
+}
+
+.MemberRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.MemberRow .left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.MemberRow .hod-tag {
+    border-radius: 20px;
+    background-color: #3397e930;
+    width: max-content;
+    padding: 0.0rem 1rem;
+}
+
+.MemberRow .right {
+    text-align: right;
+}
+
+.go-back {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    /* Consider removing the margin top when making it a separate component */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.SingleDepartment .none-found {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+@media screen and   (max-width: 1100px) {
+
+    .department-wrapper {
+        flex-direction: column;
+    }
+    
+}
+@media screen and   (max-width: 512px) {
+
+    .SummaryCard .inner {
+        flex-direction: column;
+    }
+    
+    .SummaryCard .inner h2 {
+        text-align: center;
+    }
+}

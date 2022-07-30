@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../../index.css";
@@ -7,6 +7,7 @@ import "./Sidebar.css";
 import { setSidebarVisible } from "../../features/sidebarVisibility/sidebarVisibilitySlice";
 import { logOut as clearCredentials } from "../../features/auth/authSlice"
 import { useSignOutMutation } from "../../features/auth/authApiSlice";
+import Loader from "../Loader/Loader";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,11 @@ const Sidebar = () => {
 
   const [ signOut, { isLoading } ] = useSignOutMutation()
   const sidebarVisible = useSelector((state) => state.sidebarVisibility);
+
+  useEffect(() => {
+    dispatch(setSidebarVisible(false))
+  }, [dispatch])
+  
 
 
   
@@ -28,8 +34,10 @@ const Sidebar = () => {
       console.log("Error", error);
     }
   }
+  let className = sidebarVisible ? "Sidebar translate-sidebar" : "Sidebar ";
+
+  if(isLoading) return <Loader />
   
-  let className = sidebarVisible ? "Sidebar" : "Sidebar translate-sidebar";
   return (
     <aside className={className}>
       <div className="sidebar-top">

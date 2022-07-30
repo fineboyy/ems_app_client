@@ -43,16 +43,9 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
   function returnDashboard() {
     return (
       <div className="Dashboard container">
-        <Sidebar
-          sidebarVisible={sidebarVisible}
-          setSidebarVisible={setSidebarVisible}
-        />
+        <Sidebar  />
         <main>
-          <TopBar
-            sidebarVisible={sidebarVisible}
-            setSidebarVisible={setSidebarVisible}
-            pageName={"dashboard"}
-          />
+          <TopBar   pageName={"dashboard"} />
 
           <RecentlyAddedEmployees
             recentlyAddedEmployees={employees.slice().reverse().slice(0, 4)}
@@ -66,10 +59,7 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
 
   const returnErrorPage = () => {
     return (
-      <ErrorPage
-        sidebarVisible={sidebarVisible}
-        setSidebarVisible={setSidebarVisible}
-      />
+      <ErrorPage />
     );
   };
 
