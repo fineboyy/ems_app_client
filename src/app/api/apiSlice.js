@@ -74,6 +74,13 @@ export const apiSlice = createApi({
         })
 
       }),
+      deleteEmployee: builder.mutation({
+        query: ({id, department_id }) => ({
+          url: `/employees/${id}`,
+          method: 'DELETE',
+          body: { department_id: department_id }
+        })
+      }),
      })
 })
 
@@ -84,5 +91,6 @@ export const {
   useGetOneEmployeeQuery, 
   useGetOneDepartmentQuery,
   useGetAllLeaveApplicationsQuery,
-  useCreateNewEmployeeMutation
+  useCreateNewEmployeeMutation,
+  useDeleteEmployeeMutation
  } = apiSlice

@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
 //RTK
-import { useSelector, useDispatch } from "react-redux";
 import { useGetAllEmployeesQuery } from "../../../app/api/apiSlice";
 
-//COMPONENTS
-import Sidebar from "../../Sidebar/Sidebar";
-import TopBar from "../../TopBar/TopBar";
 import Loader from "../../Loader/Loader";
 import SingleEmployeeModal from "./SingleEmployeeModal/SingleEmployeeModal";
 import EmployeesTable from "./EmployeesTable/EmployeesTable";
@@ -42,7 +37,6 @@ export const Employees = () => {
   const [startNumber, setStartNumber] = useState(0);
   const [endNumber, setEndNumber] = useState(5);
   const [rangeNum, setRangeNum] = useState(endNumber);
-
 
   useEffect(() => {
     document.title = "Employees | Div.co Human Resource Management System";
@@ -90,54 +84,48 @@ export const Employees = () => {
 
   const returnContent = () => {
     return (
-      <div className="Employees container">
-        <Sidebar />
+      <div className="Employees">
+        <Insights
+          femaleEmployeeNumber={femaleEmployeeNumber}
+          maleEmployeeNumber={maleEmployeeNumber}
+          employees={employees}
+        />
 
-        <main>
-          <TopBar pageName={"Employees"} />
-
-          <Insights
-            femaleEmployeeNumber={femaleEmployeeNumber}
-            maleEmployeeNumber={maleEmployeeNumber}
-            employees={employees}
-          />
-
-          <div className="employee-container">
-            <div className="top-buttons">
-              <Link to={"/employees/new"} className="button">
-                <span className="material-symbols-sharp"> add_circle </span>
-                <p>Add Employee</p>
-              </Link>
-            </div>
-
-            <EmployeesTable
-              startNumber={startNumber}
-              endNumber={endNumber}
-              employees={employees}
-              setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
-              profile_img={profile_img}
-            />
-
-            <EmployeesTableControls
-              rangeNum={rangeNum}
-              changeRange={changeRange}
-              changeCurrentEmployeeList={changeCurrentEmployeeList}
-              startNumber={startNumber}
-              endNumber={endNumber}
-              employees={employees}
-            />
+        <div className="employee-container">
+          <div className="top-buttons">
+            <Link to={"/employees/new"} className="button">
+              <span className="material-symbols-sharp"> add_circle </span>
+              <p>Add Employee</p>
+            </Link>
           </div>
 
-          {currentlyActiveEmployee ? (
-            <SingleEmployeeModal
-              employee={currentlyActiveEmployee}
-              setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
-              toggleCurrentEmployee={changeCurrentlyActiveEmploye}
-            />
-          ) : (
-            ""
-          )}
-        </main>
+          <EmployeesTable
+            startNumber={startNumber}
+            endNumber={endNumber}
+            employees={employees}
+            setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
+            profile_img={profile_img}
+          />
+
+          <EmployeesTableControls
+            rangeNum={rangeNum}
+            changeRange={changeRange}
+            changeCurrentEmployeeList={changeCurrentEmployeeList}
+            startNumber={startNumber}
+            endNumber={endNumber}
+            employees={employees}
+          />
+        </div>
+
+        {currentlyActiveEmployee ? (
+          <SingleEmployeeModal
+            employee={currentlyActiveEmployee}
+            setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
+            toggleCurrentEmployee={changeCurrentlyActiveEmploye}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   };
@@ -147,9 +135,7 @@ export const Employees = () => {
   } else if (isSuccess) {
     content = returnContent();
   } else if (isError) {
-    content = (
-      <ErrorPage />
-    );
+    content = <ErrorPage />;
   } else {
     content = <p>We don't know what to display</p>;
   }

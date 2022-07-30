@@ -18,6 +18,7 @@
     border-radius: var(--card-border-radius);
     overflow: hidden;
     position: relative;
+    box-shadow: var(--box-shadow);
 }
 
 .Login .card .image-side {

@@ -1,7 +1,5 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Sidebar from "../../Sidebar/Sidebar";
-import TopBar from "../../TopBar/TopBar";
 import Loader from "../../Loader/Loader";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 
@@ -20,33 +18,26 @@ export const SingleDepartment = () => {
 
   const returnContent = () => {
     return (
-      <div className="SingleDepartment container">
-        <Sidebar />
-        <main>
-          <TopBar pageName={department?.name ? department.name : "Unknown"} />
+      <div className="SingleDepartment">
+        <div className="go-back" onClick={() => navigate(-1)}>
+          <span className="material-symbols-sharp">arrow_back</span>
+          <h3>Go Back</h3>
+        </div>
 
-          <div className="go-back" onClick={() => navigate(-1)}>
-            <span className="material-symbols-sharp">arrow_back</span>
-            <h3>Go Back</h3>
+        <div className="department-wrapper">
+          <div className="department-left-side">
+            <SummaryCard department={department} />
           </div>
+          <div className="department-right-side">
+            <p className="blue-deeper border-bottom">Members</p>
 
-          <div className="department-wrapper">
-            <div className="department-left-side">
-              <SummaryCard department={department} />
-            </div>
-            <div className="department-right-side">
-              <p className="blue-deeper border-bottom">Members</p>
-
-              {department.members.length ? (
-                department.members.map((member) => (
-                  <MemberRow member={member} />
-                ))
-              ) : (
-                <h2 className="none-found">No Employees Here Yet</h2>
-              )}
-            </div>
+            {department.members.length ? (
+              department.members.map((member) => <MemberRow member={member} />)
+            ) : (
+              <h2 className="none-found">No Employees Here Yet</h2>
+            )}
           </div>
-        </main>
+        </div>
       </div>
     );
   };

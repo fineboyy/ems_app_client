@@ -1,13 +1,11 @@
 import React, {useEffect} from "react";
 
 //redux
-import { useDispatch, useSelector } from 'react-redux'
+// import { useDispatch, useSelector } from 'react-redux'
 import { useGetAllLeaveApplicationsQuery } from "../../../app/api/apiSlice";
 import Loader from "../../Loader/Loader";
 
 ///COMPONENTS
-import Sidebar from "../../Sidebar/Sidebar";
-import TopBar from "../../TopBar/TopBar";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { InfoCards } from "./InfoCards/InfoCards";
 
@@ -24,8 +22,6 @@ export const LeavePage = () => {
       } = useGetAllLeaveApplicationsQuery();
 
 
-  const dispatch = useDispatch()
-
 
   const pendingLeaves = leave_applications?.filter((leave) => leave.leave_status === "pending")
   const rejectedLeaves = leave_applications?.filter((leave) => leave.leave_status === "rejected")
@@ -39,10 +35,7 @@ export const LeavePage = () => {
 
   const returnContent = () => {
     return (
-      <div className="LeavePage container">
-        <Sidebar  />
-        <main>
-          <TopBar pageName={"Leave Management"} />
+      <div className="LeavePage">
   
           <InfoCards total = {leave_applications} pending = {pendingLeaves}  rejected ={rejectedLeaves} approved = {approvedLeaves} />
   
@@ -50,8 +43,6 @@ export const LeavePage = () => {
   
           <LeaveTable tableHeader="Unresolved Leave Applications" applications = {pendingLeaves} />
           <LeaveTable tableHeader="Leave Records List" applications = {resolvedApplications} />
-          
-        </main>
       </div>
     );
   }

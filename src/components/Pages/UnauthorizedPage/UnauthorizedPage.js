@@ -1,7 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Sidebar/Sidebar";
-import TopBar from "../../TopBar/TopBar";
 
 import "./UnauthorizedPage.css";
 export const UnauthorizedPage = () => {
@@ -9,11 +7,7 @@ export const UnauthorizedPage = () => {
   document.title = "503 Unauthorized"
 
   return (
-    <div className="UnauthorizedPage container">
-      <Sidebar />
-      <main>
-        <TopBar pageName={"Unauthorized"} />
-
+    <div className="UnauthorizedPage">
         <div className="error-text">
           <span className="material-symbols-sharp frown-icon danger">
             block
@@ -26,7 +20,6 @@ export const UnauthorizedPage = () => {
             Go Back
           </button>
         </div>
-      </main>
     </div>
   );
 };

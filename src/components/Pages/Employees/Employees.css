@@ -1,5 +1,5 @@
 /* INSIGHTS */
-.Employees main .insights {
+.Employees .insights {
   margin-top: 3rem;
   display: flex;
   width: 100%;
@@ -7,31 +7,42 @@
   gap: 1rem;
 }
 
-.Employees main .insights .card {
+.Employees .insights .card {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+
   padding: 2rem;
-  background-color: var(--color-primary);
-  color: white;
+  /* color: var(--color-primary); */
+  color: var(--color-dark-variant);
   border-radius: 10px;
   gap: 1rem;
+
+
+
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
 }
 
-.Employees main .insights .card span {
+.Employees .insights .card h1 {
+  font-size: 3rem;
+}
+
+.Employees .insights .card span {
   font-size: 6rem;
+  color: var(--color-blue-deeper);
 }
 
-.Employees main .insights .card:first-child {
+.Employees .insights .card:first-child {
   width: 25rem;
   justify-content: stretch;
 }
 
-.Employees main .insights .card:first-child .right-side {
+.Employees .insights .card:first-child .right-side {
   width: 100%;
 }
-.Employees main .insights .card progress {
+.Employees .insights .card progress {
   width: 100%;
   height: 10px;
   background-color: var(--color-background);
@@ -49,7 +60,7 @@ progress::-webkit-progress-bar {
 }
 progress::-webkit-progress-value {
   border-radius: 12px;
-  background-color: var(--color-nav-background);
+  background-color: var(--color-primary);
 }
 progress::-moz-progress-bar {
   background-color: var(--color-background);
@@ -139,7 +150,7 @@ progress::-moz-progress-bar {
     grid-template-columns: 15rem auto;
   }
 
-  .Employees main .topbar {
+  .Employees .topbar {
     padding: 0.7rem;
   }
 }
@@ -151,19 +162,19 @@ progress::-moz-progress-bar {
 
   /* MAIN */
 
-  .Employees main {
+  /* .Employees main {
     width: 94%;
-  }
+  } */
 
-  .Employees main .topbar {
+  .Employees .topbar {
     padding: 1rem;
   }
 
-  .Employees main .topbar .brand {
+  .Employees .topbar .brand {
     display: none;
   }
 
-  .Employees main .topbar .right-side {
+  .Employees .topbar .right-side {
     width: 100%;
     justify-content: space-between;
   }
@@ -188,7 +199,7 @@ progress::-moz-progress-bar {
   }
 
   .Employees .insights .card {
-    width: 47% !important;
+    width: 47%;
   }
 }
 
@@ -197,22 +208,16 @@ progress::-moz-progress-bar {
     grid-template-columns: 1fr;
   }
 
-  /* .Employees MAIN */
+  /* .Employees */
 
-  .Employees main .topbar {
+  .Employees .topbar {
     margin-top: 1rem;
   }
 
-  .Employees main .topbar .menu {
+  .Employees .topbar .menu {
     display: inline;
     cursor: pointer;
     font-weight: 800;
-  }
-
-  .Employees main {
-    position: absolute;
-    width: 100%;
-    padding: 1rem 2%;
   }
 }
 
@@ -220,16 +225,16 @@ progress::-moz-progress-bar {
 
   .Employees .insights {
     flex-direction: column;
+ 
   }
 
-  .Employees main .insights .card {
-    width: 100% !important;
-    /* justify-content: space-around; */
+  .Employees .insights .card {
+    width: 100%;
     justify-content: stretch;
     padding: 2rem;
   }
 
-  .Employees main .insights .card .right-side {
+  .Employees .insights .card .right-side {
     width: 100%;
   }
 
@@ -237,9 +242,4 @@ progress::-moz-progress-bar {
   .Employees table th:nth-child(2), .Employees table tr td:nth-child(2) {
     display: none;
   }
-
-
-
-
-
 }

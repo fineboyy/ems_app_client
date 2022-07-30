@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../../index.css";
@@ -19,10 +19,7 @@ const Sidebar = () => {
   useEffect(() => {
     dispatch(setSidebarVisible(false))
   }, [dispatch])
-  
-
-
-  
+    
   const logOutUser = async () => {
     console.log("dgfhgjhgfdsa");
     try {
@@ -60,6 +57,7 @@ const Sidebar = () => {
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }
+          onClick={() => dispatch(setSidebarVisible(false))}
         >
           <span className="material-symbols-sharp"> format_list_bulleted </span>
           <p>Dashboard</p>
@@ -69,6 +67,7 @@ const Sidebar = () => {
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }
+          onClick={() => dispatch(setSidebarVisible(false))}
         >
           <span className="material-symbols-sharp"> group </span>
           <p>Employees</p>
@@ -78,6 +77,7 @@ const Sidebar = () => {
           className={({ isActive }) =>
           isActive ? "nav-item active" : "nav-item"
         }
+        onClick={() => dispatch(setSidebarVisible(false))}
         >
           <span className="material-symbols-sharp"> domain </span>
           <p>Departments</p>
@@ -87,12 +87,13 @@ const Sidebar = () => {
           className={({ isActive }) =>
             isActive ? "nav-item active" : "nav-item"
           }
+          onClick={() => dispatch(setSidebarVisible(false))}
           >
           <span className="material-symbols-sharp"> work_history </span>
           <p>Leave Management</p>
         </NavLink>
         <div>
-          <Link to="/help" className="nav-item">
+          <Link to="/help" className="nav-item" onClick={() => dispatch(setSidebarVisible(false))}>
             <span className="material-symbols-sharp"> help </span>
             <p>Help</p>
           </Link>
@@ -103,6 +104,7 @@ const Sidebar = () => {
             className={({ isActive }) =>
               isActive ? "nav-item active" : "nav-item"
             }
+            onClick={() => dispatch(setSidebarVisible(false))}
           >
             <span className="material-symbols-sharp"> settings </span>
             <p>Settings</p>

@@ -1,16 +1,13 @@
-main {
-    width: 96%;
-    margin: 0 auto;
-}
+
 
 
 /* RECENT EMPLOYEES */
 
-main .recent-employees {
+.Dashboard .recent-employees {
     margin-top: 1.5rem;
 }
 
-main .recent-employees .employees {
+.Dashboard .recent-employees .employees {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -18,7 +15,7 @@ main .recent-employees .employees {
     gap: 1rem;
 }
 
-main .recent-employees .employees .employee {
+.Dashboard .recent-employees .employees .employee {
     background-color: var(--color-white);
     padding: var(--card-padding);
     display: flex;
@@ -30,14 +27,14 @@ main .recent-employees .employees .employee {
     box-shadow: var(--box-shadow);
 }
 
-main .recent-employees .employees .employee a {
+.Dashboard .recent-employees .employees .employee a {
     padding: 0.15rem 2rem;
     border: 1px solid #D5DDE5;
     border-radius: 30px;
     transition: all 300ms ease;
 }
 
-main .recent-employees .employees .employee a:hover {
+.Dashboard .recent-employees .employees .employee a:hover {
     background-color: #D5DDE5;
     color: var(--color-primary);
     border: 1px solid var(--color-primary);
@@ -63,18 +60,13 @@ main .recent-employees .employees .employee a:hover {
 
 @media screen and (max-width:920px) {
 
-    .Dashboard.container {
+    .Dashboard {
         grid-template-columns: 7rem auto;
-    }
-    /* MAIN */
-    
-    main {
-        width: 94%;
     }
 
 
     /* AFTER TOPBAR */
-    main .recent-employees .employees {
+    .Dashboard .recent-employees .employees {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
@@ -90,22 +82,11 @@ main .recent-employees .employees .employee a:hover {
 
 @media screen and (max-width:768px) {
 
-    .Dashboard.container {
+       .Dashboard .recent-employees .employees {
         grid-template-columns: 1fr;
     }
 
-    /* MAIN */
-    main {
-        position: absolute;
-        width: 100%;
-        padding: 1rem 2%;
-    }
-
-    main .recent-employees .employees {
-        grid-template-columns: 1fr;
-    }
-
-    main .recent-employees .employees .employee {
+    .Dashboard .recent-employees .employees .employee {
         box-shadow: var(--box-shadow);
     }
 
@@ -116,10 +97,6 @@ main .recent-employees .employees .employee a:hover {
 }
 
 @media screen and (max-width: 425px) {
-    /* TOPBAR */
-    .icons span {
-        display: none;
-    }
 
     /* DEPARTMENTS TABLE */ 
     .DepartmentsTable tr .avatar:nth-child(4) {

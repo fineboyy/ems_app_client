@@ -4,8 +4,7 @@ import FileBase64 from "react-file-base64";
 import { useNavigate } from "react-router-dom";
 
 //COMPONENTS
-import Sidebar from "../../Sidebar/Sidebar";
-import TopBar from "../../TopBar/TopBar";
+
 import Loader from "../../Loader/Loader";
 import {ErrorPage} from '../../Pages/ErrorPage/ErrorPage'
 
@@ -93,9 +92,6 @@ const AddNewEmployee = () => {
 
   function returnModal() {
     return (
-      <div className="container">
-        <Sidebar />
-
         <main className="Centered">
           <div className="box">
             <h1>Employee Successfully Created!</h1>
@@ -113,17 +109,12 @@ const AddNewEmployee = () => {
             </div>
           </div>
         </main>
-      </div>
     );
   }
 
   function returnForm() {
     return (
-      <div className="AddNewEmployee container">
-        <Sidebar />
-
-        <main>
-          <TopBar pageName={"Add New Employee"} />
+      <div className="AddNewEmployee">
 
           <form className="form-area" ref={topSection} onSubmit={handleSubmit}>
             <div className="fields">
@@ -367,7 +358,6 @@ const AddNewEmployee = () => {
               />
             </div>
           </form>
-        </main>
       </div>
     );
   }

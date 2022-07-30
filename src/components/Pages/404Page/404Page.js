@@ -1,7 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Sidebar/Sidebar";
-import TopBar from "../../TopBar/TopBar";
 
 import "./404Page.css";
 export const NotFoundPage = () => {
@@ -9,11 +7,8 @@ export const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="NotFoundPage container">
-      <Sidebar />
-      <main>
-        <TopBar pageName={"Error"} />
 
+      <div className="NotFoundPage">
         <div className="error-text">
           <span className="material-symbols-sharp frown-icon">
             sentiment_dissatisfied
@@ -26,7 +21,6 @@ export const NotFoundPage = () => {
             Back to Homepage
           </button>
         </div>
-      </main>
-    </div>
+      </div>
   );
 };

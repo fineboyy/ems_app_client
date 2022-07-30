@@ -4,7 +4,7 @@ import "./FullScreenLoader.css";
 
 const FullScreenLoader = () => {
   return (
-    <div className="FullScreenLoader container">
+    <div className="FullScreenLoader">
       <div className="lds-roller">
         <div></div>
         <div></div>

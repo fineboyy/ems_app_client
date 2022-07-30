@@ -20,9 +20,10 @@ import { RequireAuth } from "./features/auth/RequireAuth";
 import { RequireRefresh } from "./features/auth/RequireRefresh";
 import { UnauthorizedPage } from "./components/Pages/UnauthorizedPage/UnauthorizedPage";
 import { SingleDepartment } from "./components/Pages/SingleDepartment/SingleDepartment";
+import Layout from "./components/Layout/Layout";
+import { Modal } from "./components/Modal/Modal";
 
 const App = () => {
-
   const returnApp = () => {
     return (
       <Routes>
@@ -30,28 +31,35 @@ const App = () => {
 
         <Route element={<RequireRefresh />}>
           <Route element={<RequireAuth />}>
-            <Route path="/" element={<Navigate replace to={"/dashboard"} />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/employees" element={<Employees />} />
-            <Route path="/employees/new" element={<AddNewEmployee />} />
-            <Route path="/employees/:id" element={<EmployeeDetails />} />
-            <Route path="/departments" element={<Departments />} />
-            <Route path="/departments/:id" element={<SingleDepartment />} />
-            <Route path="/leave-management" element={<LeavePage />} />
-            <Route path="/settings" element={<Settings />}>
-              <Route path="" element={<SettingsList />} />
-              <Route path="user" element={<UserDetails />} />
-              <Route path="permissions" element={<PermissionsList />} />
+            <Route element={<Layout />}>
               <Route
-                path="permissions/:slug/edit"
-                element={<EditPermissions />}
+                path="/"
+                element={<Navigate replace to={"/dashboard"} />}
               />
-              <Route path="users" element={<UsersList />} />
-              <Route path="notifications" element={<Notifications />} />
-              <Route path="*" element={<Navigate replace to={""} />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/departments" element={<Departments />} />
+              <Route path="/departments/:id" element={<SingleDepartment />} />
+              <Route path="/leave-management" element={<LeavePage />} />
+              <Route path="/employees/new" element={<AddNewEmployee />} />
+
+              <Route path="/settings" element={<Settings />}>
+                <Route path="" element={<SettingsList />} />
+                <Route path="user" element={<UserDetails />} />
+                <Route path="permissions" element={<PermissionsList />} />
+                <Route
+                  path="permissions/:slug/edit"
+                  element={<EditPermissions />}
+                />
+                <Route path="users" element={<UsersList />} />
+                <Route path="notifications" element={<Notifications />} />
+              </Route>
+              <Route path="/404" element={<NotFoundPage />} />
+              <Route path="/unauthorized" element={<UnauthorizedPage />} />
             </Route>
-            <Route path="/unauthorized" element={<UnauthorizedPage />} />
-            <Route path="/404" element={<NotFoundPage />} />
+            <Route element={<Modal />}>
+              <Route path="/employees/:id" element={<EmployeeDetails />} />
+            </Route>
             <Route path="*" element={<Navigate replace to={"/404"} />} />
           </Route>
         </Route>

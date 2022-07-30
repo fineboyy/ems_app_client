@@ -6,11 +6,6 @@ import { ErrorPage } from "../ErrorPage/ErrorPage";
 import { useGetAllEmployeesQuery } from "../../../app/api/apiSlice";
 import { useGetAllDepartmentsQuery } from "../../../app/api/apiSlice";
 
-
-// COMPONENTS
-import Sidebar from "../../Sidebar/Sidebar";
-import TopBar from "../../TopBar/TopBar";
-
 // CSS
 import "../../../index.css";
 import "./Dashboard.css";
@@ -18,66 +13,53 @@ import profile_img from "../../../images/default-img.jpg";
 import { DepartmentsTable } from "./DepartmentsTable/DepartmentsTable";
 import Loader from "../../Loader/Loader";
 
-
-
-
 export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
   document.title = "Dashboard | Div.co Human Resource Management System";
 
-
-  const {data: employees, 
-    isLoading, 
-    isError, 
-    isSuccess, 
-  } = useGetAllEmployeesQuery()
   const {
-    data: departments, 
-    isLoading: isDepartmentsLoading, 
+    data: employees,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useGetAllEmployeesQuery();
+  const {
+    data: departments,
+    isLoading: isDepartmentsLoading,
     isError: isDepartmentsError,
-     isSuccess: isDepartmentsSuccess,
-    } = useGetAllDepartmentsQuery()
-  
-  
-  let content
+    isSuccess: isDepartmentsSuccess,
+  } = useGetAllDepartmentsQuery();
+
+  let content;
 
   function returnDashboard() {
     return (
-      <div className="Dashboard container">
-        <Sidebar  />
-        <main>
-          <TopBar   pageName={"dashboard"} />
+      <div className="Dashboard">
+        <RecentlyAddedEmployees
+          recentlyAddedEmployees={employees.slice().reverse().slice(0, 4)}
+        />
 
-          <RecentlyAddedEmployees
-            recentlyAddedEmployees={employees.slice().reverse().slice(0, 4)}
-          />
-
-          <DepartmentsTable departments={departments} />
-        </main>
+        <DepartmentsTable departments={departments} />
       </div>
     );
   }
 
   const returnErrorPage = () => {
-    return (
-      <ErrorPage />
-    );
+    return <ErrorPage />;
   };
 
-
-  if(isLoading && isDepartmentsLoading) {
-    content = <Loader />
+  if (isLoading && isDepartmentsLoading) {
+    content = <Loader />;
   } else if (isLoading || isDepartmentsLoading) {
-    content = <Loader />
-  }
-  else if (isSuccess && isDepartmentsSuccess) {
-    content = returnDashboard()
-  } else if(isError && isDepartmentsError) {
-    content = returnErrorPage()
+    content = <Loader />;
+  } else if (isSuccess && isDepartmentsSuccess) {
+    content = returnDashboard();
+  } else if (isError && isDepartmentsError) {
+    content = returnErrorPage();
   } else if (isError) {
-    content =  returnErrorPage()
+    content = returnErrorPage();
   }
 
-  return content
+  return content;
 };
 
 export const RecentlyAddedEmployees = ({ recentlyAddedEmployees }) => {

@@ -119,39 +119,12 @@
 
 }
 
-.Centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.Centered .box {
-  padding: 8rem;
-  background-color: white;
-  box-shadow: var(--box-shadow);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  gap: 3rem;
-
-}
-
-.Centered button {
-  padding: 0.5rem;
-  color: var(--color-dark);
-  margin: 0.5rem;
-  cursor: pointer;
-  transition: all 300ms;
-}
-
-.Centered button:hover {
+.CenteredModal button:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
 
-.Centered .box h1 {
+.CenteredModal .box h1 {
   color: var(--color-primary);
 }
 
@@ -176,9 +149,6 @@
 }
 
 
-.Centered {
-  animation: createBox .7s ease;
-}
 @keyframes createBox {
   from {
     transform: scale(0);
