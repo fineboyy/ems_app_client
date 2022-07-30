@@ -3,7 +3,7 @@ import { setCredentials, logOut } from "../../features/auth/authSlice";
 
 
 let URL
-if(process.env.node_env === "production") {
+if(process.env.NODE_ENV === "production") {
   URL = "https://mighty-peak-10043.herokuapp.com"
 } else {
   URL = "http://localhost:5000"
