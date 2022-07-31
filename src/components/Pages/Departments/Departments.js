@@ -70,7 +70,7 @@ export const Departments = ({ sidebarVisible, setSidebarVisible }) => {
             <div className="button-wrapper">
               <h2>Departments List</h2>
               <div className="add-button">
-                <span className="material-symbols-sharp">add</span>
+                <span className="material-symbols-sharp">add_circle</span>
                 Add Department
               </div>
             </div>

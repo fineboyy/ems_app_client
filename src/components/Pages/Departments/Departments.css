@@ -72,13 +72,14 @@
     color: var(--color-white);
     display: flex;
     align-items: center;
+    gap: 0.5rem;
     border-radius: 6px;
     cursor: pointer;
     transition: all 100ms;
 }
 
 .Departments .button-wrapper .add-button:hover {
-    background-color: var(--color-nav-background);
+    background-color: var(--color-blue-deeper);
 }
 .Departments .departments-list-wrapper {        
     width: 100%;

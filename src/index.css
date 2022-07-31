@@ -91,6 +91,9 @@ input, button {
     font-family: poppins, sans-serif;
 }
 
+button {
+    cursor: pointer;
+}
 
 a {
     color: var(--color-info-light);

@@ -21,7 +21,6 @@ const Sidebar = () => {
   }, [dispatch])
     
   const logOutUser = async () => {
-    console.log("dgfhgjhgfdsa");
     try {
       await signOut()
       dispatch(clearCredentials())
@@ -59,7 +58,8 @@ const Sidebar = () => {
           }
           onClick={() => dispatch(setSidebarVisible(false))}
         >
-          <span className="material-symbols-sharp"> format_list_bulleted </span>
+          {/* <span className="material-symbols-sharp"> format_list_bulleted </span> */}
+          <span className="material-symbols-sharp"> dashboard </span>
           <p>Dashboard</p>
         </NavLink>
         <NavLink

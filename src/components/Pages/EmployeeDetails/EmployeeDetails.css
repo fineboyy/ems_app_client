@@ -60,4 +60,86 @@
 }
 
 
+.LeaveTab {
+    margin: 2rem;
+    /* width: max-content; */
+    float: right;
+    padding: 2rem;
+    width: 70%;
+    background-color: white;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+
+}
+
+.LeaveTab .content {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.LeaveTab header p.primary {
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--color-border-light);
+    margin-bottom: 1rem;
+}
+
+.LeaveTab .left {
+    flex-grow: 1;
+}
+
+.LeaveTab .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.LeaveTab .details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.LeaveTab .value {
+    font-weight: 600;
+}
+
+.LeaveTab .approve-btn {
+    background-color: var(--color-success-darker);
+}
+.LeaveTab .reject-btn {
+    background-color: var(--color-danger);
+}
+
+.LeaveTab button {
+    color: var(--color-white);
+    padding: 1rem 8rem;
+    flex-grow: 1;
+    border-radius: var(--border-radius-1);
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .LeaveTab {
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    .LeaveTab .content {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .LeaveTab .content .details {
+        align-items: center;
+    }
+}
+
+
+
     

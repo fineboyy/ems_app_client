@@ -1,72 +1,3 @@
-/* INSIGHTS */
-.Employees .insights {
-  margin-top: 3rem;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.Employees .insights .card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-
-  padding: 2rem;
-  /* color: var(--color-primary); */
-  color: var(--color-dark-variant);
-  border-radius: 10px;
-  gap: 1rem;
-
-
-
-  background-color: var(--color-white);
-  box-shadow: var(--box-shadow);
-}
-
-.Employees .insights .card h1 {
-  font-size: 3rem;
-}
-
-.Employees .insights .card span {
-  font-size: 6rem;
-  color: var(--color-blue-deeper);
-}
-
-.Employees .insights .card:first-child {
-  width: 25rem;
-  justify-content: stretch;
-}
-
-.Employees .insights .card:first-child .right-side {
-  width: 100%;
-}
-.Employees .insights .card progress {
-  width: 100%;
-  height: 10px;
-  background-color: var(--color-background);
-  border-radius: 12px;
-}
-progress::-webkit-progress-bar,
-progress::-webkit-progress-value,
-progress::-moz-progress-bar {
-  border-radius: 12px;
-}
-
-progress::-webkit-progress-bar {
-  background-color: var(--color-background);
-  border-radius: 12px;
-}
-progress::-webkit-progress-value {
-  border-radius: 12px;
-  background-color: var(--color-primary);
-}
-progress::-moz-progress-bar {
-  background-color: var(--color-background);
-  border-radius: 12px;
-}
-
 .employee-container {
   margin-top: 3.5rem;
   width: 100%;
@@ -83,13 +14,18 @@ progress::-moz-progress-bar {
 .employee-container .top-buttons .button {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   background-color: var(--color-primary);
   border-radius: 5px;
   color: white;
   font-weight: 500;
-  padding: 0.3rem 1rem;
+  padding: 1rem 2rem;
   cursor: pointer;
+  transition: all 100ms ease;
+}
+
+.employee-container .top-buttons .button:hover {
+  background-color: var(--color-blue-deeper);
 }
 
 /* =========== EMPLOYEES TABLE SECTION ============= */

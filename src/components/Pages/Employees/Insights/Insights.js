@@ -1,5 +1,7 @@
 import React from "react";
 
+
+import './Insights.css'
 export const Insights = ({
   employees,
   femaleEmployeeNumber,
@@ -17,13 +19,13 @@ export const Insights = ({
         cardName={"Total Male"}
         num1={maleEmployeeNumber}
         num2={employees.length}
-        icon={"man"}
+        icon={"person"}
       />
       <Card
         cardName={"Total Female"}
         num1={femaleEmployeeNumber}
         num2={employees.length}
-        icon={"woman"}
+        icon={"person_2"}
       />
     </div>
   );
@@ -32,17 +34,26 @@ export const Insights = ({
 export const Card = ({ cardName, num1, num2, icon }) => {
   return (
     <div className="card">
-      <span className="material-symbols-sharp"> {icon} </span>
+     <div className="top">
+     <div className="left">
+      <div className="icon-container">
+        <span className="material-symbols-sharp"> {icon} </span>
+      </div>
+      </div>
+
       <div className="right-side">
         <p>{cardName}</p>
         <h1>{num1}</h1>
-        <progress
+      </div>
+     </div>
+
+
+      <progress
           id="whatever"
           value={Math.floor((num1 / num2) * 10) || 0}
           min="0"
           max="10"
         ></progress>
-      </div>
     </div>
   );
 };
