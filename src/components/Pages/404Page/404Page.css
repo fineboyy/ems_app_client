@@ -8,6 +8,12 @@
 
 .NotFoundPage .frown-icon {
     font-size: 10rem;
+    /* color: var(--color-info-dark); */
+    color: var(--color-danger);
+}
+
+.NotFoundPage h1 {
+    color: var(--color-info-dark);
 }
 
 .NotFoundPage button {

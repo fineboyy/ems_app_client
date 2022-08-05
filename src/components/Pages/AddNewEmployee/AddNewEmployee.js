@@ -92,7 +92,7 @@ const AddNewEmployee = () => {
 
   function returnModal() {
     return (
-        <main className="Centered">
+        <main className="CenteredModal">
           <div className="box">
             <h1>Employee Successfully Created!</h1>
             <div className="buttons">

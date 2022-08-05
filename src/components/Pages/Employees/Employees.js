@@ -82,7 +82,19 @@ export const Employees = () => {
 
   let content;
 
-  const returnContent = () => {
+  const [query, setQuery] = useState("");
+
+  const keys = ["full_name", "email", "job_title"];
+
+  const search = (data) => {
+    return data.filter((record) =>
+      keys.some((key) =>
+        record[key].toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  };
+
+  function returnContent() {
     return (
       <div className="Employees">
         <Insights
@@ -93,6 +105,16 @@ export const Employees = () => {
 
         <div className="employee-container">
           <div className="top-buttons">
+            <div className="SearchComponent">
+              <input
+                type="text"
+                placeholder="Search Employee"
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <span className="material-symbols-sharp"> search </span>
+            </div>
+
+
             <Link to={"/employees/new"} className="button">
               <span className="material-symbols-sharp"> add_circle </span>
               <p>Add Employee</p>
@@ -102,7 +124,7 @@ export const Employees = () => {
           <EmployeesTable
             startNumber={startNumber}
             endNumber={endNumber}
-            employees={employees}
+            employees={search(employees)}
             setCurrentlyActiveEmployee={setCurrentlyActiveEmployee}
             profile_img={profile_img}
           />
@@ -128,7 +150,7 @@ export const Employees = () => {
         )}
       </div>
     );
-  };
+  }
 
   if (isLoading) {
     content = <Loader />;

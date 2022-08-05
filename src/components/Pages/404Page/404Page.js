@@ -11,14 +11,15 @@ export const NotFoundPage = () => {
       <div className="NotFoundPage">
         <div className="error-text">
           <span className="material-symbols-sharp frown-icon">
-            sentiment_dissatisfied
+            {/* sentiment_dissatisfied */}
+            heart_broken
           </span>
           <h1>Awww, snap.</h1>
           <p>The page you requested for cannot be found</p>
 
           <button onClick={() => navigate("/")}>
             <span className="material-symbols-sharp">arrow_back</span>
-            Back to Homepage
+            Back to Home
           </button>
         </div>
       </div>

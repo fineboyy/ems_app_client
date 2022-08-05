@@ -21,7 +21,6 @@ export const RequireRefresh = () => {
       const data = await refresh().unwrap();
       await dispatch(setCredentials({ ...data }));
       navigate(location) 
-      console.log("Data", data);
     } catch (error) {
       console.log(error);
     }

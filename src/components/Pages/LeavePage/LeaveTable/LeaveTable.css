@@ -23,7 +23,7 @@
     color: var(--color-seablue);
 }
 
-.LeaveTable .search {
+.SearchComponent {
   padding: 0.5rem 1rem;
   background-color: var(--color-background);
   display: flex;
@@ -35,32 +35,43 @@
   border: 2px solid var(--color-border-light);
 }
 
-.LeaveTable .search input[type="text"] {
+.SearchComponent input[type="text"] {
   background-color: transparent;
   width: 10rem;
   font-family: poppins;
 }
 
-.LeaveTable .filters .search-bar .search input {
+.SearchComponent input {
   width: 100%;
 }
 
-.LeaveTable .right-side {
-    display: flex;
-    gap: 3rem;
+.LeaveTable .right-side .filter-option span {
+  padding: 0.3rem;
+  padding-right: 0;
 }
 
 .LeaveTable .right-side .filter-option {
     display: flex;
-    align-items: center;
-    gap: 0.2rem;
-    padding: 0.2rem 0.5rem;
+    align-items: flex-end;
     border: 2px solid var(--color-border-light);
+    /* gap: 0.3rem; */
 
 }
 
-.LeaveTable .right-side .filter-option p {
-    margin-right: 1rem;
+.LeaveTable .filter-option select {
+  padding-bottom: 0.3rem;
+  padding-right: 2rem;
+  padding-left: 0.3rem;
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--color-dark);
+  appearance:  none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.LeaveTable .filter-option select option {
+  padding: 1rem;
 }
 
 .LeaveTable:nth-child(2) {
@@ -71,9 +82,6 @@
 @media screen and (max-width: 768px) {
   .LeaveTable {
     padding: 2rem 1rem;
-  }
-  .LeaveTable .filters .right-side .filter-option:nth-child(1) {
-    display: none;
   }
 }
 
@@ -88,7 +96,7 @@
     width: 100%;
     justify-content: flex-start;
   }
-  .LeaveTable .filters .search-bar .search {
+  .SearchComponent {
     justify-content: space-between;
   }  
 }

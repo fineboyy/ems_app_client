@@ -7,7 +7,8 @@
 
 .employee-container .top-buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
 }
 
@@ -28,9 +29,18 @@
   background-color: var(--color-blue-deeper);
 }
 
+.Employees .SearchComponent {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 300px;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.Employees .SearchComponent input {
+  flex-grow: 1;
+}
+
 /* =========== EMPLOYEES TABLE SECTION ============= */
-
-
 
 .num-controls {
   display: flex;
@@ -92,35 +102,12 @@
 }
 
 @media screen and (max-width: 920px) {
-  .container {
-    grid-template-columns: 7rem auto;
-  }
-
-  /* MAIN */
-
-  /* .Employees main {
-    width: 94%;
-  } */
-
-  .Employees .topbar {
-    padding: 1rem;
-  }
-
-  .Employees .topbar .brand {
-    display: none;
-  }
-
-  .Employees .topbar .right-side {
-    width: 100%;
-    justify-content: space-between;
-  }
-
   .Employees table thead tr th:nth-child(3) {
     display: none;
-}
-.Employees table tbody tr td:nth-child(3) {
+  }
+  .Employees table tbody tr td:nth-child(3) {
     display: none;
-}
+  }
 }
 
 @media screen and (max-width: 860px) {
@@ -131,7 +118,6 @@
 
   .Employees .insights {
     flex-wrap: wrap;
-
   }
 
   .Employees .insights .card {
@@ -143,29 +129,16 @@
   .container {
     grid-template-columns: 1fr;
   }
-
-  /* .Employees */
-
-  .Employees .topbar {
-    margin-top: 1rem;
-  }
-
-  .Employees .topbar .menu {
-    display: inline;
-    cursor: pointer;
-    font-weight: 800;
-  }
 }
 
 @media screen and (max-width: 580px) {
-
   .Employees .insights {
     flex-direction: column;
- 
   }
 
   .Employees .insights .card {
-    width: 100%;
+    width: 100% !important;
+    flex-shrink: 1 !important;
     justify-content: stretch;
     padding: 2rem;
   }
@@ -174,8 +147,21 @@
     width: 100%;
   }
 
-
-  .Employees table th:nth-child(2), .Employees table tr td:nth-child(2) {
+  .Employees table th:nth-child(2),
+  .Employees table tr td:nth-child(2) {
     display: none;
   }
+}
+
+@media screen and (max-width: 530px) {
+  .Employees .top-buttons {
+    flex-direction: column-reverse;
+    gap: 1rem;
+    align-items: flex-start !important;
+  }
+
+  .Employees .SearchComponent {
+    width: 100%;
+  }
+
 }

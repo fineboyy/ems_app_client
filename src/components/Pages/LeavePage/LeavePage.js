@@ -1,4 +1,5 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
+import moment from "moment";
 
 //redux
 // import { useDispatch, useSelector } from 'react-redux'
@@ -13,48 +14,71 @@ import "./LeavePage.css";
 import { LeaveTable } from "./LeaveTable/LeaveTable";
 import { LeaveTypes } from "./LeaveTypes/LeaveTypes";
 export const LeavePage = () => {
-
   const {
-        data: leave_applications,
-        isLoading,
-        isSuccess,
-        isError,
-      } = useGetAllLeaveApplicationsQuery();
+    data: leave_applications,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetAllLeaveApplicationsQuery();
 
-
-
-  const pendingLeaves = leave_applications?.filter((leave) => leave.leave_status === "pending")
-  const rejectedLeaves = leave_applications?.filter((leave) => leave.leave_status === "rejected")
-  const resolvedApplications = leave_applications?.filter((leave) => leave.leave_status !== "pending")
-  const approvedLeaves = leave_applications?.filter((leave) => leave.leave_status === "approved")
-
+  const pendingLeaves = leave_applications?.filter(
+    (leave) => leave.leave_status === "pending"
+  );
+  const rejectedLeaves = leave_applications?.filter(
+    (leave) => leave.leave_status === "rejected"
+  );
+  const resolvedApplications = leave_applications?.filter(
+    (leave) => leave.leave_status !== "pending"
+  );
+  const approvedLeaves = leave_applications?.filter(
+    (leave) => leave.leave_status === "approved"
+  );
 
   useEffect(() => {
-    document.title = "Leave Management - Div.Co Human Resource Management System"
-  })
+    document.title =
+      "Leave Management - Div.Co Human Resource Management System";
+  });
+
+  const filterByDate = (data) => {
+    const startDate = moment().startOf("month");
+    if (startDate === "") return data;
+    return data.filter((record) =>
+      moment(record.applied_date).isSameOrAfter(startDate)
+    );
+  };
 
   const returnContent = () => {
     return (
       <div className="LeavePage">
-  
-          <InfoCards total = {leave_applications} pending = {pendingLeaves}  rejected ={rejectedLeaves} approved = {approvedLeaves} />
-  
-          <LeaveTypes />
-  
-          <LeaveTable tableHeader="Unresolved Leave Applications" applications = {pendingLeaves} />
-          <LeaveTable tableHeader="Leave Records List" applications = {resolvedApplications} />
+        <InfoCards
+          total={filterByDate(leave_applications)}
+          pending={filterByDate(pendingLeaves)}
+          rejected={filterByDate(rejectedLeaves)}
+          approved={filterByDate(approvedLeaves)}
+        />
+
+        <LeaveTypes />
+
+        <LeaveTable
+          tableHeader="Unresolved Leave Applications"
+          applications={pendingLeaves}
+        />
+        <LeaveTable
+          tableHeader="Leave Records List"
+          applications={resolvedApplications}
+        />
       </div>
     );
-  }
+  };
 
-  let content 
+  let content;
 
-  if(isLoading) {
-    content = <Loader />
+  if (isLoading) {
+    content = <Loader />;
   } else if (isError) {
-    content = <ErrorPage /> 
+    content = <ErrorPage />;
   } else if (isSuccess) {
-    content = returnContent()
+    content = returnContent();
   }
-  return content
+  return content;
 };

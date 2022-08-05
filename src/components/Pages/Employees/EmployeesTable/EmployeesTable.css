@@ -16,7 +16,7 @@
     text-align: left;
   }
   
-  .Employees td,
+  .Employees tr td:last-child,
   .Employees th:last-child {
     text-align: center;
   }
