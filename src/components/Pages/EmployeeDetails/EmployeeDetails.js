@@ -111,7 +111,7 @@ const EmployeeDetails = () => {
 
         <Jumbotron employee={employee} profile_img={profile_img} />
 
-        {employee?.leave_applications?.length ? <LeaveTab /> : ""}
+        {/* {employee?.leave_applications?.length ? <LeaveTab /> : ""} */}
 
         <Nav infoGroup={infoGroup} setInfoGroup={setInfoGroup} />
 
@@ -131,6 +131,8 @@ const EmployeeDetails = () => {
   } else if (isSuccess) {
     content = returnContent();
   } else if (isError) {
+    content = <ErrorPage />;
+  } else if (deleteError) {
     content = <ErrorPage />;
   }
   return content;
@@ -167,41 +169,41 @@ const Nav = ({ infoGroup, setInfoGroup }) => {
   );
 };
 
-const LeaveTab = () => {
-  return (
-    <div className="LeaveTab">
-      <header>
-        <p className="primary">This employee has applied for leave</p>
-      </header>
+// const LeaveTab = () => {
+//   return (
+//     <div className="LeaveTab">
+//       <header>
+//         <p className="primary">This employee has applied for leave</p>
+//       </header>
 
-      <div className="content">
-        <div className="left">
-          <div className="details">
-            <div className="detail">
-              <div className="key">Leave Type</div>
-              <div className="value">Personal Work</div>
-            </div>
-            <div className="detail">
-              <div className="key">Length</div>
-              <div className="value">3 Months</div>
-            </div>
-            <div className="detail">
-              <div className="key">From</div>
-              <div className="value">7th August, 2022</div>
-            </div>
-            <div className="detail">
-              <div className="key">To</div>
-              <div className="value">7th November, 2022</div>
-            </div>
-          </div>
-        </div>
-        <div className="right">
-          <button className="approve-btn">Approve</button>
-          <button className="reject-btn">Reject</button>
-        </div>
-      </div>
-    </div>
-  );
-};
+//       <div className="content">
+//         <div className="left">
+//           <div className="details">
+//             <div className="detail">
+//               <div className="key">Leave Type</div>
+//               <div className="value">Personal Work</div>
+//             </div>
+//             <div className="detail">
+//               <div className="key">Length</div>
+//               <div className="value">3 Months</div>
+//             </div>
+//             <div className="detail">
+//               <div className="key">From</div>
+//               <div className="value">7th August, 2022</div>
+//             </div>
+//             <div className="detail">
+//               <div className="key">To</div>
+//               <div className="value">7th November, 2022</div>
+//             </div>
+//           </div>
+//         </div>
+//         <div className="right">
+//           <button className="approve-btn">Approve</button>
+//           <button className="reject-btn">Reject</button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default EmployeeDetails;

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import moment from "moment";
 
 //redux
@@ -58,6 +59,14 @@ export const LeavePage = () => {
         />
 
         <LeaveTypes />
+
+        <div className="top-buttons">
+          <p></p>
+          <Link to={"new"} className="button">
+            <span className="material-symbols-sharp"> add_circle </span>
+            <p>Create New Leave</p>
+          </Link>
+        </div>
 
         <LeaveTable
           tableHeader="Unresolved Leave Applications"

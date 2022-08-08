@@ -9,7 +9,7 @@
   
   .Employees .insights .card {
     background-color: var(--color-white);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: var(--border-radius-1);
     box-shadow: var(--box-shadow);
     flex-wrap: wrap;
@@ -31,16 +31,16 @@
   }
   
   .Employees .insights .card .right-side h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: normal;
   }
   
   .Employees .insights .card .right-side p {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   
   .Employees .insights .card .icon-container {
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: var(--color-orange);
     color: var(--color-white);
     position: relative;
@@ -48,15 +48,19 @@
     border-radius: var(--border-radius-1);
   }
   
-  .Employees .insights .card:last-child .icon-container {
+  .Employees .insights .card:nth-child(3) .icon-container {
     background-color: var(--color-success-darker);
   }
   .Employees .insights .card:nth-child(2) .icon-container {
     background-color: var(--color-seablue);
   }
   
+  .Employees .insights .card:last-child .icon-container {
+    background-color: var(--color-danger);
+  }
+  
   .icon-container span {
-    font-size: 3rem;
+    font-size: 2.3rem;
   }
   
   .Employees .insights .card progress {

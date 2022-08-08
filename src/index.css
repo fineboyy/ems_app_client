@@ -56,7 +56,32 @@
     cursor: pointer;
 }
 
+.sb {
+    justify-content: space-between;
+}
 
+.wiggle {
+    transition: all 200ms ease;
+}
+
+.wiggle:hover {
+    transform: rotate(90deg);
+}
+
+.fdc {
+    flex-direction: column;
+}
+
+.aife {
+    align-items: flex-end;
+}
+
+.nav-bg {
+    color: var(--color-nav-background);
+}
+
+
+/* d-flex fdc g1 aife */
 
 
 /* GENERIC STYLES */
@@ -87,7 +112,7 @@ body {
     overflow-x: hidden;
 }
 
-input, button, select {
+input, button, select, textarea {
     font-family: poppins, sans-serif;
 }
 
@@ -232,6 +257,33 @@ b {
 
 }
 
+
+
+
+/* TOP BUTTONS */
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+  }
+  
+  .top-buttons .button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 100ms ease;
+  }
+  
+  .top-buttons .button:hover {
+    background-color: var(--color-blue-deeper);
+  }
 
 
 

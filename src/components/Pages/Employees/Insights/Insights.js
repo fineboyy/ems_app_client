@@ -6,6 +6,7 @@ export const Insights = ({
   employees,
   femaleEmployeeNumber,
   maleEmployeeNumber,
+  othersNumber
 }) => {
   return (
     <div className="insights">
@@ -26,6 +27,12 @@ export const Insights = ({
         num1={femaleEmployeeNumber}
         num2={employees.length}
         icon={"person_2"}
+      />
+      <Card
+        cardName={"Other"}
+        num1={othersNumber}
+        num2={employees.length}
+        icon={"agender"}
       />
     </div>
   );

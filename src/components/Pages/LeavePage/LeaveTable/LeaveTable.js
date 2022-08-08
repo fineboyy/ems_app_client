@@ -36,7 +36,6 @@ export const LeaveTable = ({ tableHeader = "Some Table", applications }) => {
   const handleChange = (param) => {
     if(param === "" ) return setStartDate(param)
     const filterStartDate = moment().startOf(param)
-    console.log(filterStartDate)
     setStartDate(filterStartDate)
     setCurrentOperation("filter-date")
   }

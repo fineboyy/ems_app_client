@@ -18,10 +18,27 @@
   flex-grow: 1;
 }
 
+.Jumbotron .details .leave-info {
+  gap: 0.3rem;
+}
+
+.Jumbotron .onleave-tag {
+  padding: 0.1rem 1rem;
+  width: max-content;
+  border-radius: 25px;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
 .Jumbotron .summary-text .details {
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .Jumbotron .summary-text .more {
@@ -35,6 +52,16 @@
     flex-direction: column;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    padding-inline: 1rem !important;
+  }
+
+  .Jumbotron .details {
+    flex-direction: column;
+    align-items: center !important;
+  }
+
+  .Jumbotron .details .leave-info {
+    align-items: center;
   }
 
   .Jumbotron .summary-text {

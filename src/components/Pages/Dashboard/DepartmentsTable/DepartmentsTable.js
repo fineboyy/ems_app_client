@@ -7,7 +7,7 @@ import profile_img from '../../../../images/default-img.jpg'
 export const DepartmentsTable = ({departments}) => {
   return (
     <div className="DepartmentsTable">
-            <h2>Top Departments</h2>
+            <h2 className='header'>Top Departments</h2>
 
             <table>
               <thead>
@@ -41,13 +41,13 @@ export const DepartmentsTable = ({departments}) => {
                           : ""}
                       </div>
                     </td>
-                    <td>This is the sales department</td>
+                    <td>Need Some Different text here</td>
                     <td>
                       <Link
                         to={`/departments/${department._id}`}
                         className="more-details"
                       >
-                        View
+                        <span className='material-symbols-sharp'>keyboard_double_arrow_right</span>
                       </Link>
                     </td>
                   </tr>

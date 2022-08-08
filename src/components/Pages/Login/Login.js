@@ -36,15 +36,12 @@ export const Login = () => {
 
     try {
       const userData = await login({ username, password }).unwrap();
-      console.log("userData", userData);
       dispatch(setCredentials({ ...userData, username }));
       navigate("/");
 
       setUsername("");
       setPassword("");
     } catch (error) {
-      console.log("Error", error);
-
       if (!error?.originalStatus) {
         setErrorMessage("No Server Response");
       } else if (error.originalStatus === 400) {

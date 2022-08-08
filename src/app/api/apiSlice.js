@@ -64,6 +64,20 @@ export const apiSlice = createApi({
       getAllLeaveApplications: builder.query({
         query: () => `/leave-applications`
       }),
+      resolveLeaveApplication: builder.mutation({
+        query: (data) => ({
+          url: `/leave-applications/resolve`,
+          method: "POST",
+          body: data
+        })
+      }),
+      createLeave: builder.mutation({
+        query: (data) => ({
+          url: `/leave-applications/new`,
+          method: "POST",
+          body: data
+        })
+      }),
       createNewEmployee: builder.mutation({
         query: (employeeData) => ({
           url: `/employees`,
@@ -90,5 +104,7 @@ export const {
   useGetOneDepartmentQuery,
   useGetAllLeaveApplicationsQuery,
   useCreateNewEmployeeMutation,
-  useDeleteEmployeeMutation
+  useDeleteEmployeeMutation,
+  useResolveLeaveApplicationMutation,
+  useCreateLeaveMutation
  } = apiSlice

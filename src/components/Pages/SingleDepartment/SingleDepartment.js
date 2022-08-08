@@ -19,10 +19,7 @@ export const SingleDepartment = () => {
   const returnContent = () => {
     return (
       <div className="SingleDepartment">
-        <div className="go-back" onClick={() => navigate(-1)}>
-          <span className="material-symbols-sharp">arrow_back</span>
-          <h3>Go Back</h3>
-        </div>
+        <GoBackButton />
 
         <div className="department-wrapper">
           <div className="department-left-side">
@@ -46,7 +43,6 @@ export const SingleDepartment = () => {
   if (isLoading) {
     content = <Loader />;
   } else if (isSuccess) {
-    console.log(department);
     content = returnContent();
   } else if (isError) {
     content = <ErrorPage />;
@@ -170,6 +166,17 @@ const MemberRow = ({ member }) => {
         <br />
         <small>{member?.phone_number ? member.phone_number : ""}</small>
       </div>
+    </div>
+  );
+};
+
+export const GoBackButton = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="go-back" onClick={() => navigate(-1)}>
+      <span className="material-symbols-sharp">arrow_back</span>
+      <p><b>Go Back</b></p>
     </div>
   );
 };

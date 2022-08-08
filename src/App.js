@@ -20,6 +20,7 @@ import { RequireAuth } from "./features/auth/RequireAuth";
 import { RequireRefresh } from "./features/auth/RequireRefresh";
 import { UnauthorizedPage } from "./components/Pages/UnauthorizedPage/UnauthorizedPage";
 import { SingleDepartment } from "./components/Pages/SingleDepartment/SingleDepartment";
+import { AddNewLeave } from "./components/Pages/AddNewLeave/AddNewLeave";
 import Layout from "./components/Layout/Layout";
 import { Modal } from "./components/Modal/Modal";
 
@@ -41,6 +42,7 @@ const App = () => {
               <Route path="/departments" element={<Departments />} />
               <Route path="/departments/:id" element={<SingleDepartment />} />
               <Route path="/leave-management" element={<LeavePage />} />
+              <Route path="/leave-management/new" element={<AddNewLeave />} />
               <Route path="/employees/new" element={<AddNewEmployee />} />
 
               <Route path="/settings" element={<Settings />}>

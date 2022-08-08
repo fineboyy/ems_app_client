@@ -1,0 +1,142 @@
+
+.AddNewLeave { 
+    padding: 1rem;
+}
+
+.AddNewLeave .leaves-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 5rem;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.AddNewLeave .leaves-right-side, .AddNewLeave .leaves-left-side {
+    flex-grow: 1;
+}
+
+.AddNewLeave .CreateLeaveCard, .AddNewLeave .leaves-right-side {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+    padding: 1rem 2rem;
+}
+
+
+.CreateLeaveCard .inner {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.AddNewLeave .border-bottom {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-border-light);
+}
+
+.CreateLeaveCard .entry {
+    margin-bottom: 0.8rem;
+}
+
+.CreateLeaveCard .buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.CreateLeaveCard .buttons button {
+    padding: 0.5rem 2rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 25px;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+}
+
+.CreateLeaveCard .avatar p {
+    font-size: 2.5rem;
+    color: var(--color-white);
+}
+
+.CreateLeaveCard .entry {
+    margin-block: 1rem;
+}
+
+.CreateLeaveCard input, .CreateLeaveCard select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border-light);
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-1);
+}
+
+
+.CreateLeaveCard textarea {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    background-color: var(--color-background);
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.AddNewLeave .SearchComponent {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.EmployeeRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 0.5rem;
+    padding-inline-end: 1rem;
+    gap: 1rem;
+    transition: all 150ms;
+    cursor: pointer;
+}
+
+.EmployeeRow:hover {
+    background-color: var(--color-background);
+}
+
+.EmployeeRow .left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.EmployeeRow .hod-tag {
+    border-radius: 20px;
+    background-color: #3397e930;
+    width: max-content;
+    padding: 0.0rem 1rem;
+}
+
+.AddNewLeave .none-found {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+@media screen and (max-width: 1100px) {
+
+    .leaves-wrapper {
+        flex-direction: column !important;
+    }
+    
+}
+@media screen and   (max-width: 512px) {
+
+    .CreateLeaveCard .inner {
+        flex-direction: column;
+    }
+    
+    .CreateLeaveCard .inner h2 {
+        text-align: center;
+    }
+}

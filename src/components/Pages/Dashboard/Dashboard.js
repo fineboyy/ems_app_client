@@ -65,7 +65,7 @@ export const Dashboard = ({ sidebarVisible, setSidebarVisible }) => {
 export const RecentlyAddedEmployees = ({ recentlyAddedEmployees }) => {
   return (
     <div className="recent-employees">
-      <h2>Recently Added Employees</h2>
+      <h2 className="header">Recently Added Employees</h2>
 
       <div className="employees">
         {recentlyAddedEmployees.map((employee) => (

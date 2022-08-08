@@ -4,7 +4,12 @@ import moment from "moment";
 import "./TableList.css";
 import profile_img from "../../../../../images/default-img.jpg";
 import { Link } from "react-router-dom";
+import { useResolveLeaveApplicationMutation } from "../../../../../app/api/apiSlice";
 export const TableList = ({ tableHeader, applications }) => {
+
+  const sortByDate = (data) => {
+    return data.sort((a, b) => b.last_modified > a.last_modified ? 1 : -1 )
+  }
 
   const unResolvedLeaveRequestsHeaders = [
     "Employee",
@@ -42,7 +47,7 @@ export const TableList = ({ tableHeader, applications }) => {
       </thead>
 
       <tbody>
-        {applications.map((record) => (
+        {sortByDate(applications).map((record) => (
           <TableRow record={record} tableHeader={tableHeader} />
         ))}
       </tbody>
@@ -72,6 +77,11 @@ const returnTag = (record) => {
 };
 
 const TableRow = ({ record, tableHeader }) => {
+  const [resolveLeaveApplication, { isLoading, isSuccess }] =
+    useResolveLeaveApplicationMutation();
+
+    if(isLoading) return <p>Loading</p>
+    if(isSuccess) return <p>Success</p>
   return (
     <tr>
       <td className="profile">
@@ -123,8 +133,30 @@ const TableRow = ({ record, tableHeader }) => {
       </td>
       {tableHeader === "Unresolved Leave Applications" ? (
         <td className="actions">
-          <span className="material-symbols-sharp success">check_circle</span>
-          <span className="material-symbols-sharp danger">cancel</span>
+          <span
+            className="material-symbols-sharp success"
+            onClick={() =>
+              resolveLeaveApplication({
+                leave_id: record._id,
+                employee_id: record.employee,
+                resolve: "approved",
+              })
+            }
+          >
+            check_circle
+          </span>
+          <span
+            className="material-symbols-sharp danger"
+            onClick={() =>
+              resolveLeaveApplication({
+                leave_id: record._id,
+                employee_id: record.employee,
+                resolve: "rejected",
+              })
+            }
+          >
+            cancel
+          </span>
         </td>
       ) : (
         <td>{returnTag(record.leave_status)}</td>

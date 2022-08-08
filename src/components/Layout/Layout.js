@@ -12,7 +12,7 @@ const Layout = () => {
 
       <div className="main-wrapper">
         <main>
-          <TopBar pageName={"Layout"} />
+          <TopBar pageName={"dashboard"} />
           <Outlet />
         </main>
       </div>

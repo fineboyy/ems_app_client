@@ -33,6 +33,8 @@ export const Employees = () => {
     ? employees.length - femaleEmployeeNumber
     : 0;
 
+  const othersNumber = employees ? employees.filter((e) => (e.gender !== "male" && e.gender !== "female")).length : 0;
+
   //EMPLOYEE LIST CONTROLS
   const [startNumber, setStartNumber] = useState(0);
   const [endNumber, setEndNumber] = useState(5);
@@ -100,6 +102,7 @@ export const Employees = () => {
         <Insights
           femaleEmployeeNumber={femaleEmployeeNumber}
           maleEmployeeNumber={maleEmployeeNumber}
+          othersNumber={othersNumber}
           employees={employees}
         />
 
