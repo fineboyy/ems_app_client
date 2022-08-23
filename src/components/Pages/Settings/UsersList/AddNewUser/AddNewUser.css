@@ -1,0 +1,43 @@
+.select-wrapper {
+    border-radius: 25px;
+    border: 2px solid var(--color-border-light);
+    padding: 0.2rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.AddNewUser table {
+    width: 100%;
+}
+
+
+.UserRow {
+    gap: 1rem;
+}
+
+.UserRow td {
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--color-border-light);
+}
+
+.UserRow .left {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 1rem;
+}
+
+.UserRow .hod-tag {
+    border-radius: 20px;
+    background-color: #3397e930;
+    width: max-content;
+    padding: 0.0rem 1rem;
+}
+
+.UserRow .select-wrapper {
+    width: max-content;
+}
+
+.UserRow .select-wrapper select {
+    max-width: 8rem;
+}

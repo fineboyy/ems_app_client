@@ -12,7 +12,7 @@ export const SettingsList = () => {
                 <p>Manage User Info</p>
               </div>
               <span className="material-symbols-sharp arrow">
-                arrow_forward_ios
+                navigate_next
               </span>
             </Link>
             <Link className="list-item" to={"permissions"}>
@@ -21,7 +21,7 @@ export const SettingsList = () => {
                 <p>Manage Permissions</p>
               </div>
               <span className="material-symbols-sharp arrow">
-                arrow_forward_ios
+                navigate_next
               </span>
             </Link>
             <Link className="list-item" to={"notifications"}>
@@ -30,7 +30,7 @@ export const SettingsList = () => {
                 <p>Notifications</p>
               </div>
               <span className="material-symbols-sharp arrow">
-                arrow_forward_ios
+                navigate_next
               </span>
             </Link>
             <Link className="list-item" to={"users"}>
@@ -39,7 +39,7 @@ export const SettingsList = () => {
                 <p>Users</p>
               </div>
               <span className="material-symbols-sharp arrow">
-                arrow_forward_ios
+                navigate_next
               </span>
             </Link>
             <Link className="list-item" to={"preferences"}>
@@ -50,7 +50,7 @@ export const SettingsList = () => {
                 <p>Preferences</p>
               </div>
               <span className="material-symbols-sharp arrow">
-                arrow_forward_ios
+                navigate_next
               </span>
             </Link>
             <Link className="list-item" to={"organization"}>
@@ -59,7 +59,7 @@ export const SettingsList = () => {
                 <p>Organization</p>
               </div>
               <span className="material-symbols-sharp arrow">
-                arrow_forward_ios
+                navigate_next
               </span>
             </Link>
             <Link className="list-item" to={"about-software"}>
@@ -68,7 +68,7 @@ export const SettingsList = () => {
                 <p>Software Information</p>
               </div>
               <span className="material-symbols-sharp arrow">
-                arrow_forward_ios
+                navigate_next
               </span>
             </Link>
           </div>

@@ -80,8 +80,14 @@
     color: var(--color-nav-background);
 }
 
+.white-bg {
+    background-color: var(--color-white);
+}
 
-/* d-flex fdc g1 aife */
+
+.mb1 {
+    margin-bottom: 1rem;
+}
 
 
 /* GENERIC STYLES */

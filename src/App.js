@@ -23,6 +23,7 @@ import { SingleDepartment } from "./components/Pages/SingleDepartment/SingleDepa
 import { AddNewLeave } from "./components/Pages/AddNewLeave/AddNewLeave";
 import Layout from "./components/Layout/Layout";
 import { Modal } from "./components/Modal/Modal";
+import { AddNewUser } from "./components/Pages/Settings/UsersList/AddNewUser/AddNewUser";
 
 const App = () => {
   const returnApp = () => {
@@ -54,6 +55,7 @@ const App = () => {
                   element={<EditPermissions />}
                 />
                 <Route path="users" element={<UsersList />} />
+                <Route path="users/new" element={<AddNewUser />} />
                 <Route path="notifications" element={<Notifications />} />
               </Route>
               <Route path="/404" element={<NotFoundPage />} />

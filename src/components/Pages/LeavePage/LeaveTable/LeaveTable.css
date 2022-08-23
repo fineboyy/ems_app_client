@@ -68,10 +68,12 @@
   appearance:  none;
   width: 100%;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .LeaveTable .filter-option select option {
   padding: 1rem;
+  background-color: transparent;
 }
 
 .LeaveTable:nth-child(2) {

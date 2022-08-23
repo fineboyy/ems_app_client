@@ -1,7 +1,12 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import { SettingsNav } from '../SettingsNav/SettingsNav'
 
+import './UsersList.css'
+
 export const UsersList = () => {
+
+  const navigate = useNavigate()
 
     const dummyUsers = [
         "John Stones",
@@ -23,7 +28,7 @@ export const UsersList = () => {
         <p className="primary fw-500">Users</p>
 
         <div className="top-btns">
-          <div className="btn">
+          <div className="btn" onClick={() => navigate("new")}>
             <span className="material-symbols-sharp primary">
               add 
             </span>

@@ -11,6 +11,7 @@ export const SettingsNav = ({directories = ["Something"]}) => {
     <div className='SettingsNav'>
         <p className='btn' onClick={()=> navigate(-1) }>
         <span className="material-symbols-sharp">arrow_back</span>
+        <b>Go Back</b>
         </p>
         <p>{"Settings" + generateBreadcrumbs(directories)}</p>
     </div>

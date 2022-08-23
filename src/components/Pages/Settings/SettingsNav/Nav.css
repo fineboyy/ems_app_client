@@ -1,9 +1,16 @@
 .SettingsNav {
     display: flex;
     gap: 2rem;
+    justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 2rem;
     color: var(--color-info-light);
+}
+
+.SettingsNav > p:nth-child(1) {
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
 }
 
 .SettingsNav .btn {
