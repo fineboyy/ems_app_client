@@ -76,6 +76,16 @@
     padding: 0.7rem;
   }
 }
+@media screen and (max-width: 1040px) {
+
+  .Employees .insights {
+    flex-wrap: wrap;
+  }
+
+  .Employees .insights .card {
+    width: 47%;
+  }
+}
 
 @media screen and (max-width: 920px) {
   .Employees table thead tr th:nth-child(3) {
@@ -90,14 +100,6 @@
   .Employees td,
   .Employees th {
     padding: 0.5rem;
-  }
-
-  .Employees .insights {
-    flex-wrap: wrap;
-  }
-
-  .Employees .insights .card {
-    width: 47%;
   }
 }
 

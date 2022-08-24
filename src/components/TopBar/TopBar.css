@@ -3,10 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 0.7rem 0.7rem 2rem;
+  padding: 0.7rem;
   width: 100%;
   background-color: white;
   box-shadow: var(--box-shadow);
+  gap: 5rem;
 }
 
 .TopBar .menu {
@@ -25,23 +26,6 @@
   font-weight: 400;
 }
 
-.TopBar p.text-muted {
-  font-size: 0.9rem;
-}
-
-.TopBar .right-side {
-  display: flex;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.TopBar .right-side .icons .notifications {
-  position: relative;
-}
-.TopBar .right-side .icons .person {
-  position: relative;
-}
-
 .TopBar .search {
   padding: 0.6rem;
   background-color: var(--color-background);
@@ -55,46 +39,121 @@
 
 .TopBar .search input[type="text"] {
   background-color: transparent;
-  width: 15rem;
+  width: 100%;
   font-family: poppins;
 }
 
-.TopBar .right-side .icons {
+.TopBar .icons {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-.TopBar .right-side .icons span {
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  padding: 0.6rem;
+.TopBar .menu-and-search {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.TopBar .menu-and-search .search {
+  width: 100%;
+}
+
+.TopBar .search .search-bubble {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  background-color: var(--color-white);
+  padding: 2rem;
   border-radius: var(--border-radius-1);
+  box-shadow: var(--box-shadow);
+  z-index: 5;
+}
+
+.TopBar .search .search-bubble .entry {
+  padding-block: 0.5rem;
+  border-bottom: 2px solid var(--color-border-light);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.TopBar .search .search-bubble .entry:hover {
+  background-color: var(--color-border-light);
+}
+
+
+
+.TopBar .user-profile {
+  gap: 0.1rem;
+}
+
+.TopBar .icons .avatar {
+  width: 45px;
+  height: 45px;
+}
+
+.TopBar .icons .user-profile {
+  position: relative;
+}
+
+.TopBar .icons .user-profile .options-bubble {
+  position: absolute;
+  top: 4.5rem;
+  right: -0.5rem;
+
+  z-index: 5;
+  padding-block: 1rem;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-1);
+  box-shadow: var(--box-shadow);
+}
+
+.TopBar .icons .user-profile .options-bubble .option {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  gap: 1.2rem;
+}
+
+.TopBar .icons .profile-text {
+  text-align: right;
+}
+
+
+.TopBar .icons .user-profile .options-bubble .option:hover {
+  background-color: var(--color-border-light);
+}
+
+.TopBar .icons .user-profile .options-bubble .option span {
+  font-size: 1.2rem;
+}
+
+.TopBar .icons p {
+  font-size: 0.85rem;
 }
 
 @media screen and (max-width: 1200px) {
+
   .TopBar {
-    padding: 0.7rem;
-  }
-}
-@media screen and (max-width: 920px) {
-  .TopBar {
-    padding: 1rem;
+    gap: 1rem;
   }
 
-  .TopBar .brand, .TopBar .breadcrumbs {
+  .TopBar .icons .profile-text {
     display: none;
   }
 
-  .TopBar .right-side {
-    width: 100%;
-    justify-content: space-between;
+}
+@media screen and (max-width: 920px) {
+  .TopBar .brand {
+    display: none;
+  }
+
+  .TopBar .icons .profile-text {
+    display: flex;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .TopBar {
-    margin-top: 1rem;
-  }
 
   .TopBar .menu {
     display: inline;
@@ -103,8 +162,14 @@
   }
 }
 
-@media screen and (max-width: 425px) {
-  .icons span {
-      display: none;
+@media screen and (max-width: 580px) {
+  .TopBar .search .search-bubble {
+    left: -2rem;
+    right: -2rem;
+  }
+}
+@media screen and (max-width: 540px) {
+  .TopBar .icons .profile-text {
+    display: none;
   }
 }

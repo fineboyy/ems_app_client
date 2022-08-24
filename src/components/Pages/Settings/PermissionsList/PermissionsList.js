@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { SettingsNav } from "../SettingsNav/SettingsNav";
 
 import "./PermissionsList.css";
@@ -54,14 +53,9 @@ export const PermissionsList = () => {
                   </span>
                   </>
                 ) : (
-                  <>
-                    <Link to={`${role}/edit`} >
-                    <span className="material-symbols-sharp primary" >edit</span>
-                    </Link>
                     <span className="material-symbols-sharp danger">
                       delete
                     </span>
-                  </>
                 )}
               </div>
             </div>

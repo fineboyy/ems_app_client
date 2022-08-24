@@ -58,7 +58,6 @@ const Sidebar = () => {
           }
           onClick={() => dispatch(setSidebarVisible(false))}
         >
-          {/* <span className="material-symbols-sharp"> format_list_bulleted </span> */}
           <span className="material-symbols-sharp"> dashboard </span>
           <p>Dashboard</p>
         </NavLink>
@@ -92,12 +91,13 @@ const Sidebar = () => {
           <span className="material-symbols-sharp"> work_history </span>
           <p>Leave Management</p>
         </NavLink>
+
         <div>
           <Link to="/help" className="nav-item" onClick={() => dispatch(setSidebarVisible(false))}>
             <span className="material-symbols-sharp"> help </span>
             <p>Help</p>
           </Link>
-          {/*  */}
+    
 
           <NavLink
             to="/settings"
@@ -110,7 +110,7 @@ const Sidebar = () => {
             <p>Settings</p>
           </NavLink>
 
-          {/*  */}
+ 
           <a onClick={logOutUser} className="nav-item">
             <span className="material-symbols-sharp"> logout </span>
             <p>Logout</p>

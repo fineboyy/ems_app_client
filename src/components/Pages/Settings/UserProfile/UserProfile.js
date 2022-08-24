@@ -1,12 +1,15 @@
 import React from "react";
 
-import profile_img from "../../../../images/profile-2.jpg";
+import admin_img from "../../../../images/bulb.png";
+import profile_img from "../../../../images/default-img.jpg";
+import temp_img from "../../../../images/profile-1.jpg";
+
 export const UserProfile = () => {
   return (
     <div className="user-profile">
       <div className="user-card">
         <div className="avatar">
-          <img src={profile_img} alt="" />
+          <img src={temp_img} alt="" />
         </div>
       </div>
       <div className="user-info">

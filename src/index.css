@@ -84,9 +84,25 @@
     background-color: var(--color-white);
 }
 
+.tac {
+    text-align: center;
+}
+
 
 .mb1 {
     margin-bottom: 1rem;
+}
+
+.g05 {
+    gap: 0.5rem;
+}
+
+.g2 {
+    gap: 2rem;
+}
+
+.d-none {
+    display: none;
 }
 
 

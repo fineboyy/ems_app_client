@@ -38,7 +38,6 @@ export const AddNewUser = () => {
 
   return (
     <div className="AddNewUser">
-      {" "}
       <div className="PermissionsList">
         <SettingsNav directories={["Users", "New"]} />
 
@@ -47,13 +46,15 @@ export const AddNewUser = () => {
 
           <table className="leaves-right-side">
             <tr>
-              <td className="SearchComponent border-bottom">
+              <td>
+              <div className="SearchComponent border-bottom mb1">
                 <input
                   type="text"
                   placeholder="Search Employee"
                   onChange={(e) => setQuery(e.target.value)}
                 />
                 <span className="material-symbols-sharp"> search </span>
+              </div>
               </td>
             </tr>
 

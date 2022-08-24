@@ -24,7 +24,7 @@ export const SettingsList = () => {
                 navigate_next
               </span>
             </Link>
-            <Link className="list-item" to={"notifications"}>
+            {/* <Link className="list-item" to={"notifications"}>
               <div className="left-side">
                 <span className="material-symbols-sharp">notifications</span>
                 <p>Notifications</p>
@@ -32,7 +32,7 @@ export const SettingsList = () => {
               <span className="material-symbols-sharp arrow">
                 navigate_next
               </span>
-            </Link>
+            </Link> */}
             <Link className="list-item" to={"users"}>
               <div className="left-side">
                 <span className="material-symbols-sharp">person</span>
@@ -42,7 +42,7 @@ export const SettingsList = () => {
                 navigate_next
               </span>
             </Link>
-            <Link className="list-item" to={"preferences"}>
+            {/* <Link className="list-item" to={"preferences"}>
               <div className="left-side">
                 <span className="material-symbols-sharp">
                   temp_preferences_custom
@@ -52,7 +52,7 @@ export const SettingsList = () => {
               <span className="material-symbols-sharp arrow">
                 navigate_next
               </span>
-            </Link>
+            </Link> */}
             <Link className="list-item" to={"organization"}>
               <div className="left-side">
                 <span className="material-symbols-sharp">corporate_fare</span>

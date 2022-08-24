@@ -5,6 +5,7 @@ import "./TableList.css";
 import profile_img from "../../../../../images/default-img.jpg";
 import { Link } from "react-router-dom";
 import { useResolveLeaveApplicationMutation } from "../../../../../app/api/apiSlice";
+import { InlineLoader } from "../../../../Loader/InlineLoader/InlineLoader";
 export const TableList = ({ tableHeader, applications }) => {
 
   const sortByDate = (data) => {
@@ -80,8 +81,12 @@ const TableRow = ({ record, tableHeader }) => {
   const [resolveLeaveApplication, { isLoading, isSuccess }] =
     useResolveLeaveApplicationMutation();
 
-    if(isLoading) return <p>Loading</p>
-    if(isSuccess) return <p>Success</p>
+    if(isLoading) return (
+      <tr>
+        <td colSpan={8}><InlineLoader /></td>
+      </tr>
+    )
+    if(isSuccess) return ""
   return (
     <tr>
       <td className="profile">

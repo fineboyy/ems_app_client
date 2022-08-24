@@ -6,7 +6,7 @@ import './Nav.css'
 export const SettingsNav = ({directories = ["Something"]}) => {
   const navigate = useNavigate()
 
-  const generateBreadcrumbs = (directories) => directories.map((d) => `/${d}`).join('')
+  const generateBreadcrumbs = (directories) => directories.map((d) => ` > ${d}`).join('')
   return (
     <div className='SettingsNav'>
         <p className='btn' onClick={()=> navigate(-1) }>
